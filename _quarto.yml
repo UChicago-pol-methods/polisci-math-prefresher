@@ -1,0 +1,21 @@
+project:
+  type: book
+
+book:
+  title: "University of Chicago Political Science Math Prefresher"
+  author: "Anton Strezhnev"
+  date: "9/12/2022"
+  chapters:
+    - index.qmd
+    - 02_functions.qmd
+    
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+
