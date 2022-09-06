@@ -1,12 +1,14 @@
-# Introduction
+# University of Chicago Political Science Math Prefresher
 
-The 2022 UChicago Math Prefresher for incoming Political Science graduate students will be held from September 12-14; September 19-21 and September 23rd. 
+## Introduction
 
-# Course Booklet
+The 2022 UChicago Math Prefresher for incoming Political Science graduate students will be held from September 12-14; September 19-21 and September 23rd. The course is designed as a brief review of math fundamentals -- calculus, optimization, probability theory and linear algebra among other topics -- as well as an introduction to programming in the R statistical computing language. The course is entirely optional and there are no grades or assignments but we encourage all incoming graduate students to attend if they are able.
+
+## Course Booklet
 
 The course notes for the math and programming sections as well as all practice problems are made available on this website and can be accessed by navigating the menus in the sidebar.
 
-# Schedule
+## Schedule
 
 The prefresher will run for a total of seven days September 12-14, September 19-21 and September 23rd, with breaks for the APSA conference and the new student orientation. Each day will run from around 9am to 4pm with many breaks in between.
 
@@ -16,7 +18,7 @@ We will break for lunch from 12:00pm-1:00pm. On September 13th and Spetember 19t
 
 The afternoon will focus on coding instruction with lecture/demonstration from 1:30pm-2:45pm.  After a short break you will work together on a variety of coding exercises from 3:00-3:30pm. In the last 30 minutes we will regroup to wrap up and discuss any questions on the material.
 
-# Software
+## Software
 
 As the afternoons of the prefresher will involve instruction in coding, you should be sure to bring a laptop and a charge cable. In addition, prior to the start of the prefresher, please make sure to have installed the following on your computer.
 
@@ -33,6 +35,6 @@ We will also spend some time discussing document preparation and typesetting usi
 
 You are also welcome to install a LaTeX editor on your local machine to work alongside the TinyTeX distribution or any other TeX distribution that you prefer such as [TexMaker](https://www.xm1math.net/texmaker/)
 
-# Acknowledgments
+## Acknowledgments
 
 This prefresher draws heavily on the wonderful materials that have been developed by over 20 years of instructors at the [Harvard Government Math Prefresher](https://github.com/IQSS/prefresher) that have been so generously distributed under the GPL 3.0 License. Special thanks to Shiro Kuriwaki, Yon Soo Park, and Connor Jerzak for their efforts in converting the original prefresher materials into the easily distributed Markdown format.
