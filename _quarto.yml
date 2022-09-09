@@ -9,6 +9,7 @@ book:
   chapters:
     - index.qmd
     - 02_functions.qmd
+    - 03_limits.qmd
     
 bibliography: references.bib
 
