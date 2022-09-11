@@ -27,12 +27,10 @@ Time series data is a common form of data in social science data, and there is g
 
 Up till now, you should have covered:
 
-* The R Visualization and Programming primers at  <https://rstudio.cloud/primers/>
 * Reading and handling data
 * Matrices and Vectors
    * What does `:` mean in R? What about `==`? `,`?, `!=` , `&`, `|`, `%in% `
    * What does `%>%` do?
-
 
 Today we'll cover:
 
@@ -47,7 +45,7 @@ Today we'll cover:
 * How do you make a histogram? 
 * How do you make a graph that looks like this?
 
-![By Randy Schutt - Own work, CC BY-SA 3.0, [Wikimedia.]( https://commons.wikimedia.org/w/index.php?curid=29585342)](images/Martin-Quinn_Wikipedia.png)
+![By Randy Schutt - Own work, CC BY-SA 3.0, [Wikimedia.](https://commons.wikimedia.org/w/index.php?curid=29585342)](images/Martin-Quinn_Wikipedia.png)
 
 
 

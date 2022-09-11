@@ -15,6 +15,11 @@ book:
     - 06_probability.qmd
     - 07_linear-algebra.qmd
     - 11_data-handling_counting.qmd
+    - 12_matricies-manipulation.qmd
+    - 13_functions_obj_loops.qmd
+    - 15_project-dempeace.qmd
+    - 16_simulation.qmd
+    
 
 bibliography: references.bib
 
