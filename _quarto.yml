@@ -11,6 +11,8 @@ book:
     - 02_sets_and_functions.qmd
     - 03_limits.qmd
     - 04_calculus.qmd
+    - 05_optimization.qmd
+    - 06_probability.qmd
 
 bibliography: references.bib
 

@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./05_optimization.html" rel="next">
 <link href="./03_limits.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -113,6 +114,16 @@ ul.task-list li input[type="checkbox"] {
   <a href="./04_calculus.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calculus</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optimization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -138,16 +149,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#partial-derivatives" id="toc-partial-derivatives" class="nav-link" data-scroll-target="#partial-derivatives"><span class="toc-section-number">4.5</span>  Partial Derivatives</a></li>
   <li><a href="#taylorapprox" id="toc-taylorapprox" class="nav-link" data-scroll-target="#taylorapprox"><span class="toc-section-number">4.6</span>  Taylor Series Approximation</a></li>
   <li><a href="#the-indefinite-integration" id="toc-the-indefinite-integration" class="nav-link" data-scroll-target="#the-indefinite-integration"><span class="toc-section-number">4.7</span>  The Indefinite Integration</a></li>
-  <li><a href="#indefinite-integral" id="toc-indefinite-integral" class="nav-link" data-scroll-target="#indefinite-integral"><span class="toc-section-number">5</span>  Indefinite Integral</a>
+  <li><a href="#indefinite-integral" id="toc-indefinite-integral" class="nav-link" data-scroll-target="#indefinite-integral"><span class="toc-section-number">4.8</span>  Indefinite Integral</a>
   <ul class="collapse">
   <li><a href="#common-rules-of-integration" id="toc-common-rules-of-integration" class="nav-link" data-scroll-target="#common-rules-of-integration">Common Rules of Integration</a></li>
-  <li><a href="#the-definite-integral-the-area-under-the-curve" id="toc-the-definite-integral-the-area-under-the-curve" class="nav-link" data-scroll-target="#the-definite-integral-the-area-under-the-curve"><span class="toc-section-number">5.1</span>  The Definite Integral: The Area under the Curve</a>
+  </ul></li>
+  <li><a href="#the-definite-integral-the-area-under-the-curve" id="toc-the-definite-integral-the-area-under-the-curve" class="nav-link" data-scroll-target="#the-definite-integral-the-area-under-the-curve"><span class="toc-section-number">4.9</span>  The Definite Integral: The Area under the Curve</a>
   <ul class="collapse">
   <li><a href="#common-rules-for-definite-integrals" id="toc-common-rules-for-definite-integrals" class="nav-link" data-scroll-target="#common-rules-for-definite-integrals">Common Rules for Definite Integrals</a></li>
   </ul></li>
-  <li><a href="#integration-by-substitution" id="toc-integration-by-substitution" class="nav-link" data-scroll-target="#integration-by-substitution"><span class="toc-section-number">5.2</span>  Integration by Substitution</a></li>
-  <li><a href="#integration-by-parts" id="toc-integration-by-parts" class="nav-link" data-scroll-target="#integration-by-parts"><span class="toc-section-number">5.3</span>  Integration by Parts</a></li>
-  </ul></li>
+  <li><a href="#integration-by-substitution" id="toc-integration-by-substitution" class="nav-link" data-scroll-target="#integration-by-substitution"><span class="toc-section-number">4.10</span>  Integration by Substitution</a></li>
+  <li><a href="#integration-by-parts" id="toc-integration-by-parts" class="nav-link" data-scroll-target="#integration-by-parts"><span class="toc-section-number">4.11</span>  Integration by Parts</a></li>
   </ul>
 </nav>
     </div>
@@ -452,25 +463,25 @@ y &amp;= a^x \\
 <p>We know from derivatives how to manipulate <span class="math inline">\(F\)</span> to get <span class="math inline">\(f\)</span>. But how do you express the procedure to manipulate <span class="math inline">\(f\)</span> to get <span class="math inline">\(F\)</span>? For that, we need a new symbol, which we will call indefinite integration.</p>
 <p>:::{#def-indefint}</p>
 </section>
-<section id="indefinite-integral" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Indefinite Integral</h1>
+<section id="indefinite-integral" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="indefinite-integral"><span class="header-section-number">4.8</span> Indefinite Integral</h2>
 <p>The indefinite integral of <span class="math inline">\(f(x)\)</span> is written</p>
 <p><span class="math display">\[\int f(x) dx \]</span></p>
 <p>and is equal to the antiderivative of <span class="math inline">\(f\)</span>.</p>
 <div id="exm-drawfunc" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5.1 (Graphing) </strong></span>Draw the function <span class="math inline">\(f(x)\)</span> and its indefinite integral, <span class="math inline">\(\int\limits f(x) dx\)</span></p>
+<p><span class="theorem-title"><strong>Example 4.7 (Graphing) </strong></span>Draw the function <span class="math inline">\(f(x)\)</span> and its indefinite integral, <span class="math inline">\(\int\limits f(x) dx\)</span></p>
 <p><span class="math display">\[f(x) = (x^2-4)\]</span></p>
 </div>
 <div class="solution proof">
 <p><span class="proof-title"><em>Solution</em>. </span>The Indefinite Integral of the function <span class="math inline">\(f(x) = (x^2-4)\)</span> can, for example, be <span class="math inline">\(F(x) = \frac{1}{3}x^3 - 4x.\)</span> But it can also be <span class="math inline">\(F(x) = \frac{1}{3}x^3 - 4x + 1\)</span>, because the constant 1 disappears when taking the derivative.</p>
 </div>
-<p>Some of these functions are plotted in the bottom panel of <a href="#fig-integralc">Figure&nbsp;<span>5.1</span></a> as dotted lines.</p>
+<p>Some of these functions are plotted in the bottom panel of <a href="#fig-integralc">Figure&nbsp;<span>4.4</span></a> as dotted lines.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-integralc" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04_calculus_files/figure-html/fig-integralc-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;5.1: The Many Indefinite Integrals of a Function</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.4: The Many Indefinite Integrals of a Function</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -490,7 +501,7 @@ y &amp;= a^x \\
 <li>Remember the derivative of a log of a function: <span class="math inline">\(\int \frac{f^\prime(x)}{f(x)}dx=\log f(x) + c\)</span></li>
 </ol>
 <div id="exm-indefiniteCommon" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5.2 (Common Integration) </strong></span>Simplify the following indefinite integrals:</p>
+<p><span class="theorem-title"><strong>Example 4.8 (Common Integration) </strong></span>Simplify the following indefinite integrals:</p>
 <ul>
 <li>(3x^2 dx)</li>
 <li>((2x+1)dx)</li>
@@ -498,8 +509,9 @@ y &amp;= a^x \\
 </ul>
 </div>
 </section>
-<section id="the-definite-integral-the-area-under-the-curve" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="the-definite-integral-the-area-under-the-curve"><span class="header-section-number">5.1</span> The Definite Integral: The Area under the Curve</h2>
+</section>
+<section id="the-definite-integral-the-area-under-the-curve" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="the-definite-integral-the-area-under-the-curve"><span class="header-section-number">4.9</span> The Definite Integral: The Area under the Curve</h2>
 <p>If there is a indefinite integral, there <em>must</em> be a definite integral. Indeed there is, but the notion of definite integrals comes from a different objective: finding the are a under a function. We will find, perhaps remarkably, that the formula we find to get the sum turns out to be expressible by the anti-derivative.</p>
 <p>Suppose we want to determine the area <span class="math inline">\(A(R)\)</span> of a region <span class="math inline">\(R\)</span> defined by a curve <span class="math inline">\(f(x)\)</span> and some interval <span class="math inline">\(a\le x \le b\)</span>.</p>
 <div class="cell">
@@ -507,28 +519,28 @@ y &amp;= a^x \\
 <div id="fig-defintfig" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="04_calculus_files/figure-html/fig-defintfig-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;5.2: The Riemann Integral as a Sum of Evaluations</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.5: The Riemann Integral as a Sum of Evaluations</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <p>One way to calculate the area would be to divide the interval <span class="math inline">\(a\le x\le b\)</span> into <span class="math inline">\(n\)</span> subintervals of length <span class="math inline">\(\Delta x\)</span> and then approximate the region with a series of rectangles, where the base of each rectangle is <span class="math inline">\(\Delta x\)</span> and the height is <span class="math inline">\(f(x)\)</span> at the midpoint of that interval. <span class="math inline">\(A(R)\)</span> would then be approximated by the area of the union of the rectangles, which is given by <span class="math display">\[S(f,\Delta x)=\sum\limits_{i=1}^n f(x_i)\Delta x\]</span> and is called a <strong>Riemann sum</strong>.</p>
 <p>As we decrease the size of the subintervals <span class="math inline">\(\Delta x\)</span>, making the rectangles “thinner,” we would expect our approximation of the area of the region to become closer to the true area. This allows us to express the area as a limit of a series: <span class="math display">\[A(R)=\lim\limits_{\Delta x\to 0}\sum\limits_{i=1}^n f(x_i)\Delta x\]</span></p>
-<p><a href="#fig-defintfig">Figure&nbsp;<span>5.2</span></a> shows that illustration. The curve depicted is <span class="math inline">\(f(x) = -15(x - 5) + (x - 5)^3 + 50.\)</span> We want approximate the area under the curve between the <span class="math inline">\(x\)</span> values of 0 and 10. We can do this in blocks of arbitrary width, where the sum of rectangles (the area of which is width times <span class="math inline">\(f(x)\)</span> evaluated at the midpoint of the bar) shows the Riemann Sum. As the width of the bars <span class="math inline">\(\Delta x\)</span> becomes smaller, the better the estimate of <span class="math inline">\(A(R)\)</span>.</p>
+<p><a href="#fig-defintfig">Figure&nbsp;<span>4.5</span></a> shows that illustration. The curve depicted is <span class="math inline">\(f(x) = -15(x - 5) + (x - 5)^3 + 50.\)</span> We want approximate the area under the curve between the <span class="math inline">\(x\)</span> values of 0 and 10. We can do this in blocks of arbitrary width, where the sum of rectangles (the area of which is width times <span class="math inline">\(f(x)\)</span> evaluated at the midpoint of the bar) shows the Riemann Sum. As the width of the bars <span class="math inline">\(\Delta x\)</span> becomes smaller, the better the estimate of <span class="math inline">\(A(R)\)</span>.</p>
 <p>This is how we define the “Definite” Integral:</p>
 <div id="def-riemann" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5.1 (The Definite Integral (Riemann)) </strong></span>If for a given function <span class="math inline">\(f\)</span> the Riemann sum approaches a limit as <span class="math inline">\(\Delta x \to 0\)</span>, then that limit is called the Riemann integral of <span class="math inline">\(f\)</span> from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>. We express this with the <span class="math inline">\(\int\)</span>, symbol, and write <span class="math display">\[\int\limits_a^b f(x) dx= \lim\limits_{\Delta x\to 0} \sum\limits_{i=1}^n f(x_i)\Delta x\]</span></p>
+<p><span class="theorem-title"><strong>Definition 4.3 (The Definite Integral (Riemann)) </strong></span>If for a given function <span class="math inline">\(f\)</span> the Riemann sum approaches a limit as <span class="math inline">\(\Delta x \to 0\)</span>, then that limit is called the Riemann integral of <span class="math inline">\(f\)</span> from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>. We express this with the <span class="math inline">\(\int\)</span>, symbol, and write <span class="math display">\[\int\limits_a^b f(x) dx= \lim\limits_{\Delta x\to 0} \sum\limits_{i=1}^n f(x_i)\Delta x\]</span></p>
 <p>The most straightforward of a definite integral is the definite integral. That is, we read <span class="math display">\[\int\limits_a^b f(x) dx\]</span> as the definite integral of <span class="math inline">\(f\)</span> from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> and we defined as the area under the “curve” <span class="math inline">\(f(x)\)</span> from point <span class="math inline">\(x=a\)</span> to <span class="math inline">\(x=b\)</span>.</p>
 </div>
 <p>The fundamental theorem of calculus shows us that this sum is, in fact, the antiderivative.</p>
 <div id="thm-firstCalculus" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 5.1 (First Fundamental Theorem of Calculus) </strong></span>Let the function <span class="math inline">\(f\)</span> be bounded on <span class="math inline">\([a,b]\)</span> and continuous on <span class="math inline">\((a,b)\)</span>. Then, suggestively, use the symbol <span class="math inline">\(F(x)\)</span> to denote the definite integral from <span class="math inline">\(a\)</span> to <span class="math inline">\(x\)</span>: <span class="math display">\[F(x)=\int\limits_a^x f(t)dt, \quad a\le x\le b\]</span></p>
+<p><span class="theorem-title"><strong>Theorem 4.2 (First Fundamental Theorem of Calculus) </strong></span>Let the function <span class="math inline">\(f\)</span> be bounded on <span class="math inline">\([a,b]\)</span> and continuous on <span class="math inline">\((a,b)\)</span>. Then, suggestively, use the symbol <span class="math inline">\(F(x)\)</span> to denote the definite integral from <span class="math inline">\(a\)</span> to <span class="math inline">\(x\)</span>: <span class="math display">\[F(x)=\int\limits_a^x f(t)dt, \quad a\le x\le b\]</span></p>
 <p>Then <span class="math inline">\(F(x)\)</span> has a derivative at each point in <span class="math inline">\((a,b)\)</span> and <span class="math display">\[F^\prime(x)=f(x), \quad a&lt;x&lt;b\]</span> That is, the definite integral function of <span class="math inline">\(f\)</span> <em>is</em> the one of the antiderivatives of some <span class="math inline">\(f\)</span>.</p>
 </div>
 <p>This is again a long way of saying that that differentiation is the inverse of integration. But now, we’ve covered definite integrals.</p>
 <p>The second theorem gives us a simple way of computing a definite integral as a function of indefinite integrals.</p>
 <div id="thm-secondCalculus" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 5.2 (Second Fundamental Theorem of Calculus) </strong></span>Let the function <span class="math inline">\(f\)</span> be bounded on <span class="math inline">\([a,b]\)</span> and continuous on <span class="math inline">\((a,b)\)</span>. Let <span class="math inline">\(F\)</span> be any function that is continuous on <span class="math inline">\([a,b]\)</span> such that <span class="math inline">\(F^\prime(x)=f(x)\)</span> on <span class="math inline">\((a,b)\)</span>. Then <span class="math display">\[\int\limits_a^bf(x)dx = F(b)-F(a)\]</span></p>
+<p><span class="theorem-title"><strong>Theorem 4.3 (Second Fundamental Theorem of Calculus) </strong></span>Let the function <span class="math inline">\(f\)</span> be bounded on <span class="math inline">\([a,b]\)</span> and continuous on <span class="math inline">\((a,b)\)</span>. Let <span class="math inline">\(F\)</span> be any function that is continuous on <span class="math inline">\([a,b]\)</span> such that <span class="math inline">\(F^\prime(x)=f(x)\)</span> on <span class="math inline">\((a,b)\)</span>. Then <span class="math display">\[\int\limits_a^bf(x)dx = F(b)-F(a)\]</span></p>
 </div>
 <p>So the procedure to calculate a simple definite integral <span class="math inline">\(\int\limits_a^b f(x)dx\)</span> is then</p>
 <ol type="1">
@@ -536,11 +548,11 @@ y &amp;= a^x \\
 <li>Evaluate <span class="math inline">\(F(b)-F(a)\)</span>.</li>
 </ol>
 <div id="exm-definiteMon" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5.3 (Definite Integral of a monomial) </strong></span>Solve <span class="math inline">\(\int\limits_1^3 3x^2 dx.\)</span></p>
+<p><span class="theorem-title"><strong>Example 4.9 (Definite Integral of a monomial) </strong></span>Solve <span class="math inline">\(\int\limits_1^3 3x^2 dx.\)</span></p>
 <p>Let <span class="math inline">\(f(x) = 3x^2\)</span>.</p>
 </div>
 <div id="exr-indefiniteintegral" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.1 (Indefinite integrals) </strong></span>What is the value of <span class="math inline">\(\int\limits_{-2}^2 e^x e^{e^x} dx\)</span>?</p>
+<p><span class="theorem-title"><strong>Exercise 4.4 (Indefinite integrals) </strong></span>What is the value of <span class="math inline">\(\int\limits_{-2}^2 e^x e^{e^x} dx\)</span>?</p>
 </div>
 <section id="common-rules-for-definite-integrals" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="common-rules-for-definite-integrals">Common Rules for Definite Integrals</h3>
@@ -552,7 +564,7 @@ y &amp;= a^x \\
 <li>Areas can be combined as long as limits are linked: <span class="math display">\[\int\limits_a^b f(x) dx +\int\limits_b^c f(x)dx = \int\limits_a^c f(x)dx\]</span></li>
 </ol>
 <div id="exr-definite" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.2 (Definite integrals) </strong></span>Simplify the following definite intergrals.</p>
+<p><span class="theorem-title"><strong>Exercise 4.5 (Definite integrals) </strong></span>Simplify the following definite intergrals.</p>
 <ol type="1">
 <li><span class="math inline">\(\int\limits_1^1 3x^2 dx =\)</span></li>
 <li><span class="math inline">\(\int\limits_0^4 (2x+1)dx=\)</span></li>
@@ -561,8 +573,8 @@ y &amp;= a^x \\
 </div>
 </section>
 </section>
-<section id="integration-by-substitution" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="integration-by-substitution"><span class="header-section-number">5.2</span> Integration by Substitution</h2>
+<section id="integration-by-substitution" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="integration-by-substitution"><span class="header-section-number">4.10</span> Integration by Substitution</h2>
 <p>From the second fundamental theorem of calculus, we now that a quick way to get a definite integral is to first find the indefinite integral, and then just plug in the bounds.</p>
 <p>Sometimes the integrand (the thing that we are trying to take an integral of) doesn’t appear integrable using common rules and antiderivatives. A method one might try is <strong>integration by substitution</strong>, which is related to the Chain Rule.</p>
 <p>Suppose we want to find the indefinite integral <span class="math display">\[\int g(x)dx\]</span> but <span class="math inline">\(g(x)\)</span> is complex and none of the formulas we have seen so far seem to apply immediately. The trick is to come up with a <em>new</em> function <span class="math inline">\(u(x)\)</span> such that <span class="math display">\[g(x)=f[u(x)]u'(x).\]</span></p>
@@ -576,23 +588,23 @@ y &amp;= a^x \\
 </ol>
 <p>Substitution can also be used to calculate a definite integral. Using the same procedure as above, <span class="math display">\[\int\limits_a^b g(x)dx=\int\limits_c^d f(u)du = F(d)-F(c)\]</span> where <span class="math inline">\(c=u(a)\)</span> and <span class="math inline">\(d=u(b)\)</span>.</p>
 <div id="exm-substitution" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5.4 </strong></span>Integration by Substitution I</p>
+<p><span class="theorem-title"><strong>Example 4.10 </strong></span>Integration by Substitution I</p>
 <p>Solve the indefinite integral <span class="math display">\[\int x^2 \sqrt{x+1}dx.\]</span></p>
 </div>
 <p>For the above problem, we could have also used the substitution <span class="math inline">\(u=\sqrt{x+1}\)</span>. Then <span class="math inline">\(x=u^2-1\)</span> and <span class="math inline">\(dx=2u du\)</span>. Substituting these in, we get <span class="math display">\[\int x^2\sqrt{x+1}dx=\int (u^2-1)^2 u 2u du\]</span> which when expanded is again a polynomial and gives the same result as above.</p>
 <p>Another case in which integration by substitution is is useful is with a fraction.</p>
 <div id="exm-substitution2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5.5 (Integration by Substitutiton II) </strong></span>Simplify <span class="math display">\[\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx.\]</span></p>
+<p><span class="theorem-title"><strong>Example 4.11 (Integration by Substitutiton II) </strong></span>Simplify <span class="math display">\[\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx.\]</span></p>
 </div>
 </section>
-<section id="integration-by-parts" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="integration-by-parts"><span class="header-section-number">5.3</span> Integration by Parts</h2>
+<section id="integration-by-parts" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="integration-by-parts"><span class="header-section-number">4.11</span> Integration by Parts</h2>
 <p>Another useful integration technique is <strong>integration by parts</strong>, which is related to the Product Rule of differentiation. The product rule states that <span class="math display">\[\frac{d}{dx}(uv)=u\frac{dv}{dx}+v\frac{du}{dx}\]</span> Integrating this and rearranging, we get <span class="math display">\[\int u\frac{dv}{dx}dx= u v - \int v \frac{du}{dx}dx\]</span> or <span class="math display">\[\int u(x) v'(x)dx=u(x)v(x) - \int v(x)u'(x)dx\]</span></p>
 <p>More easily remembered with the mnemonic “Ultraviolet Voodoo”: <span class="math display">\[\int u dv = u v - \int v du\]</span> where <span class="math inline">\(du=u'(x)dx\)</span> and <span class="math inline">\(dv=v'(x)dx\)</span>.</p>
 <p>For definite integrals, this is simply <span class="math display">\[\int\limits_a^b u\frac{dv}{dx}dx = \left. u v \right|_a^b - \int\limits_a^b v \frac{du}{dx}dx\]</span></p>
 <p>Our goal here is to find expressions for <span class="math inline">\(u\)</span> and <span class="math inline">\(dv\)</span> that, when substituted into the above equation, yield an expression that’s more easily evaluated.</p>
 <div id="exm-partsintegration" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5.6 (Integration by parts) </strong></span>Simplify the following integrals. These seemingly obscure forms of integrals come up often when integrating distributions.</p>
+<p><span class="theorem-title"><strong>Example 4.12 (Integration by parts) </strong></span>Simplify the following integrals. These seemingly obscure forms of integrals come up often when integrating distributions.</p>
 <p><span class="math display">\[\int x e^{ax} dx\]</span></p>
 </div>
 <div class="solution proof">
@@ -605,14 +617,13 @@ y &amp;= a^x \\
 </div>
 <div id="exr-partsintegration" class="theorem exercise">
 <ol type="1">
-<li><span class="theorem-title"><strong>Exercise 5.3 (Integration by parts) </strong></span></li>
+<li><span class="theorem-title"><strong>Exercise 4.6 (Integration by parts) </strong></span></li>
 <li><p>Integrate <span class="math display">\[\int x^n e^{ax} dx\]</span></p></li>
 <li><p>Integrate <span class="math display">\[\int x^3 e^{-x^2} dx\]</span></p></li>
 </ol>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -721,6 +732,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./05_optimization.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optimization</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

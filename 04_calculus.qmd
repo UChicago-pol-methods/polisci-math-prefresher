@@ -520,7 +520,7 @@ We know from derivatives how to manipulate $F$ to get $f$. But how do you expres
 
 :::{#def-indefint}
 
-# Indefinite Integral
+## Indefinite Integral
 
 The indefinite integral of $f(x)$ is written 
 
