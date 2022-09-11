@@ -13,6 +13,7 @@ book:
     - 04_calculus.qmd
     - 05_optimization.qmd
     - 06_probability.qmd
+    - 07_linear-algebra.qmd
 
 bibliography: references.bib
 
