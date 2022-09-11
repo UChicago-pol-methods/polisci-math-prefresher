@@ -8,9 +8,9 @@ book:
   date: "9/12/2022"
   chapters:
     - index.qmd
-    - 02_functions.qmd
+    - 02_sets_and_functions.qmd
     - 03_limits.qmd
-    
+
 bibliography: references.bib
 
 format:
