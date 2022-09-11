@@ -10,6 +10,7 @@ book:
     - index.qmd
     - 02_sets_and_functions.qmd
     - 03_limits.qmd
+    - 04_calculus.qmd
 
 bibliography: references.bib
 
