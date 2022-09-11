@@ -14,6 +14,7 @@ book:
     - 05_optimization.qmd
     - 06_probability.qmd
     - 07_linear-algebra.qmd
+    - 11_data-handling_counting.qmd
 
 bibliography: references.bib
 

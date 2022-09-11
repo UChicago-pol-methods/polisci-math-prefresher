@@ -1,0 +1,13 @@
+---
+title: 'Document Title'
+author: "Name "
+date: "March 30, 2022"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Useful packages
+library(tidyverse)
+```
+
