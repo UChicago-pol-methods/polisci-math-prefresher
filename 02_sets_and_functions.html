@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>University of Chicago Political Science Math Prefresher - 2&nbsp; Sets, Operations, and Functions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./03_limits.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sets, Operations, and Functions</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">University of Chicago Political Science Math Prefresher</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_sets_and_functions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sets, Operations, and Functions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Limits</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calculus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optimization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_linear-algebra.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Algebra</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_data-handling_counting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Programming: Orientation and Reading in Data</span></a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_matricies-manipulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Programming: Manipulating Vectors and Matrices</span></a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_functions_obj_loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Objects, Functions, Loops</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_project-dempeace.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Joins and Merges, Wide and Long</span></a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Simulation</span></a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sets" id="toc-sets" class="nav-link active" data-scroll-target="#sets"><span class="toc-section-number">2.1</span>  Sets</a></li>
+  <li><a href="#metric-spaces" id="toc-metric-spaces" class="nav-link" data-scroll-target="#metric-spaces"><span class="toc-section-number">2.2</span>  Metric spaces</a></li>
+  <li><a href="#operators-sum-and-product-notation" id="toc-operators-sum-and-product-notation" class="nav-link" data-scroll-target="#operators-sum-and-product-notation"><span class="toc-section-number">2.3</span>  Operators; Sum and Product notation</a></li>
+  <li><a href="#introduction-to-functions" id="toc-introduction-to-functions" class="nav-link" data-scroll-target="#introduction-to-functions"><span class="toc-section-number">2.4</span>  Introduction to Functions</a></li>
+  <li><a href="#logexponents" id="toc-logexponents" class="nav-link" data-scroll-target="#logexponents"><span class="toc-section-number">2.5</span>  Logarithms and Exponents</a></li>
+  <li><a href="#graphing-functions" id="toc-graphing-functions" class="nav-link" data-scroll-target="#graphing-functions"><span class="toc-section-number">2.6</span>  Graphing Functions</a></li>
+  <li><a href="#solving-for-variables-and-finding-roots" id="toc-solving-for-variables-and-finding-roots" class="nav-link" data-scroll-target="#solving-for-variables-and-finding-roots"><span class="toc-section-number">2.7</span>  Solving for Variables and Finding Roots</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="functions" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sets, Operations, and Functions</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="sets" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sets"><span class="header-section-number">2.1</span> Sets</h2>
+<p><em>Sets</em> are the fundamental building blocks of mathematics. Events are not inherently numerical: the onset of war or the stock market crashing is not inherently a number. Sets can define such events, and we wrap math around so that we have a transparent language to communicate about those events. Combining sets with operations, relations, metrics, measures, etc… allows us to define useful mathematical structures. For example, the set of <em>real numbers</em> (<span class="math inline">\(\mathbb{R}\)</span>) has a notion of <em>order</em> as well as defined <em>operations</em> of addition and multiplication.</p>
+<p><strong>Set</strong> : A set is any well defined collection of elements. If <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(S\)</span>, <span class="math inline">\(x \in S\)</span>.</p>
+<p>Examples:</p>
+<ol type="1">
+<li>The set of choices available to a player in Rock-Paper-Scissors <span class="math inline">\(\{\text{Rock}, \text{Paper}, \text{Scissors}\}\)</span></li>
+<li>The set of possible outcomes of a roll of a six-sided die <span class="math inline">\(\{1, 2, 3, 4, 5, 6\}\)</span></li>
+<li>The set of all natural numbers <span class="math inline">\(\mathbb{N}\)</span></li>
+<li>The set of all real numbers <span class="math inline">\(\mathbb{R}\)</span></li>
+</ol>
+<p>Common mathematical notation relevant to sets:</p>
+<ul>
+<li><span class="math inline">\(\in\)</span> = “is an element of”; <span class="math inline">\(\notin\)</span> = “is not an element of”</li>
+<li><span class="math inline">\(\forall\)</span> = “for all” (univeral quantifier)</li>
+<li><span class="math inline">\(\exists\)</span> = “there exists” (existential quantifier)</li>
+<li><span class="math inline">\(:\)</span> = “such that”</li>
+</ul>
+<p><strong>Subset</strong>: If every element of set <span class="math inline">\(A\)</span> is also in set <span class="math inline">\(B\)</span>, then <span class="math inline">\(A\)</span> is a <em>subset</em> of <span class="math inline">\(B\)</span>. <span class="math inline">\(A \subseteq B\)</span>. If, in addition to being a subset of <span class="math inline">\(B\)</span>, <span class="math inline">\(A\)</span> is not equal to <span class="math inline">\(B\)</span>, <span class="math inline">\(A\)</span> is a <em>proper subset</em> <span class="math inline">\(A \subset B\)</span>.</p>
+<p><strong>Empty Set</strong>: a set with no elements. <span class="math inline">\(S = \{\}\)</span>. It is denoted by the symbol <span class="math inline">\(\emptyset\)</span>.</p>
+<p><strong>Cardinality</strong>: The cardinality of a set <span class="math inline">\(S\)</span>, typically written <span class="math inline">\(|S|\)</span> is the number of members of <span class="math inline">\(S\)</span>.</p>
+<p>Many sets are infinite. For example, <span class="math inline">\(\mathbb{N}\)</span> the set of natural numbers <span class="math inline">\(\mathbb{N} = \{0, 1, 2, 3, 4, \dotsc\}\)</span> - Sets with cardinality less than <span class="math inline">\(|\mathbb{N}|\)</span> are <em>countable</em> - Sets with the same cardinality as <span class="math inline">\(\\mathbb{N}|\)</span> are <em>countably infinite</em> - Sets with greater cardinality than <span class="math inline">\(|\mathbb{N}|\)</span> are <em>uncountably infinite</em> (e.g.&nbsp;the real numbers).</p>
+<p>Set operations:</p>
+<ol type="1">
+<li><strong>Union</strong>: The union of two sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, <span class="math inline">\(A \cup B\)</span>, is the set containing all of the elements in <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span>. <span class="math inline">\(A_1 \cup A_2 \cup \cdots \cup A_n = \bigcup_{i=1}^n A_i\)</span></li>
+<li><strong>Intersection</strong>: The intersection of sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, <span class="math inline">\(A \cap B\)</span>, is the set containing all of the elements in both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. <span class="math inline">\(A_1 \cap A_2 \cap \cdots \cap A_n = \bigcap_{i=1}^n A_i\)</span></li>
+<li><strong>Complement</strong>: If set <span class="math inline">\(A\)</span> is a subset of <span class="math inline">\(S\)</span>, then the complement of <span class="math inline">\(A\)</span>, denoted <span class="math inline">\(A^C\)</span>, is the set containing all of the elements in <span class="math inline">\(S\)</span> that are not in <span class="math inline">\(A\)</span>.</li>
+</ol>
+<p>Properties of set operations:</p>
+<ul>
+<li><strong>Commutative</strong>: <span class="math inline">\(A \cup B = B \cup A\)</span>; <span class="math inline">\(A \cap B = B \cap A\)</span></li>
+<li><strong>Associative</strong>: <span class="math inline">\(A \cup (B \cup C) = (A \cup B) \cup C\)</span>; <span class="math inline">\(A \cap (B \cap C) = (A \cap B) \cap C\)</span></li>
+<li><strong>Distributive</strong>: <span class="math inline">\(A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\)</span>; <span class="math inline">\(A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\)</span></li>
+<li><strong>de Morgan’s laws</strong>: <span class="math inline">\((A \cup B)^C = A^C \cap B^C\)</span>; <span class="math inline">\((A \cap B)^C = A^C \cup B^C\)</span></li>
+<li><strong>Disjointness</strong>: Sets are disjoint when they do not intersect, such that <span class="math inline">\(A \cap B = \emptyset\)</span>. A collection of sets is pairwise disjoint (<strong>mutually exclusive</strong>) if, for all <span class="math inline">\(i \neq j\)</span>, <span class="math inline">\(A_i \cap A_j = \emptyset\)</span>. A collection of sets form a partition of set <span class="math inline">\(S\)</span> if they are pairwise disjoint and they cover set <span class="math inline">\(S\)</span>, such that <span class="math inline">\(\bigcup_{i = 1}^k A_i = S\)</span>.</li>
+</ul>
+<div id="exm-sets" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.1 (Sets) </strong></span>Let set <span class="math inline">\(A\)</span> be <span class="math inline">\(\{1, 2, 3, 4\}\)</span>, <span class="math inline">\(B\)</span> be <span class="math inline">\(\{3, 4, 5, 6\}\)</span>, and <span class="math inline">\(C\)</span> be <span class="math inline">\(\{5, 6, 7, 8\}\)</span>. Sets <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are all subsets of the <span class="math inline">\(S\)</span> which is <span class="math inline">\(\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}\)</span></p>
+<p>Write out the following sets:</p>
+<ol type="1">
+<li><span class="math inline">\(A \cup B\)</span></li>
+<li><span class="math inline">\(C \cap B\)</span></li>
+<li><span class="math inline">\(B^c\)</span></li>
+<li><span class="math inline">\(A \cap (B \cup C)\)</span></li>
+</ol>
+</div>
+<div id="exr-sets" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.1 (Sets) </strong></span>Suppose you had a pair of four-sided dice. You sum the results from a single toss.</p>
+<p>What is the set of possible outcomes?</p>
+<p>Consider subsets <span class="math inline">\(A=\{2, 8\}\)</span> and <span class="math inline">\(B=\{2,3,7\}\)</span> of the sample space you found. What is</p>
+<ol type="1">
+<li><span class="math inline">\(A^c\)</span></li>
+<li><span class="math inline">\((A \cup B)^c\)</span></li>
+</ol>
+</div>
+</section>
+<section id="metric-spaces" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="metric-spaces"><span class="header-section-number">2.2</span> Metric spaces</h2>
+<p>A <em>metric space</em> is a set that has a notion of <em>distance</em> - called a “metric” - defined between any two elements (sometimes referred to as “points”).</p>
+<p>The distance function <span class="math inline">\(d(x,y)\)</span> defines the distance between element <span class="math inline">\(x\)</span> and element <span class="math inline">\(y\)</span></p>
+<ul>
+<li>The real numbers <span class="math inline">\(\mathbb{R}\)</span> have a single distance function: <span class="math inline">\(d(x,y) = |x - y|\)</span></li>
+<li>In higher-dimensional real space (e.g.&nbsp;<span class="math inline">\(\mathbb{R}^2)\)</span>, we can define multiple distance metrics between <span class="math inline">\(x=(x_1, x_2)\)</span> and <span class="math inline">\(y=(y_1, y_2)\)</span>
+<ul>
+<li>“Euclidean” distance: <span class="math inline">\(d(x, y) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}\)</span></li>
+<li>“Taxicab” distance: <span class="math inline">\(d(x, y) = |x_1 - y_1| + |x_2 - y_2|\)</span></li>
+<li>Chebyshev distance: <span class="math inline">\(d(x, y) = \text{max}\{|x_1 - y_1| + |x_2 - y_2|\}\)</span></li>
+</ul></li>
+<li>All of these generalize to <span class="math inline">\(\mathbb{R}^n\)</span></li>
+</ul>
+<p>A metric is a function that satisfies the following axioms</p>
+<ol type="1">
+<li>A distance between a point and itself is zero <span class="math inline">\(d(x,x) = 0\)</span></li>
+<li>The distance between two points is strictly positive <span class="math inline">\(d(x,y) &gt; 0 \forall x \neq y\)</span></li>
+<li>Distance from <span class="math inline">\(x\)</span> to <span class="math inline">\(y\)</span> is the same as the distance from <span class="math inline">\(y\)</span> to <span class="math inline">\(x\)</span> (<span class="math inline">\(d(x,y) = d(y,x)\)</span>)</li>
+<li>The “triangle inequality” holds: <span class="math inline">\(d(x,z) \le d(x,y) + d(y,z)\)</span></li>
+</ol>
+<p>Once we have a metric space, we can define some additional useful concepts</p>
+<p><strong>Ball</strong>: A ball of radius <span class="math inline">\(r\)</span> centered at <span class="math inline">\(x_0\)</span> is a set that contains all points with a distance less than <span class="math inline">\(r\)</span> from <span class="math inline">\(x_0\)</span>.</p>
+<p><strong>Sphere</strong>: A sphere of radius <span class="math inline">\(r\)</span> centered at <span class="math inline">\(x_0\)</span> is the set that contains all points with a distance exactly <span class="math inline">\(r\)</span> from <span class="math inline">\(x_0\)</span>.</p>
+<p><strong>Interior Point</strong>: The point <span class="math inline">\(x\)</span> is an interior point of the set <span class="math inline">\(S\)</span> if <span class="math inline">\(x\)</span> is in <span class="math inline">\(S\)</span> and if there is some <span class="math inline">\(\epsilon\)</span>-ball around <span class="math inline">\(x\)</span> that contains only points in <span class="math inline">\(S\)</span>. The <strong>interior</strong> of <span class="math inline">\(S\)</span> is the collection of all interior points in <span class="math inline">\(S\)</span>. The interior can also be defined as the union of all open sets in <span class="math inline">\(S\)</span>.</p>
+<ul>
+<li>If the set <span class="math inline">\(S\)</span> is circular, the interior points are everything inside of the circle, but not on the circle’s rim.</li>
+<li>Example: The interior of the set <span class="math inline">\(\{ (x,y) : x^2+y^2\le 4 \}\)</span> is <span class="math inline">\(\{ (x,y) : x^2+y^2&lt; 4 \}\)</span> .</li>
+</ul>
+<p><strong>Boundary Point</strong>: The point <span class="math inline">\(\mathbf x\)</span> is a boundary point of the set <span class="math inline">\(S\)</span> if every <span class="math inline">\(\epsilon\)</span>-ball around <span class="math inline">\(\mathbf x\)</span> contains both points that are in <span class="math inline">\(S\)</span> and points that are outside <span class="math inline">\(S\)</span>. The <strong>boundary</strong> is the collection of all boundary points.</p>
+<ul>
+<li>If the set <span class="math inline">\(S\)</span> is circular, the boundary points are everything on the circle’s rim.</li>
+<li>Example: The boundary of <span class="math inline">\(\{ (x,y) : x^2+y^2\le 4 \}\)</span> is <span class="math inline">\(\{ (x,y) : x^2+y^2 = 4 \}\)</span>.</li>
+</ul>
+<p><strong>Open</strong>: A set <span class="math inline">\(S\)</span> is open if for each point <span class="math inline">\(\mathbf x\)</span> in <span class="math inline">\(S\)</span>, there exists an open <span class="math inline">\(\epsilon\)</span>-ball around <span class="math inline">\(\mathbf x\)</span> completely contained in <span class="math inline">\(S\)</span>.</p>
+<ul>
+<li>If the set <span class="math inline">\(S\)</span> is circular and open, the points contained within the set get infinitely close to the circle’s rim, but do not touch it.</li>
+<li>Example: <span class="math inline">\(\{ (x,y) : x^2+y^2&lt;4 \}\)</span></li>
+</ul>
+<p><strong>Closed</strong>: A set <span class="math inline">\(S\)</span> is closed if it contains all of its boundary points.</p>
+<ul>
+<li>Alternatively: A set is closed if its complement is open.</li>
+<li>If the set <span class="math inline">\(S\)</span> is circular and closed, the set contains all points within the rim as well as the rim itself.</li>
+<li>Example: <span class="math inline">\(\{ (x,y) : x^2+y^2\le 4 \}\)</span></li>
+<li>Note: a set may be neither open nor closed. Example: <span class="math inline">\(\{ (x,y) : 2 &lt; x^2+y^2\le 4 \}\)</span></li>
+</ul>
+</section>
+<section id="operators-sum-and-product-notation" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="operators-sum-and-product-notation"><span class="header-section-number">2.3</span> Operators; Sum and Product notation</h2>
+<p>Addition (+), Subtraction (-), multiplication and division are basic operations of arithmetic. In statistics or calculus, we will often want to add a <em>sequence</em> of numbers that can be expressed as a pattern without needing to write down all its components. For example, how would we express the sum of all numbers from 1 to 100 without writing a hundred numbers?</p>
+<p>For this we use the summation operator <span class="math inline">\(\sum\)</span> and the product operator <span class="math inline">\(\prod\)</span>.</p>
+<p><strong>Summation:</strong></p>
+<p><span class="math display">\[\sum\limits_{i=1}^{100} x_i = x_1+x_2+x_3+\cdots+x_{100}\]</span></p>
+<p>The bottom of the <span class="math inline">\(\sum\)</span> symbol indicates an index (here, <span class="math inline">\(i\)</span>), and its start value <span class="math inline">\(1\)</span>. At the top is where the index ends. The notion of “addition” is part of the <span class="math inline">\(\sum\)</span> symbol. The content to the right of the summation is the meat of what we add. While you can pick your favorite index, start, and end values, the content must also have the index.</p>
+<p>A few important features of sums:</p>
+<ul>
+<li><span class="math inline">\(\sum\limits_{i=1}^n c x_i = c \sum\limits_{i=1}^n x_i\)</span></li>
+<li><span class="math inline">\(\sum\limits_{i=1}^n (x_i + y_i) = \sum\limits_{i=1}^n x_i + \sum\limits_{i=1}^n y_i\)</span></li>
+<li><span class="math inline">\(\sum\limits_{i=1}^n c = n c\)</span></li>
+</ul>
+<p><strong>Product:</strong></p>
+<p><span class="math display">\[\prod\limits_{i=1}^n x_i = x_1 x_2 x_3 \cdots x_n\]</span></p>
+<p>Properties:</p>
+<ul>
+<li><span class="math inline">\(\prod\limits_{i=1}^n c x_i = c^n \prod\limits_{i=1}^n x_i\)</span></li>
+<li><span class="math inline">\(\prod\limits_{i=k}^n c x_i = c^{n-k+1} \prod\limits_{i=k}^n x_i\)</span></li>
+<li><span class="math inline">\(\prod\limits_{i=1}^n (x_i + y_i) =\)</span> a total mess</li>
+<li><span class="math inline">\(\prod\limits_{i=1}^n c = c^n\)</span></li>
+</ul>
+<p>Other Useful Operations</p>
+<p><strong>Factorials!:</strong></p>
+<p><span class="math display">\[x! = x\cdot (x-1) \cdot (x-2) \cdots (1)\]</span></p>
+<p><strong>Modulo:</strong> Tells you the remainder when you divide the first number by the second.</p>
+<ul>
+<li><span class="math inline">\(17 \mod 3 = 2\)</span></li>
+<li><span class="math inline">\(100 \ \% \ 30 = 10\)</span></li>
+</ul>
+<div id="exm-operators" class="theorem example">
+<ol type="1">
+<li><span class="theorem-title"><strong>Example 2.2 (Operators) </strong></span></li>
+<li><p><span class="math inline">\(\sum\limits_{i=1}^{5} i =\)</span></p></li>
+<li><p><span class="math inline">\(\prod\limits_{i=1}^{5} i =\)</span></p></li>
+<li><p><span class="math inline">\(14 \mod 4 =\)</span></p></li>
+<li><p><span class="math inline">\(4! =\)</span></p></li>
+</ol>
+</div>
+<div id="exr-operators" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.2 (Operators) </strong></span>Let <span class="math inline">\(x_1 = 4, x_2 = 3, x_3 = 7, x_4 = 11, x_5 = 2\)</span></p>
+<ol type="1">
+<li><p><span class="math inline">\(\sum\limits_{i=1}^{3} (7)x_i\)</span></p></li>
+<li><p><span class="math inline">\(\sum\limits_{i=1}^{5} 2\)</span></p></li>
+<li><p><span class="math inline">\(\prod\limits_{i=3}^{5} (2)x_i\)</span></p></li>
+</ol>
+</div>
+</section>
+<section id="introduction-to-functions" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="introduction-to-functions"><span class="header-section-number">2.4</span> Introduction to Functions</h2>
+<p>A <strong>function</strong> is a mapping, or transformation, that relates members of one set to members of another set. For instance, if you have two sets: set <span class="math inline">\(A\)</span> and set <span class="math inline">\(B\)</span>, a function from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> maps every value <span class="math inline">\(a\)</span> in set <span class="math inline">\(A\)</span> such that <span class="math inline">\(f(a) \in B\)</span>. Functions can be “many-to-one”, where many values or combinations of values from set <span class="math inline">\(A\)</span> produce a single output in set <span class="math inline">\(B\)</span>, or they can be “one-to-one”, where each value in set <span class="math inline">\(A\)</span> corresponds to a single value in set <span class="math inline">\(B\)</span>. A function by definition has a single function value for each element of its domain. This means, there cannot be “one-to-many” mapping.</p>
+<p><strong>Dimensionality</strong>: <span class="math inline">\({\mathbf R}^1\)</span> is the set of all real numbers extending from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span> — i.e., the real number line. <span class="math inline">\({\mathbf R}^n\)</span> is an <span class="math inline">\(n\)</span>-dimensional space, where each of the <span class="math inline">\(n\)</span> axes extends from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span>.</p>
+<ul>
+<li><span class="math inline">\({\mathbf R}^1\)</span> is a one dimensional line.</li>
+<li><span class="math inline">\({\mathbf R}^2\)</span> is a two dimensional plane.</li>
+<li><span class="math inline">\({\mathbf R}^3\)</span> is a three dimensional space.</li>
+</ul>
+<p>Points in <span class="math inline">\({\mathbf R}^n\)</span> are ordered <span class="math inline">\(n\)</span>-tuples (just means an combination of <span class="math inline">\(n\)</span> elements where order matters), where each element of the <span class="math inline">\(n\)</span>-tuple represents the coordinate along that dimension.</p>
+<p>For example:</p>
+<ul>
+<li><span class="math inline">\({\mathbf R}^1\)</span>: (3)</li>
+<li><span class="math inline">\({\mathbf R}^2\)</span>: (-15, 5)</li>
+<li><span class="math inline">\({\mathbf R}^3\)</span>: (86, 4, 0)</li>
+</ul>
+<p>Examples of mapping notation:</p>
+<p>Function of one variable: <span class="math inline">\(f:{\mathbf R}^1\to{\mathbf R}^1\)</span></p>
+<ul>
+<li><span class="math inline">\(f(x)=x+1\)</span>. For each <span class="math inline">\(x\)</span> in <span class="math inline">\({\mathbf R}^1\)</span>, <span class="math inline">\(f(x)\)</span> assigns the number <span class="math inline">\(x+1\)</span>.</li>
+</ul>
+<p>Function of two variables: <span class="math inline">\(f: {\mathbf R}^2\to{\mathbf R}^1\)</span>.</p>
+<ul>
+<li><span class="math inline">\(f(x,y)=x^2+y^2\)</span>. For each ordered pair <span class="math inline">\((x,y)\)</span> in <span class="math inline">\({\mathbf R}^2\)</span>, <span class="math inline">\(f(x,y)\)</span> assigns the number <span class="math inline">\(x^2+y^2\)</span>.</li>
+</ul>
+<p>We often use variable <span class="math inline">\(x\)</span> as input and another <span class="math inline">\(y\)</span> as output, e.g.&nbsp;<span class="math inline">\(y=x+1\)</span></p>
+<div id="exm-functions" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.3 (Functions) </strong></span>For each of the following, state whether they are one-to-one or many-to-one functions.</p>
+<ol type="1">
+<li><p>For <span class="math inline">\(x \in [0,\infty]\)</span>, <span class="math inline">\(f : x \rightarrow x^2\)</span> (this could also be written as <span class="math inline">\(f(x) = x^2\)</span>).</p></li>
+<li><p>For <span class="math inline">\(x \in [-\infty, \infty]\)</span>, <span class="math inline">\(f: x \rightarrow x^2\)</span>.</p></li>
+</ol>
+</div>
+<div id="exr-functions" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.3 (Functions) </strong></span>For each of the following, state whether they are one-to-one or many-to-one functions.</p>
+<ol type="1">
+<li><p>For <span class="math inline">\(x \in [-3, \infty]\)</span>, <span class="math inline">\(f: x \rightarrow x^2\)</span>.</p></li>
+<li><p>For <span class="math inline">\(x \in [0, \infty]\)</span>, <span class="math inline">\(f: x \rightarrow \sqrt{x}\)</span></p></li>
+</ol>
+</div>
+<p>Some functions are defined only on proper subsets of <span class="math inline">\({\mathbf R}^n\)</span>.</p>
+<ul>
+<li><strong>Domain</strong>: the set of numbers in <span class="math inline">\(X\)</span> at which <span class="math inline">\(f(x)\)</span> is defined.</li>
+<li><strong>Range</strong>: elements of <span class="math inline">\(Y\)</span> assigned by <span class="math inline">\(f(x)\)</span> to elements of <span class="math inline">\(X\)</span>, or <span class="math inline">\(f(X)=\{ y : y=f(x), x\in X\}\)</span> Most often used when talking about a function <span class="math inline">\(f:{\mathbf R}^1\to{\mathbf R}^1\)</span>.</li>
+<li><strong>Image</strong>: same as range, but more often used when talking about a function <span class="math inline">\(f:{\mathbf R}^n\to{\mathbf R}^1\)</span>.</li>
+</ul>
+<p>Some General Types of Functions</p>
+<p><strong>Monomials</strong>: <span class="math inline">\(f(x)=a x^k\)</span></p>
+<p><span class="math inline">\(a\)</span> is the coefficient. <span class="math inline">\(k\)</span> is the degree.</p>
+<p>Examples: <span class="math inline">\(y=x^2\)</span>, <span class="math inline">\(y=-\frac{1}{2}x^3\)</span></p>
+<p><strong>Polynomials</strong>: sum of monomials.</p>
+<p>Examples: <span class="math inline">\(y=-\frac{1}{2}x^3+x^2\)</span>, <span class="math inline">\(y=3x+5\)</span></p>
+<p>The degree of a polynomial is the highest degree of its monomial terms. Also, it’s often a good idea to write polynomials with terms in decreasing degree.</p>
+</section>
+<section id="logexponents" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="logexponents"><span class="header-section-number">2.5</span> Logarithms and Exponents</h2>
+<p><strong>Exponential Functions</strong>: Example: <span class="math inline">\(y=2^x\)</span></p>
+<p><strong>Relationship of logarithmic and exponential functions</strong>: <span class="math display">\[y=\log_a(x) \iff a^y=x\]</span></p>
+<p>The log function can be thought of as an inverse for exponential functions. <span class="math inline">\(a\)</span> is referred to as the “base” of the logarithm.</p>
+<p><strong>Common Bases</strong>: The two most common logarithms are base 10 and base <span class="math inline">\(e\)</span>.</p>
+<ol type="1">
+<li>Base 10: <span class="math inline">\(\quad y=\log_{10}(x) \iff 10^y=x\)</span>. The base 10 logarithm is often simply written as “<span class="math inline">\(\log(x)\)</span>” with no base denoted.</li>
+<li>Base <span class="math inline">\(e\)</span>: <span class="math inline">\(\quad y=\log_e(x) \iff e^y=x\)</span>. The base <span class="math inline">\(e\)</span> logarithm is referred to as the “natural” logarithm and is written as ``<span class="math inline">\(\ln(x)\)</span>“.</li>
+</ol>
+<p><strong>Properties of exponential functions:</strong></p>
+<ul>
+<li><span class="math inline">\(a^x a^y = a^{x+y}\)</span></li>
+<li><span class="math inline">\(a^{-x} = 1/a^x\)</span></li>
+<li><span class="math inline">\(a^x/a^y = a^{x-y}\)</span></li>
+<li><span class="math inline">\((a^x)^y = a^{x y}\)</span></li>
+<li><span class="math inline">\(a^0 = 1\)</span></li>
+</ul>
+<p><strong>Properties of logarithmic functions</strong> (any base):</p>
+<p>Generally, when statisticians or social scientists write <span class="math inline">\(\log(x)\)</span> they mean <span class="math inline">\(\log_e(x)\)</span>. In other words: <span class="math inline">\(\log_e(x) \equiv \ln(x) \equiv \log(x)\)</span></p>
+<p><span class="math display">\[\log_a(a^x)=x\]</span> and <span class="math display">\[a^{\log_a(x)}=x\]</span></p>
+<ul>
+<li><span class="math inline">\(\log(x y)=\log(x)+\log(y)\)</span></li>
+<li><span class="math inline">\(\log(x^y)=y\log(x)\)</span></li>
+<li><span class="math inline">\(\log(1/x)=\log(x^{-1})=-\log(x)\)</span></li>
+<li><span class="math inline">\(\log(x/y)=\log(x\cdot y^{-1})=\log(x)+\log(y^{-1})=\log(x)-\log(y)\)</span></li>
+<li><span class="math inline">\(\log(1)=\log(e^0)=0\)</span></li>
+</ul>
+<p><strong>Change of Base Formula</strong>: Use the change of base formula to switch bases as necessary: <span class="math display">\[\log_b(x) = \frac{\log_a(x)}{\log_a(b)}\]</span></p>
+<p>Example: <span class="math display">\[\log_{10}(x) = \frac{\ln(x)}{\ln(10)}\]</span></p>
+<p>You can use logs to go between sum and product notation. This will be particularly important when you’re learning how to optimize likelihood functions.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+            \log \bigg(\prod\limits_{i=1}^n x_i \bigg) &amp;=&amp; \log(x_1 \cdot x_2 \cdot x_3 \cdots \cdot x_n)\\
+            &amp;=&amp; \log(x_1) + \log(x_2) + \log(x_3) + \cdots + \log(x_n)\\
+            &amp;=&amp; \sum\limits_{i=1}^n \log (x_i)
+\end{eqnarray*}\]</span></p>
+<p>Therefore, you can see that the log of a product is equal to the sum of the logs. We can write this more generally by adding in a constant, <span class="math inline">\(c\)</span>:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+            \log \bigg(\prod\limits_{i=1}^n c x_i\bigg) &amp;=&amp; \log(cx_1 \cdot cx_2 \cdots cx_n)\\
+            &amp;=&amp; \log(c^n \cdot x_1 \cdot x_2 \cdots x_n)\\
+            &amp;=&amp; \log(c^n) + \log(x_1) + \log(x_2) + \cdots + \log(x_n)\\\\
+            &amp;=&amp; n \log(c) +  \sum\limits_{i=1}^n \log (x_i)\\
+\end{eqnarray*}\]</span></p>
+<div id="exm-log" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.4 (Logarithms) </strong></span>Evaluate each of the following logarithms</p>
+<ol type="1">
+<li><p><span class="math inline">\(\log_4(16)\)</span></p></li>
+<li><p><span class="math inline">\(\log_2(16)\)</span></p></li>
+</ol>
+<p>Simplify the following logarithm. By “simplify”, we actually really mean - use as many of the logarithmic properties as you can.</p>
+<ol start="3" type="1">
+<li><span class="math inline">\(\log_4(x^3y^5)\)</span></li>
+</ol>
+</div>
+<div id="exr-log" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.4 </strong></span>Evaluate each of the following logarithms</p>
+<ol type="1">
+<li><span class="math inline">\(\log_\frac{3}{2}(\frac{27}{8})\)</span></li>
+</ol>
+<p>Simplify each of the following logarithms. By “simplify”, we actually really mean - use as many of the logarithmic properties as you can.</p>
+<ol start="2" type="1">
+<li><p><span class="math inline">\(\log(\frac{x^9y^5}{z^3})\)</span></p></li>
+<li><p><span class="math inline">\(\ln{\sqrt{xy}}\)</span></p></li>
+</ol>
+</div>
+</section>
+<section id="graphing-functions" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="graphing-functions"><span class="header-section-number">2.6</span> Graphing Functions</h2>
+<p>What can a graph tell you about a function?</p>
+<ul>
+<li>Is the function increasing or decreasing? Over what part of the domain?</li>
+<li>How ``fast” does it increase or decrease?</li>
+<li>Are there global or local maxima and minima? Where?</li>
+<li>Are there inflection points?</li>
+<li>Is the function continuous?</li>
+<li>Is the function differentiable?</li>
+<li>Does the function tend to some limit?</li>
+<li>Other questions related to the substance of the problem at hand.</li>
+</ul>
+</section>
+<section id="solving-for-variables-and-finding-roots" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="solving-for-variables-and-finding-roots"><span class="header-section-number">2.7</span> Solving for Variables and Finding Roots</h2>
+<p>Sometimes we’re given a function <span class="math inline">\(y=f(x)\)</span> and we want to find how <span class="math inline">\(x\)</span> varies as a function of <span class="math inline">\(y\)</span>. Use algebra to move <span class="math inline">\(x\)</span> to the left hand side (LHS) of the equation and so that the right hand side (RHS) is only a function of <span class="math inline">\(y\)</span>.</p>
+<div id="exm-roots" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.5 (Solving) </strong></span>Solve for x:</p>
+<ol type="1">
+<li><p><span class="math inline">\(y=3x+2\)</span></p></li>
+<li><p><span class="math inline">\(y=e^x\)</span></p></li>
+</ol>
+</div>
+<p>Solving for variables is especially important when we want to find the <strong>roots</strong> of an equation: those values of variables that cause an equation to equal zero. Especially important in finding equilibria and in doing maximum likelihood estimation.</p>
+<p>Procedure: Given <span class="math inline">\(y=f(x)\)</span>, set <span class="math inline">\(f(x)=0\)</span>. Solve for <span class="math inline">\(x\)</span>.</p>
+<p>Multiple Roots: <span class="math display">\[f(x)=x^2 - 9 \quad\Longrightarrow\quad 0=x^2 - 9 \quad\Longrightarrow\quad 9=x^2 \quad\Longrightarrow\quad \pm \sqrt{9}=\sqrt{x^2} \quad\Longrightarrow\quad \pm 3=x\]</span></p>
+<p><strong>Quadratic Formula:</strong> For quadratic equations <span class="math inline">\(ax^2+bx+c=0\)</span>, use the quadratic formula: <span class="math display">\[x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\]</span></p>
+<div id="exr-roots" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.5 (Roots) </strong></span>Solve for x:</p>
+<ol type="1">
+<li><p><span class="math inline">\(f(x)=3x+2 = 0\)</span></p></li>
+<li><p><span class="math inline">\(f(x)=x^2+3x-4=0\)</span></p></li>
+<li><p><span class="math inline">\(f(x)=e^{-x}-10 = 0\)</span></p></li>
+</ol>
+</div>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Special thanks to Shiro Kuriwaki for developing the original version of this tutorial<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Special thanks to Shiro Kuriwaki and Yon Soo Park for developing the original module<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Module originally written by Connor Jerzak and Shiro Kuriwaki<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./03_limits.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Limits</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
