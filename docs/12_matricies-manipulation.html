@@ -301,21 +301,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(nunn_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 59
-  respno  ethni…¹ murdo…² isocode region distr…³ townv…⁴ locat…⁵ trust…⁶ trust…⁷
-  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-1 BEN0001 fon     FON     BEN     atlna… KPOMAS… TOKPA-…      30       3       3
-2 BEN0002 fon     FON     BEN     atlna… KPOMAS… TOKPA-…      30       3       3
-3 BEN0003 fon     FON     BEN     atlna… OUIDAH  3ARROND      31       0       0
-4 BEN0004 fon     FON     BEN     atlna… OUIDAH  3ARROND      31       0       0
-5 BEN0005 fon     FON     BEN     atlna… OUIDAH  PAHOU        32       1       1
-6 BEN0006 fon     FON     BEN     atlna… OUIDAH  PAHOU        32       1       1
-# … with 49 more variables: intra_group_trust &lt;dbl&gt;, inter_group_trust &lt;dbl&gt;,
+  respno  ethnicity murdock_name isocode region    district townvill location_id
+  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+1 BEN0001 fon       FON          BEN     atlnatiq… KPOMASSE TOKPA-D…          30
+2 BEN0002 fon       FON          BEN     atlnatiq… KPOMASSE TOKPA-D…          30
+3 BEN0003 fon       FON          BEN     atlnatiq… OUIDAH   3ARROND           31
+4 BEN0004 fon       FON          BEN     atlnatiq… OUIDAH   3ARROND           31
+5 BEN0005 fon       FON          BEN     atlnatiq… OUIDAH   PAHOU             32
+6 BEN0006 fon       FON          BEN     atlnatiq… OUIDAH   PAHOU             32
+# ℹ 51 more variables: trust_relatives &lt;dbl&gt;, trust_neighbors &lt;dbl&gt;,
+#   intra_group_trust &lt;dbl&gt;, inter_group_trust &lt;dbl&gt;,
 #   trust_local_council &lt;dbl&gt;, ln_export_area &lt;dbl&gt;, export_area &lt;dbl&gt;,
 #   export_pop &lt;dbl&gt;, ln_export_pop &lt;dbl&gt;, age &lt;dbl&gt;, age2 &lt;dbl&gt;, male &lt;dbl&gt;,
 #   urban_dum &lt;dbl&gt;, occupation &lt;dbl&gt;, religion &lt;dbl&gt;, living_conditions &lt;dbl&gt;,
 #   education &lt;dbl&gt;, near_dist &lt;dbl&gt;, distsea &lt;dbl&gt;, loc_murdock_name &lt;chr&gt;,
-#   loc_ln_export_area &lt;dbl&gt;, local_council_performance &lt;dbl&gt;,
-#   council_listen &lt;dbl&gt;, corrupt_local_council &lt;dbl&gt;, school_present &lt;dbl&gt;, …</code></pre>
+#   loc_ln_export_area &lt;dbl&gt;, local_council_performance &lt;dbl&gt;, …</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(nunn_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -934,46 +934,51 @@ ln_export_area        8.412887</code></pre>
 <span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a>ca_subset_tidy <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"California"</span>)</span>
 <span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb98-6"><a href="#cb98-6" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(ca_subset, ca_subset_tidy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: `all_equal()` was deprecated in dplyr 1.1.0.
+ℹ Please use `all.equal()` instead.
+ℹ And manually order the rows/cols as needed</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset for CA rows and select age and race</span></span>
-<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>ca_subset_age_race <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"California"</span>, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"race"</span>)]</span>
-<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb100-4"><a href="#cb100-4" aria-hidden="true" tabindex="-1"></a>ca_subset_age_race_tidy <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"California"</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(age, race)</span>
-<span id="cb100-5"><a href="#cb100-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb100-6"><a href="#cb100-6" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(ca_subset_age_race, ca_subset_age_race_tidy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset for CA rows and select age and race</span></span>
+<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>ca_subset_age_race <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"California"</span>, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"race"</span>)]</span>
+<span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-4"><a href="#cb101-4" aria-hidden="true" tabindex="-1"></a>ca_subset_age_race_tidy <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"California"</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(age, race)</span>
+<span id="cb101-5"><a href="#cb101-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-6"><a href="#cb101-6" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(ca_subset_age_race, ca_subset_age_race_tidy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
 <p>Some common operators that can be used to filter or to use as a condition. Remember, you can use the unique function to look at the set of all values a variable holds in the dataset.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all individuals older than 30 and younger than 70</span></span>
-<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>s1 <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> cen10<span class="sc">$</span>age <span class="sc">&lt;</span> <span class="dv">70</span>, ]</span>
-<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a>s2 <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(age <span class="sc">&gt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> age <span class="sc">&lt;</span> <span class="dv">70</span>)</span>
-<span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(s1, s2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all individuals older than 30 and younger than 70</span></span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>s1 <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> cen10<span class="sc">$</span>age <span class="sc">&lt;</span> <span class="dv">70</span>, ]</span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a>s2 <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(age <span class="sc">&gt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> age <span class="sc">&lt;</span> <span class="dv">70</span>)</span>
+<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(s1, s2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all individuals in either New York or California</span></span>
-<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>s3 <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"New York"</span> <span class="sc">|</span> cen10<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"California"</span>, ]</span>
-<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>s4 <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"New York"</span> <span class="sc">|</span> state <span class="sc">==</span> <span class="st">"California"</span>)</span>
-<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(s3, s4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all individuals in either New York or California</span></span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>s3 <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"New York"</span> <span class="sc">|</span> cen10<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"California"</span>, ]</span>
+<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a>s4 <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"New York"</span> <span class="sc">|</span> state <span class="sc">==</span> <span class="st">"California"</span>)</span>
+<span id="cb105-4"><a href="#cb105-4" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(s3, s4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all individuals in any of the following states: California, Ohio, Nevada, Michigan</span></span>
-<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>s5 <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span>), ]</span>
-<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a>s6 <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span>))</span>
-<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(s5, s6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all individuals in any of the following states: California, Ohio, Nevada, Michigan</span></span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a>s5 <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span>), ]</span>
+<span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a>s6 <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span>))</span>
+<span id="cb107-4"><a href="#cb107-4" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(s5, s6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all individuals NOT in any of the following states: California, Ohio, Nevada, Michigan</span></span>
-<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>s7 <span class="ot">&lt;-</span> cen10[<span class="sc">!</span>(cen10<span class="sc">$</span>state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span>)), ]</span>
-<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>s8 <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span>))</span>
-<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(s7, s8)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all individuals NOT in any of the following states: California, Ohio, Nevada, Michigan</span></span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>s7 <span class="ot">&lt;-</span> cen10[<span class="sc">!</span>(cen10<span class="sc">$</span>state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span>)), ]</span>
+<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a>s8 <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span>))</span>
+<span id="cb109-4"><a href="#cb109-4" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(s7, s8)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -985,21 +990,21 @@ ln_export_area        8.412887</code></pre>
 <h3 class="unnumbered anchored" data-anchor-id="section">1</h3>
 <p>Get the subset of cen10 for non-white individuals (Hint: look at the set of values for the race variable by using the unique function)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="section-1">2</h3>
 <p>Get the subset of cen10 for females over the age of 40</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-2" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="section-2">3</h3>
 <p>Get all the serial numbers for black, male individuals who don’t live in Ohio or Nevada.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -1014,7 +1019,7 @@ ln_export_area        8.412887</code></pre>
 \end{array}\right]\]</span></p>
 <p>Use R to write code that will create the matrix <span class="math inline">\(A\)</span>, and then consecutively multiply <span class="math inline">\(A\)</span> to itself 4 times. What is the value of <span class="math inline">\(A^{4}\)</span>?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Enter yourself</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Enter yourself</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that R notation of matrices is different from the math notation. Simply trying <code>X^n</code> where <code>X</code> is a matrix will only take the power of each element to <code>n</code>. Instead, this problem asks you to perform matrix multiplication.</p>
 </section>
@@ -1025,19 +1030,19 @@ ln_export_area        8.412887</code></pre>
 <li>First, show all observations (rows) that have a <code>"male"</code> variable higher than 0.5</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Enter yourself</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Enter yourself</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="a">
 <li>Next, create a matrix / dataframe with only two columns: <code>"trust_neighbors"</code> and <code>"age"</code></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Enter yourself</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Enter yourself</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="a">
 <li>Lastly, show all values of <code>"trust_neighbors"</code> and <code>"age"</code> for observations (rows) that have the “male” variable value that is higher than 0.5</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Enter yourself</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Enter yourself</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-5" class="level3 unnumbered">
@@ -1052,11 +1057,11 @@ ln_export_area        8.412887</code></pre>
 <h3 class="unnumbered anchored" data-anchor-id="section-7">5</h3>
 <p>Consider the regression that was run to generate Table 1:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>form <span class="ot">&lt;-</span> <span class="st">"trust_neighbors ~ exports + age + age2 +  male + urban_dum + factor(education) + factor(occupation) + factor(religion) + factor(living_conditions) + district_ethnic_frac + frac_ethnicity_in_district + isocode"</span></span>
-<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>lm_1_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">as.formula</span>(form), nunn_full)</span>
-<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-4"><a href="#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The below coef function returns a vector of OLS coefficiants</span></span>
-<span id="cb117-5"><a href="#cb117-5" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(lm_1_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>form <span class="ot">&lt;-</span> <span class="st">"trust_neighbors ~ exports + age + age2 +  male + urban_dum + factor(education) + factor(occupation) + factor(religion) + factor(living_conditions) + district_ethnic_frac + frac_ethnicity_in_district + isocode"</span></span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a>lm_1_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">as.formula</span>(form), nunn_full)</span>
+<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-4"><a href="#cb118-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The below coef function returns a vector of OLS coefficiants</span></span>
+<span id="cb118-5"><a href="#cb118-5" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(lm_1_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               (Intercept)                    exports 
               1.619913e+00              -6.791360e-04 
@@ -1140,20 +1145,20 @@ frac_ethnicity_in_district                 isocodeBWA
 </div>
 <p>First, get a small subset of the nunn_full dataset. This time, sample 20 rows and select for variables <code>exports</code>, <code>age</code>, <code>age2</code>, <code>male</code>, and <code>urban_dum</code>. To this small subset, add (<code>bind_cols()</code> in tidyverse or <code>cbind()</code> in base R) a column of 1’s; this represents the intercept. If you need some guidance, look at how we sampled 10 rows selected for a different set of variables above in the lecture portion.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next let’s try calculating predicted values of levels of trust in neighbors by multiplying coefficients for the intercept, <code>exports</code>, <code>age</code>, <code>age2</code>, <code>male</code>, and <code>urban_dum</code> to the actual observed values for those variables in the small subset you’ve just created.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hint: You can get just selected elements from the vector returned by coef(lm_1_1)</span></span>
-<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, the below code gives you the first 3 elements of the original vector</span></span>
-<span id="cb120-4"><a href="#cb120-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(lm_1_1)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hint: You can get just selected elements from the vector returned by coef(lm_1_1)</span></span>
+<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, the below code gives you the first 3 elements of the original vector</span></span>
+<span id="cb121-4"><a href="#cb121-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(lm_1_1)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> (Intercept)      exports          age 
  1.619913146 -0.000679136  0.008395936 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Also, the below code gives you the coefficient elements for intercept and male</span></span>
-<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(lm_1_1)[<span class="fu">c</span>(<span class="st">"(Intercept)"</span>, <span class="st">"male"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Also, the below code gives you the coefficient elements for intercept and male</span></span>
+<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(lm_1_1)[<span class="fu">c</span>(<span class="st">"(Intercept)"</span>, <span class="st">"male"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)        male 
  1.61991315  0.04550246 </code></pre>

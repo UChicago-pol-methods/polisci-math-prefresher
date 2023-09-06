@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The 2022 UChicago Math Prefresher for incoming Political Science graduate students will be held from September 12-14; September 19-21 and September 23rd. The course is designed as a brief review of math fundamentals -- calculus, optimization, probability theory and linear algebra among other topics -- as well as an introduction to programming in the R statistical computing language. The course is entirely optional and there are no grades or assignments but we encourage all incoming graduate students to attend if they are able.
+The 2023 UChicago Math Prefresher for incoming Political Science graduate students will be held from September 12-15 and September 18-20. The course is designed as a brief review of math fundamentals -- calculus, optimization, probability theory and linear algebra among other topics -- as well as an introduction to programming in the R statistical computing language. The course is entirely optional and there are no grades or assignments but we encourage all incoming graduate students to attend if they are able.
 
 ## Course Booklet
 
@@ -10,11 +10,11 @@ The course notes for the math and programming sections as well as all practice p
 
 ## Schedule
 
-The prefresher will run for a total of seven days September 12-14, September 19-21 and September 23rd, with breaks for the APSA conference and the new student orientation. Each day will run from around 9am to 4pm with many breaks in between.
+The prefresher will run for a total of seven days September 12-15, and September 18-20 in *Pick Hall 506*. Each day will run from around 9am to 4pm with many breaks in between.
 
 The morning will focus on math instruction. We will have two one hour sessions from 9:30am - 10:30am and 10:45am-11:45am, with a ~15 minute break in between. These sessions will involve a combination of lectures and working through practice problems. 
 
-We will break for lunch from 12:00pm-1:00pm. On September 13th and Spetember 19th, we will have a catered lunch with a faculty member guest. Otherwise, you are free to explore the campus for various lunch options.
+We will break for lunch from 12:00pm-1:00pm.
 
 The afternoon will focus on coding instruction with lecture/demonstration from 1:30pm-2:45pm.  After a short break you will work together on a variety of coding exercises from 3:00-3:30pm. In the last 30 minutes we will regroup to wrap up and discuss any questions on the material.
 

@@ -5,7 +5,7 @@ project:
 book:
   title: "University of Chicago Political Science Math Prefresher"
   author: "Anton Strezhnev"
-  date: "9/12/2022"
+  date: "9/12/2023"
   chapters:
     - index.qmd
     - 02_sets_and_functions.qmd

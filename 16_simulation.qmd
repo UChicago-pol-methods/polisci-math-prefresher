@@ -3,6 +3,9 @@
 
 ```{r, include=FALSE}
 library(dplyr)
+library(purrr)
+
+set.seed(7242) #set from Random.org
 ```
 
 ### Motivation: Simulation as an Analytical Tool {-}
@@ -80,7 +83,7 @@ sample(x = 1:10, size = 10, replace = TRUE) ## any number can appear more than o
 
 It follows then that you cannot sample without replacement a sample that is larger than the pool.
 ```{r, error = TRUE}
-sample(x = 1:10, size = 100, replace = FALSE)
+sample(x = 1:10, size = 10, replace = FALSE)
 ```
 
 
@@ -88,7 +91,7 @@ So far, every element in `x` has had an equal probability of being chosen. In so
 
 For example, this simulates 20 fair coin tosses (each outcome is equally likely to happen)
 ```{r}
-sample(c("Head", "Tail"), size = 20, prob = c(0.5, 0.5), replace = TRUE)
+sample(c("Head", "Tail"), size = 20, prob = c(.5, .5), replace = TRUE)
 ```
 
 
@@ -99,7 +102,7 @@ sample(c("Head", "Tail"), size = 20, prob = c(0.2, 0.8), replace = TRUE)
 
 ### Sampling rows from a dataframe
 
-In tidyverse, there is a convenience function to sample rows randomly: `sample_n()` and `sample_frac()`. 
+In tidyverse, there is a convenience function to sample rows randomly: `slice_sample()`
 
 For example, load the dataset on cars, `mtcars`, which has 32 observations.
 
@@ -109,13 +112,29 @@ mtcars
 sample_n picks a user-specified number of rows from the dataset:
 
 ```{r}
-sample_n(mtcars, 3)
+mtcars[,sample(1:ncol(mtcars), size=3, replace=F)]
+
+#slice_sample(mtcars, n=3)
 ```
 
 Sometimes you want a X percent sample of your dataset. In this case use `sample_frac()`
 
 ```{r}
-sample_frac(mtcars, 0.10)
+
+nIter <- 100000
+time1 <- proc.time()
+sample_means <- rep(NA, nIter)
+for (i in 1:nIter){
+  sample_means[i] <- sample(1:6, size=1) 
+}
+print(proc.time() - time1)
+
+time2 <- proc.time()
+sample_means <- map_dbl(.x = 1:nIter, .f = function(x) sample(1:6, size=1))
+print(proc.time() - time2)
+
+hist(sample_means)
+
 ```
 
 As a side-note, these functions have very practical uses for any type of data analysis:
@@ -131,7 +150,7 @@ As a side-note, these functions have very practical uses for any type of data an
 
 For example, I want to know how many Heads I would get if I flipped a fair coin 100 times. 
 ```{r}
-rbinom(n = 1, size = 100, prob = 0.5)
+rbinom(n = 100, size = 1, prob = 0.1)
 ```
 
 Now imagine this I wanted to do this experiment 10 times, which would require I flip the coin 10 x 100 = 1000 times! Helpfully, we can do this in one line
@@ -146,7 +165,7 @@ The intuition to emphasize here is that one can generate potentially infinite am
 
 
 ```{r}
-runif(n = 5)
+runif(n = 5, min=0, max=1)
 ```
 
 
@@ -155,7 +174,8 @@ runif(n = 5)
 `rnorm` is also a continuous distribution, but draws from a Normal distribution -- perhaps the most important distribution in statistics. It runs the same way as `runif`
 
 ```{r}
-rnorm(n = 5)
+rnorm(n=10000, mean=0, sd=2)
+
 ```
 
 To better visualize the difference between the output of `runif` and `rnorm`, let's generate lots of each and plot a histogram.
@@ -174,6 +194,14 @@ hist(from_rnorm)
 
 Each distribution can do more than generate random numbers (the prefix `r`). We can compute the cumulative probability by the function `pbinom()`, `punif()`, and `pnorm()`. Also the density -- the value of the PDF -- by `dbinom()`, `dunif()` and `dnorm()`.  
 
+```{r}
+
+random_normals <- rnorm(n=1000000, mean=0, sd=1)
+hist(random_normals)
+
+random_binom_2 <- qbinom(runif(n=1000000), size=10, prob=.4)
+hist(random_binom_2)
+```
 
 
 ## `set.seed()`
@@ -268,16 +296,9 @@ In addition to some standard demographic questions, we will focus on one called 
 
 (a)  Drop the the respondents who answered the November poll (i.e. those for which `poll == "November"`). We do this in order to ignore this November population in all subsequent parts of this question because they were not asked the Presidential vote question. 
 
-```{r}
-
-```
-
 
 (b) Using the dataset after the procedure in (a), find the proportion of _poll respondents_ (those who are in the sample) who support Donald Trump. 
 
-```{r}
-
-```
 
 
 (c)  Among those who supported Donald Trump, what proportion of them has a Bachelor's degree or higher (i.e. have a Bachelor's, Graduate, or other Professional Degree)?
@@ -307,33 +328,14 @@ To simplify reality a bit, assume that (1) there are no leap years, and so there
 
 
 _Step 1_: Set `k` to a concrete number. Pick a number from 1 to 365 randomly, `k` times to simulate birthdays (would this be with replacement or without?).
-```{r}
-# Your code
-```
-
 
 _Step 2_: Write a line (or two) of code  that gives a `TRUE` or `FALSE` statement of whether or not at least two people share the same birth date.
-```{r}
-# Your code
-```
-
 
 _Step 3_: The above steps will generate a `TRUE` or `FALSE` answer for your event of interest, but only for one realization of an event in the sample space. In order to estimate the _probability_ of your event happening, we need a "stochastic", as opposed to "deterministic", method. To do this, write a loop that does Steps 1 and 2 repeatedly for many times, call that number of times `sims`. For each of `sims` iteration, your code should give you a `TRUE` or `FALSE` answer. Code up a way to store these estimates.
-```{r}
-# Your code
-```
-
 
 _Step 4_: Finally, generalize the function further by letting `k` be a user-defined number. You have now created a _Monte Carlo simulation_! 
-```{r}
-# Your code
-```
-
 
 _Step 5_: Generate a table or plot that shows how the probability of sharing a birthday changes by `k` (fixing `sims` at a large number like `1000`). Also generate a similar plot that shows how the probability of sharing a birthday changes by `sims` (fixing `k` at some arbitrary number like `10`). 
-```{r}
-# Your code
-```
 
 
 _Extra credit_: Give an "analytical" answer to this problem, that is an answer through deriving the mathematical expressions of the probability.
