@@ -170,6 +170,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#logexponents" id="toc-logexponents" class="nav-link" data-scroll-target="#logexponents"><span class="toc-section-number">2.5</span>  Logarithms and Exponents</a></li>
   <li><a href="#graphing-functions" id="toc-graphing-functions" class="nav-link" data-scroll-target="#graphing-functions"><span class="toc-section-number">2.6</span>  Graphing Functions</a></li>
   <li><a href="#solving-for-variables-and-finding-roots" id="toc-solving-for-variables-and-finding-roots" class="nav-link" data-scroll-target="#solving-for-variables-and-finding-roots"><span class="toc-section-number">2.7</span>  Solving for Variables and Finding Roots</a></li>
+  <li><a href="#correspondences" id="toc-correspondences" class="nav-link" data-scroll-target="#correspondences"><span class="toc-section-number">3</span>  Correspondences</a></li>
   </ul>
 </nav>
     </div>
@@ -194,8 +195,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="sets" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="sets"><span class="header-section-number">2.1</span> Sets</h2>
-<p><em>Sets</em> are the fundamental building blocks of mathematics. Events are not inherently numerical: the onset of war or the stock market crashing is not inherently a number. Sets can define such events, and we wrap math around so that we have a transparent language to communicate about those events. Combining sets with operations, relations, metrics, measures, etc… allows us to define useful mathematical structures. For example, the set of <em>real numbers</em> (<span class="math inline">\(\mathbb{R}\)</span>) has a notion of <em>order</em> as well as defined <em>operations</em> of addition and multiplication.</p>
-<p><strong>Set</strong> : A set is any well defined collection of elements. If <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(S\)</span>, <span class="math inline">\(x \in S\)</span>.</p>
+<p><em>Sets</em> are the fundamental building blocks of mathematics. Events are not inherently numerical: the onset of war or the stock market crashing is not inherently a number. Sets can define such events, and we wrap math around so that we have a transparent language to communicate about those events. Combining sets with operations, relations, metrics, measures, etc… allows us to define useful mathematical structures. For example, the set of <em>real numbers</em> (<span class="math inline">\(\mathbb{R}\)</span>) has a notion of <em>order</em> as well as defined <em>operations</em> of addition and multiplication. <strong>Set</strong> : A set is any well defined collection of elements. If <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(S\)</span>, <span class="math inline">\(x \in S\)</span>.</p>
 <p>Examples:</p>
 <ol type="1">
 <li>The set of choices available to a player in Rock-Paper-Scissors <span class="math inline">\(\{\text{Rock}, \text{Paper}, \text{Scissors}\}\)</span></li>
@@ -219,6 +219,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Union</strong>: The union of two sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, <span class="math inline">\(A \cup B\)</span>, is the set containing all of the elements in <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span>. <span class="math inline">\(A_1 \cup A_2 \cup \cdots \cup A_n = \bigcup_{i=1}^n A_i\)</span></li>
 <li><strong>Intersection</strong>: The intersection of sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, <span class="math inline">\(A \cap B\)</span>, is the set containing all of the elements in both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. <span class="math inline">\(A_1 \cap A_2 \cap \cdots \cap A_n = \bigcap_{i=1}^n A_i\)</span></li>
 <li><strong>Complement</strong>: If set <span class="math inline">\(A\)</span> is a subset of <span class="math inline">\(S\)</span>, then the complement of <span class="math inline">\(A\)</span>, denoted <span class="math inline">\(A^C\)</span>, is the set containing all of the elements in <span class="math inline">\(S\)</span> that are not in <span class="math inline">\(A\)</span>.</li>
+<li><strong>Cartesian Product</strong>: The Cartesian product of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, denoted <span class="math inline">\(A \times B\)</span>, is the set of ordered pairs <span class="math inline">\((a, b)\)</span> where <span class="math inline">\(a \in A\)</span> and <span class="math inline">\(b \in B\)</span>.</li>
 </ol>
 <p>Properties of set operations:</p>
 <ul>
@@ -236,6 +237,7 @@ ul.task-list li input[type="checkbox"] {
 <li><span class="math inline">\(C \cap B\)</span></li>
 <li><span class="math inline">\(B^c\)</span></li>
 <li><span class="math inline">\(A \cap (B \cup C)\)</span></li>
+<li><span class="math inline">\(B \times C\)</span></li>
 </ol>
 </div>
 <div id="exr-sets" class="theorem exercise">
@@ -332,6 +334,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p><span class="math inline">\(\prod\limits_{i=1}^{5} i =\)</span></p></li>
 <li><p><span class="math inline">\(14 \mod 4 =\)</span></p></li>
 <li><p><span class="math inline">\(4! =\)</span></p></li>
+<li><p><span class="math inline">\(\frac{100!}{98!} =\)</span></p></li>
 </ol>
 </div>
 <div id="exr-operators" class="theorem exercise">
@@ -345,7 +348,15 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="introduction-to-functions" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="introduction-to-functions"><span class="header-section-number">2.4</span> Introduction to Functions</h2>
-<p>A <strong>function</strong> is a mapping, or transformation, that relates members of one set to members of another set. For instance, if you have two sets: set <span class="math inline">\(A\)</span> and set <span class="math inline">\(B\)</span>, a function from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> maps every value <span class="math inline">\(a\)</span> in set <span class="math inline">\(A\)</span> such that <span class="math inline">\(f(a) \in B\)</span>. Functions can be “many-to-one”, where many values or combinations of values from set <span class="math inline">\(A\)</span> produce a single output in set <span class="math inline">\(B\)</span>, or they can be “one-to-one”, where each value in set <span class="math inline">\(A\)</span> corresponds to a single value in set <span class="math inline">\(B\)</span>. A function by definition has a single function value for each element of its domain. This means, there cannot be “one-to-many” mapping.</p>
+<p>A <strong>function</strong> is a mapping, or transformation, that relates members of one set to members of another set. For instance, if you have two sets: set <span class="math inline">\(A\)</span> and set <span class="math inline">\(B\)</span>, a function from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> maps every value <span class="math inline">\(a\)</span> in set <span class="math inline">\(A\)</span> such that <span class="math inline">\(f(a) \in B\)</span>. Functions can be “many-to-one”, where many values or combinations of values from set <span class="math inline">\(A\)</span> produce a single output in set <span class="math inline">\(B\)</span>, or they can be “one-to-one”, where each value in set <span class="math inline">\(A\)</span> corresponds to a single value in set <span class="math inline">\(B\)</span>. A function by definition has a single function value for each element of its domain. This means, there cannot be “one-to-many” function.</p>
+<ul>
+<li><strong>Domain</strong>: the set of numbers in <span class="math inline">\(X\)</span> at which <span class="math inline">\(f(x)\)</span> is defined.</li>
+<li><strong>Codomain</strong>: the set of values that the output of a function is constrained to fall</li>
+<li><strong>Image</strong>: elements of <span class="math inline">\(Y\)</span> actually assigned by <span class="math inline">\(f(x)\)</span> to elements of <span class="math inline">\(X\)</span>, or <span class="math inline">\(f(X)=\{ y : y=f(x), x\in X\}\)</span>. The image is a subset of the codomain.</li>
+<li><strong>Range</strong>: sometimes refers to either the image or the co-domain, depending on context</li>
+</ul>
+<p>Formally, we define a function by first defining the domain and the co-domain. For example, <span class="math inline">\(f: X \to Y\)</span> denotes that function <span class="math inline">\(f\)</span> is a mapping from the set <span class="math inline">\(X\)</span> to the set <span class="math inline">\(Y\)</span>. We then define the mapping from <span class="math inline">\(x\)</span> to <span class="math inline">\(y\)</span>. For example, for the square, we would write <span class="math inline">\(x \mapsto x^2\)</span>.</p>
+<p>A “one-to-one” function is referred to as an <strong>injective</strong> function. A <strong>surjective</strong> function is one where every element of <span class="math inline">\(Y\)</span> can be obtained from some element of <span class="math inline">\(X\)</span> by <span class="math inline">\(f(x) = y\)</span>. In other words, the domain is equivalent to the image. A function that is <strong>injective</strong> and <strong>surjective</strong> is <strong>bijective</strong>. <strong>Bijective</strong> functions are important because they are <strong>invertible</strong>. For an invertible function <span class="math inline">\(f: X \to Y\)</span>, we can define another function that maps <span class="math inline">\(Y \to X\)</span>.</p>
 <p><strong>Dimensionality</strong>: <span class="math inline">\({\mathbf R}^1\)</span> is the set of all real numbers extending from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span> — i.e., the real number line. <span class="math inline">\({\mathbf R}^n\)</span> is an <span class="math inline">\(n\)</span>-dimensional space, where each of the <span class="math inline">\(n\)</span> axes extends from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span>.</p>
 <ul>
 <li><span class="math inline">\({\mathbf R}^1\)</span> is a one dimensional line.</li>
@@ -384,12 +395,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 </div>
 <p>Some functions are defined only on proper subsets of <span class="math inline">\({\mathbf R}^n\)</span>.</p>
-<ul>
-<li><strong>Domain</strong>: the set of numbers in <span class="math inline">\(X\)</span> at which <span class="math inline">\(f(x)\)</span> is defined.</li>
-<li><strong>Range</strong>: elements of <span class="math inline">\(Y\)</span> assigned by <span class="math inline">\(f(x)\)</span> to elements of <span class="math inline">\(X\)</span>, or <span class="math inline">\(f(X)=\{ y : y=f(x), x\in X\}\)</span> Most often used when talking about a function <span class="math inline">\(f:{\mathbf R}^1\to{\mathbf R}^1\)</span>.</li>
-<li><strong>Image</strong>: same as range, but more often used when talking about a function <span class="math inline">\(f:{\mathbf R}^n\to{\mathbf R}^1\)</span>.</li>
-</ul>
-<p>Some General Types of Functions</p>
+<p>Some General Types of Functions in <span class="math inline">\(\mathcal{R}\)</span></p>
 <p><strong>Monomials</strong>: <span class="math inline">\(f(x)=a x^k\)</span></p>
 <p><span class="math inline">\(a\)</span> is the coefficient. <span class="math inline">\(k\)</span> is the degree.</p>
 <p>Examples: <span class="math inline">\(y=x^2\)</span>, <span class="math inline">\(y=-\frac{1}{2}x^3\)</span></p>
@@ -499,6 +505,11 @@ ul.task-list li input[type="checkbox"] {
 <li><p><span class="math inline">\(f(x)=e^{-x}-10 = 0\)</span></p></li>
 </ol>
 </div>
+</section>
+<section id="correspondences" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Correspondences</h1>
+<p>A correspondence can be thought of as a “set-valued” function that maps elements from one set, the domain, to subsets of another set. Correspondences appear most notably in game theory when defining players’ “best-responses”. In many settings, these will not be one-to-one functions as players in a game may have multiple “equally good” strategies that can be taken in response to the set of other player’s strategies.</p>
+<p>The “argmax” or “argmin” (the arguments that maximize/minimize a particular function) is a correspondence if there is not a unique maximum (that is, multiple values can yield the same maxmimum/minimum of the function).</p>
 
 
 </section>
