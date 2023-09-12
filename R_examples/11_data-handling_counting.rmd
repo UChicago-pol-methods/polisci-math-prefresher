@@ -182,7 +182,7 @@ This POLIS dataset was generously provided by Professor Josiah Ober of Stanford 
 What files do we have in the `data/input` folder?
 
 ```{r, echo = FALSE}
-dir_ls("data/input")
+dir_ls("../data/input")
 ```
 
 A typical file format is Microsoft Excel. Although this is not usually the best format for R because of its highly formatted structure as opposed to plain text, recent packages have made this fairly easy. 
@@ -217,7 +217,7 @@ Let's try it.
 
 ```{r}
 library(readxl)
-ober <- read_excel("data/input/ober_2018.xlsx")
+ober <- read_excel("../data/input/ober_2018.xlsx")
 ```
 
 Review: what does the `/` mean?  Why do we need the `data` term first? Does the argument need to be in quotes? 
