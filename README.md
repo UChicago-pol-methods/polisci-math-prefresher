@@ -16,7 +16,7 @@ The morning will focus on math instruction. We will have two one hour sessions f
 
 We will break for lunch from 12:00pm-1:00pm.
 
-The afternoon will focus on coding instruction with lecture/demonstration from 1:30pm-2:45pm.  After a short break you will work together on a variety of coding exercises from 3:00-3:30pm. In the last 30 minutes we will regroup to wrap up and discuss any questions on the material.
+The afternoon will focus on coding instruction with lecture/demonstration from 1:00pm-2:45pm.  After a short break you will work together on a variety of coding exercises from 3:00-3:30pm. In the last 30 minutes we will regroup to wrap up and discuss any questions on the material.
 
 ## Software
 
