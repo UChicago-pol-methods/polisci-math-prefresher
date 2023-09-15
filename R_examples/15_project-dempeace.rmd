@@ -55,8 +55,8 @@ Most projects you do will start with downloading data from elsewhere. For this t
 
 Let's read in a sample dataset. 
 ```{r, warning = FALSE, message = FALSE}
-polity <- read_csv("data/input/sample_polity.csv")
-mid <- read_csv("data/input/sample_mid.csv")
+polity <- read_csv("../data/input/sample_polity.csv")
+mid <- read_csv("../data/input/sample_mid.csv")
 ```
 
 
