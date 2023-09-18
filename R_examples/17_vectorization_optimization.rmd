@@ -1,0 +1,250 @@
+# Functionals and Optimization {#functionals}
+
+```{r, include=FALSE}
+library(dplyr)
+library(purrr)
+library(ggplot2)
+library(haven)
+library(stringr)
+```
+
+## More Tidyverse/Data Cleaning
+
+For our main example in this session, we'll take a look at the the 2022 Cooperative Election Survey (CES). The `ces22.dta` file contains a subset of questions asked to respondents in the 2022 wave of this annual survey stored in Stata's `dta` format.
+
+```{r}
+ces <- haven::read_dta("../data/input/ces22_subset.dta")
+```
+
+Stata files often contain metadata for each column. In the CES, responses are stored as numeric values that represent one of the discrete choices available to the respondent. As a result, while many of the columns have numeric data types, they should not be treated as numbers. This is something to be careful of as you work with any dataset -- always read the codebook.
+
+For example, while we could take the "mean" of the race variable, this is a nonsense quantity.
+```{r}
+mean(ces$race)
+```
+
+We can take a closer look at how the race variable is stored:
+
+```{r}
+head(ces$race)
+```
+
+And take a closer look at its class
+
+```{r}
+class(ces$race)
+```
+
+`haven` reads in the Stata metadata and creates a column that has the `haven_labelled` class, which stores both the numeric labels and the metadata which denotes the mapping between the numeric label and its meaning.  We'd like to use this to convert the variables to factors that we can work with in R. To do this, we'll be using the `as_factor()` function. This function is "generic" and has a specific implementation for `haven_labelled` objects in the `haven` package
+
+```{r}
+head(as_factor(ces$race))
+```
+
+Or in "tidy" style
+
+```{r}
+ces %>% mutate(race = as_factor(race))
+```
+
+But we'd like to do this for every column in our dataset (except for columns that are numeric). We could manually go through every single column and convert it to a factor, or we could use some tidyverse tools.
+
+The `across()` function allows us to select columns using the same custom selection syntax as in `select()`. We can combine this with the mutate function to mutate every column that we want to transform. Here, we want to select the columns that are of a certain **class** -- the "labelled" class.
+
+```{r}
+ces <- ces %>% mutate(across(where(is.labelled), as_factor))
+```
+
+`across()`, like `select()` is very flexible in how columns can be selected. In addition to selecting by number, you can select by partial string match, numerical sequence, or even regular expressions!
+
+Now all of our columns operate correctly as factors.
+
+```{r}
+ces
+```
+
+We can do some more steps to make our data easier to work with. First, we can rename columns to be more informative. For example, `CC22_306` is a question on vaccination status. Let's `rename()` that column to make it easier to reference
+
+```{r}
+ces <- ces %>% rename(vaccinated = CC22_306) #New aname = old name
+```
+
+`vaccinated` has a number of different levels
+
+```{r}
+table(ces$vaccinated)
+```
+
+Let's recode this categorical variable to a binary indicator for whether a respondent is fully vaccinated. Note that two of these categories have "fully vaccinated". We want to code these as a value of $1$ and the rest as $0$. To do this we'll use the `case_when()` function inside of a `mutate()`
+
+```{r}
+ces <- ces %>% mutate(fullyvax = case_when(str_detect(vaccinated, "fully vaccinated") ~ 1, 
+                                           !str_detect(vaccinated, "fully vaccinated") ~ 0,
+                                           is.na(vaccinated) ~ NA_real_))
+```
+
+How many respondents are fully vaccinated?
+
+```{r}
+table(ces$fullyvax)
+```
+
+`CC22_320` contains approval ratings of various political institutions. Let's pull the three big ones (President, Legislature, Supreme Court) and create indicators for whether the respondent approves or disapproves of that institution.
+
+```{r}
+ces <- ces %>% mutate(approvePresident = case_when(str_detect(CC22_320a, "disapprove") ~ 0,
+                                                    str_detect(CC22_320a, "approve") ~ 1,
+                                                    str_detect(CC22_320a, "Not sure") ~ 0), 
+                      approveCongress = case_when(str_detect(CC22_320b, "disapprove") ~ 0,
+                                                    str_detect(CC22_320b, "approve") ~ 1,
+                                                    str_detect(CC22_320b, "Not sure") ~ 0), 
+                      approveCourt = case_when(str_detect(CC22_320c, "disapprove") ~ 0,
+                                                    str_detect(CC22_320c, "approve") ~ 1,
+                                                    str_detect(CC22_320c, "Not sure") ~ 0))
+```
+
+Let's pull those three columns, party ID and the survey weights and analyze them further.
+
+```{r}
+ces_approval <- ces %>% select(commonweight, pid3, approvePresident, approveCongress, approveCourt)
+```
+
+
+## Functionals {-}
+
+Many functions in R act on functions as input. You've already seen a lot of `tidyverse` functions that do this. For example, the `summarize()` function takes as input a dataset and a function or functions describing what operations should be done on the dataset. Above, we used `mutate` which took the functional arguments `across` and `as_factor`.
+
+R is a *functional programming* language in that functions are "first-class citizens" and can be treated as any other data type. They can be given a name, passed as inputs to other functions, and returned as output. 
+
+This allows programs to be written in terms of compositions of functions. In fact, this is one of the principles of the `tidy` project as outlined by Hadley Wickham, and many of the constructs provided by the tidyverse encourage you to work this way. See the [tidy manifesto](https://tidyverse.tidyverse.org/articles/manifesto.html) for more.
+
+### Replacing for loops
+
+R programmers tend to favor functional replacements for `for` loops. Rather than iterate over elements of a vector or list and execute some operation for each iteration, you can use one of the `apply` (Base-R) or `map` (tidyverse) functions.
+
+To illustrate, let's take a look at our approval rating data from before. How would we write a for-loop to calculate the (weighted) mean for each column?
+
+```{r}
+approval_data <- ces_approval %>% select(approvePresident, approveCongress, approveCourt)
+for_time <- proc.time() # Store current time -- used for timing speed of function
+approval <- rep(NA, 3)
+names(approval) <- c("approvePresident", "approveCongress", "approveCourt")
+for (name in names(approval)){
+  approval[name] <- weighted.mean(approval_data[[name]], ces_approval$commonweight, na.rm=T)
+}
+print(proc.time() - for_time)
+print(approval)
+```
+
+This is pretty terrible looking. We've already seen the `summarize()` function work for this task, but let's illustrate another operation in base-R, the `apply` function. `apply()` operates on matrices and applies a function to each row or column.
+
+```{r}
+for_time <- proc.time() # Store current time -- used for timing speed of function
+approval <- apply(approval_data, 2, function(x) weighted.mean(x, ces_approval$commonweight, na.rm=T))
+print(proc.time() - for_time)
+print(approval)
+```
+
+Note that there aren't really substantial speed benefits. Rather, the code just looks cleaner. There are some common functions that **are** faster, but they have been specifically optimized for speed. Consider `colMeans` or `rowMeans` for simple (unweighted) means.
+
+Also note how we defined an "in-line" function within the `apply()` call. This is sometimes called a "lambda" or "anonymous" function. We won't be able to call it outside of the `apply()` call since it has no name, but there's not ever a reason why we would want to. 
+
+`sapply()` works on generic lists while `tapply()` can also apply a function based on the value of an index. 
+
+However, if you are using `tidyverse`, you probably should prefer the equivalent "generic" version of `apply()` -- the `map` family of functions. They vary primarily in how they return their output. `map()` always returns a list while other forms (like `map_dbl()` or `map_chr()`) will force this list to be a vector of the specified type.
+
+```{r}
+approval_data %>% map_dbl(function(x) weighted.mean(x, ces_approval$commonweight, na.rm=T))
+```
+
+You can use `map()` on a vector to iterate over a function repeatedly
+
+```{r}
+map(1:10, function(x) sample(1:100, 1)) # Sample a number from 1:100 ten times.
+```
+
+Note that when applying functions to grouped columns of a data frame, you should probably still be using `summarize()` for most cases. `group_map()` has more flexibility, but can be a bit more difficult to implement.
+
+```{r}
+ces_approval %>% group_by(pid3) %>% summarize_at(vars(contains("approve")), ~ weighted.mean(., commonweight, na.rm=T))
+```
+
+
+## Excerise: Optimization
+
+In this section, we'll illustrate another valuable use of functional programming -- optimization routines. Many tasks require finding maxima or minima of functions. Most functions of interest are very difficult to analyze analytically and rarely does a **closed-form solution** for the optima exist. However, a large number of methods exist that allow you to find a numerical solution to this problem.
+
+Consider the following function.
+
+$$f(x_1, x_2)  = -x_1^2 + 2x_1 - 2x_2^2 + 3x_2 + x_1x_2 + 2$$
+Let's it's maximum using numerical optimization
+
+```{r}
+polynom <- function(x){
+  return(-x[1]^2 + 2*x[1] - 2*x[2]^2 + 3*x[2] + x[1]*x[2] + 2)
+}
+```
+
+We will use an implementation of the `BFGS` algorithm. This is an extension of the classic Newton-Raphson method. To find the maximum of a function, this approach starts with an initial guess $x_n$. Then, each subsequent step updates $x_n$ by taking steps in the direction of the gradient, scaled by the Hessian. In a single dimension, the update step is:
+
+$$x_{n+1} = x_{n} + \frac{f^{\prime}(x_{n})}{f^{\prime\prime}(x_n)}$$
+
+For minimization, we replace the plus with a minus (as we want to move **away** from the gradient).
+
+`BFGS` is implemented alongside many other algorithms in the `optim` function that is part of Base-R. `optim` takes as input a set of initial parameters, the name of the function to be optimized. A function that returns the gradient can also be specified, but this is optional. If not provided, `optim` routines that use the gradient will approximate it using a finite difference method (evaluating the function at small changes in the inputs).
+
+```{r}
+max_1 <- optim(c(0,0), polynom, method = "BFGS", hessian=T, control=list(fnscale=-1))
+```
+
+Note that we have set `hessian=T` to return an evaluation of the hessian matrix at the critical point. We have also set this as a **maximization** problem by using the `fnscale` argument in `control`. By default, `optim()` minimizes the function. `fnscale` flips the function so that minimization is maximization of the original function.
+
+Let's see the output
+
+```{r}
+max_1
+```
+
+The $x$ solution is stored in `$par`, the value at the maximum is stored in `$value`. `$convergence` describes whether the optimization routine converged or not (0 = success). We can confirm that this is a maximum by showing that the Hessian is negative definite and that all the eigenvalues of the Hessian are negative.
+
+```{r}
+eigen(max_1$hessian)
+```
+
+Note that starting values matter. Choosing a starting point far away from the true solution means that more steps are required to reach convergence. Here, the function is well-behaved enough that even choosing $x_0 = \{1000, -100\}$ doesn't increase the number of steps too much, but some functions can be very poorly behaved (near-zero gradients) for some inputs.
+
+```{r}
+max_2 <- optim(c(1000,-100), polynom, method = "BFGS", hessian=T, control=list(fnscale=-1))
+max_2
+```
+
+
+Challenge problem:
+
+Consider the following function.
+
+```{r}
+myfun <- function(x, mu=5, sigma=10){
+  return(((x*sigma*sqrt(2*pi))^-1)*exp((-(log(x) - mu)^2)/(2*sigma^2)))
+}
+```
+
+Using `optim`, find the maximum of `myfun` for parameters `mu=5` and `sigma=10`.
+
+Hint: `myfun` is defined only over the positive reals, but `optim` assumes the inputs are unbounded (at least for `BFGS`). Try to transform the inputs such that `optim` will work (you can do this with a lambda function).
+
+```{r}
+
+
+```
+
+Now, find the maximum for parameters `mu=7` and `sigma=5`
+
+```{r}
+
+
+```
+
+Challenge Problem 2:
+
+Write a function that returns the gradient of `polynom`. Pass this function as as an argument to `optim`. Compare the speed of the optimizer when the gradient is known in closed form vs. when it is approximated.
