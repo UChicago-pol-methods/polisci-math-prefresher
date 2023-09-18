@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>University of Chicago Political Science Math Prefresher - 12&nbsp; Simulation12</title>
+<title>University of Chicago Political Science Math Prefresher - 13&nbsp; Simulation11</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./15_project-dempeace.html" rel="prev">
+<link href="./17_vectorization_optimization.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Simulation<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Simulation<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -193,12 +193,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_data-handling_counting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Programming: Orientation and Reading in Data</span></a><a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>
+  <a href="./11_data-handling_counting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Programming: Orientation and Reading in Data</span></a><a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_matricies-manipulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Programming: Manipulating Vectors and Matrices</span></a><a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>
+  <a href="./12_matricies-manipulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Programming: Manipulating Vectors and Matrices</span></a><a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -208,12 +208,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15_project-dempeace.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Joins and Merges, Wide and Long</span></a><a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>
+  <a href="./15_project-dempeace.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Joins and Merges, Wide and Long</span></a><a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16_simulation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Simulation</span></a><a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a>
+  <a href="./17_vectorization_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Functionals and Optimization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_simulation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Simulation</span></a><a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>
   </div>
 </li>
     </ul>
@@ -228,19 +233,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#motivation-simulation-as-an-analytical-tool" id="toc-motivation-simulation-as-an-analytical-tool" class="nav-link active" data-scroll-target="#motivation-simulation-as-an-analytical-tool">Motivation: Simulation as an Analytical Tool</a></li>
   <li><a href="#where-are-we-where-are-we-headed" id="toc-where-are-we-where-are-we-headed" class="nav-link" data-scroll-target="#where-are-we-where-are-we-headed">Where are we? Where are we headed?</a></li>
   <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your Understanding</a></li>
-  <li><a href="#pick-a-sample-any-sample" id="toc-pick-a-sample-any-sample" class="nav-link" data-scroll-target="#pick-a-sample-any-sample"><span class="toc-section-number">12.1</span>  Pick a sample, any sample</a></li>
-  <li><a href="#the-sample-function" id="toc-the-sample-function" class="nav-link" data-scroll-target="#the-sample-function"><span class="toc-section-number">12.2</span>  The <code>sample()</code> function</a>
+  <li><a href="#pick-a-sample-any-sample" id="toc-pick-a-sample-any-sample" class="nav-link" data-scroll-target="#pick-a-sample-any-sample"><span class="toc-section-number">13.1</span>  Pick a sample, any sample</a></li>
+  <li><a href="#the-sample-function" id="toc-the-sample-function" class="nav-link" data-scroll-target="#the-sample-function"><span class="toc-section-number">13.2</span>  The <code>sample()</code> function</a>
   <ul class="collapse">
-  <li><a href="#sampling-rows-from-a-dataframe" id="toc-sampling-rows-from-a-dataframe" class="nav-link" data-scroll-target="#sampling-rows-from-a-dataframe"><span class="toc-section-number">12.2.1</span>  Sampling rows from a dataframe</a></li>
+  <li><a href="#sampling-rows-from-a-dataframe" id="toc-sampling-rows-from-a-dataframe" class="nav-link" data-scroll-target="#sampling-rows-from-a-dataframe"><span class="toc-section-number">13.2.1</span>  Sampling rows from a dataframe</a></li>
   </ul></li>
-  <li><a href="#random-numbers-from-specific-distributions" id="toc-random-numbers-from-specific-distributions" class="nav-link" data-scroll-target="#random-numbers-from-specific-distributions"><span class="toc-section-number">12.3</span>  Random numbers from specific distributions</a>
+  <li><a href="#random-numbers-from-specific-distributions" id="toc-random-numbers-from-specific-distributions" class="nav-link" data-scroll-target="#random-numbers-from-specific-distributions"><span class="toc-section-number">13.3</span>  Random numbers from specific distributions</a>
   <ul class="collapse">
   <li><a href="#rbinom" id="toc-rbinom" class="nav-link" data-scroll-target="#rbinom"><code>rbinom()</code></a></li>
   <li><a href="#runif" id="toc-runif" class="nav-link" data-scroll-target="#runif"><code>runif()</code></a></li>
   <li><a href="#rnorm" id="toc-rnorm" class="nav-link" data-scroll-target="#rnorm"><code>rnorm()</code></a></li>
   </ul></li>
-  <li><a href="#r-p-and-d" id="toc-r-p-and-d" class="nav-link" data-scroll-target="#r-p-and-d"><span class="toc-section-number">12.4</span>  r, p, and d</a></li>
-  <li><a href="#set.seed" id="toc-set.seed" class="nav-link" data-scroll-target="#set.seed"><span class="toc-section-number">12.5</span>  <code>set.seed()</code></a></li>
+  <li><a href="#r-p-and-d" id="toc-r-p-and-d" class="nav-link" data-scroll-target="#r-p-and-d"><span class="toc-section-number">13.4</span>  r, p, and d</a></li>
+  <li><a href="#set.seed" id="toc-set.seed" class="nav-link" data-scroll-target="#set.seed"><span class="toc-section-number">13.5</span>  <code>set.seed()</code></a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#census-sampling" id="toc-census-sampling" class="nav-link" data-scroll-target="#census-sampling">Census Sampling</a></li>
@@ -255,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="simulation" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Simulation<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></span></span></h1>
+<h1 class="title"><span id="simulation" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Simulation<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></span></span></h1>
 </div>
 
 
@@ -313,11 +318,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>We’re going to learn about this today!</p>
 </section>
-<section id="pick-a-sample-any-sample" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="pick-a-sample-any-sample"><span class="header-section-number">12.1</span> Pick a sample, any sample</h2>
+<section id="pick-a-sample-any-sample" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="pick-a-sample-any-sample"><span class="header-section-number">13.1</span> Pick a sample, any sample</h2>
 </section>
-<section id="the-sample-function" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="the-sample-function"><span class="header-section-number">12.2</span> The <code>sample()</code> function</h2>
+<section id="the-sample-function" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="the-sample-function"><span class="header-section-number">13.2</span> The <code>sample()</code> function</h2>
 <p>The core functions for coding up stochastic data revolves around several key functions, so we will simply review them here.</p>
 <p>Suppose you have a vector of values <code>x</code> and from it you want to randomly sample a sample of length <code>size</code>. For this, use the <code>sample</code> function</p>
 <div class="cell">
@@ -369,8 +374,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 [11] "Tail" "Tail" "Tail" "Head" "Head" "Tail" "Tail" "Tail" "Head" "Tail"</code></pre>
 </div>
 </div>
-<section id="sampling-rows-from-a-dataframe" class="level3" data-number="12.2.1">
-<h3 data-number="12.2.1" class="anchored" data-anchor-id="sampling-rows-from-a-dataframe"><span class="header-section-number">12.2.1</span> Sampling rows from a dataframe</h3>
+<section id="sampling-rows-from-a-dataframe" class="level3" data-number="13.2.1">
+<h3 data-number="13.2.1" class="anchored" data-anchor-id="sampling-rows-from-a-dataframe"><span class="header-section-number">13.2.1</span> Sampling rows from a dataframe</h3>
 <p>In tidyverse, there is a convenience function to sample rows randomly: <code>slice_sample()</code></p>
 <p>For example, load the dataset on cars, <code>mtcars</code>, which has 32 observations.</p>
 <div class="cell">
@@ -462,14 +467,14 @@ Volvo 142E          2.780   4  1</code></pre>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">proc.time</span>() <span class="sc">-</span> time1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  0.461   0.000   0.462 </code></pre>
+  0.677   0.032   0.709 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>time2 <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>sample_means <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="at">.x =</span> <span class="dv">1</span><span class="sc">:</span>nIter, <span class="at">.f =</span> <span class="cf">function</span>(x) <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size=</span><span class="dv">1</span>))</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">proc.time</span>() <span class="sc">-</span> time2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  0.503   0.000   0.503 </code></pre>
+  0.674   0.000   0.674 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sample_means)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -483,8 +488,8 @@ Volvo 142E          2.780   4  1</code></pre>
 </ul>
 </section>
 </section>
-<section id="random-numbers-from-specific-distributions" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="random-numbers-from-specific-distributions"><span class="header-section-number">12.3</span> Random numbers from specific distributions</h2>
+<section id="random-numbers-from-specific-distributions" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="random-numbers-from-specific-distributions"><span class="header-section-number">13.3</span> Random numbers from specific distributions</h2>
 <section id="rbinom" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="rbinom"><code>rbinom()</code></h3>
 <p><code>rbinom</code> builds upon <code>sample</code> as a tool to help you answer the question – what is the <em>total number of successes</em> I would get if I sampled a binary (Bernoulli) result from a test with <code>size</code> number of trials each, with a event-wise probability of <code>prob</code>. The first argument <code>n</code> asks me how many such numbers I want.</p>
@@ -2538,8 +2543,8 @@ Volvo 142E          2.780   4  1</code></pre>
 </div>
 </section>
 </section>
-<section id="r-p-and-d" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="r-p-and-d"><span class="header-section-number">12.4</span> r, p, and d</h2>
+<section id="r-p-and-d" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="r-p-and-d"><span class="header-section-number">13.4</span> r, p, and d</h2>
 <p>Each distribution can do more than generate random numbers (the prefix <code>r</code>). We can compute the cumulative probability by the function <code>pbinom()</code>, <code>punif()</code>, and <code>pnorm()</code>. Also the density – the value of the PDF – by <code>dbinom()</code>, <code>dunif()</code> and <code>dnorm()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>random_normals <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">1000000</span>, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>)</span>
@@ -2554,8 +2559,8 @@ Volvo 142E          2.780   4  1</code></pre>
 </div>
 </div>
 </section>
-<section id="set.seed" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="set.seed"><span class="header-section-number">12.5</span> <code>set.seed()</code></h2>
+<section id="set.seed" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="set.seed"><span class="header-section-number">13.5</span> <code>set.seed()</code></h2>
 <p><code>R</code> doesn’t have the ability to generate truly random numbers! Random numbers are actually very hard to generate. (Think: flipping a coin –&gt; can be perfectly predicted if I know wind speed, the angle the coin is flipped, etc.). Some people use random noise in the atmosphere or random behavior in quantum systems to generate “truly” (?) random numbers. Conversely, R uses deterministic algorithms which take as an input a “seed” and which then perform a series of operations to generate a sequence of random-seeming numbers (that is, numbers whose sequence is sufficiently hard to predict).</p>
 <p>Let’s think about this another way. Sampling is a stochastic process, so every time you run <code>sample()</code> or <code>runif()</code> you are bound to get a different output (because different random seeds are used). This is intentional in some cases but you might want to avoid it in others. For example, you might want to diagnose a coding discrepancy by setting the random number generator to give the same number each time. To do this, use the function <code>set.seed()</code>.</p>
 <p>In the function goes any number. When you run a sample function in the same command as a preceding <code>set.seed()</code>, the sampling function will always give you the same sequence of numbers. In a sense, the sampler is no longer random (in the sense of unpredictable to use; remember: it never was “truly” random in the first place)</p>
@@ -2660,14 +2665,13 @@ Volvo 142E          2.780   4  1</code></pre>
 <li id="fn4"><p><a href="https://gking.harvard.edu/files/abs/evil-abs.shtml">King, Gary, et al.&nbsp;“Analyzing Incomplete Political Science Data: An Alternative Algorithm for Multiple Imputation”. <em>American Political Science Review</em>, 95: 49-69.</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p><a href="http://www.jstatsoft.org/v45/i07/">James Honaker, Gary King, Matthew Blackwell (2011). Amelia II: A Program for Missing Data. Journal of Statistical Software, 45(7), 1-47.</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6"><p>This example is inspired from <a href="https://statistics.fas.harvard.edu/files/statistics-2/files/statistical_paradises_and_paradoxes.pdf">Meng, Xiao-Li (2018). Statistical paradises and paradoxes in big data (I): Law of large populations, big data paradox, and the 2016 US presidential election. <em>Annals of Applied Statistics</em> 12:2, 685–726. doi:10.1214/18-AOAS1161SF.</a><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7"><p>Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn8"><p>Special thanks to Shiro Kuriwaki for developing the original version of this tutorial<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn9"><p>Special thanks to Shiro Kuriwaki and Yon Soo Park for developing the original module<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn10"><p>Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Special thanks to Shiro Kuriwaki for developing the original version of this tutorial<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Special thanks to Shiro Kuriwaki and Yon Soo Park for developing the original module<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>Module originally written by Connor Jerzak and Shiro Kuriwaki<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn11"><p>Module originally written by Connor Jerzak and Shiro Kuriwaki<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn12"><p>Module originally written by Connor Jerzak and Shiro Kuriwaki<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn13"><p>Module originally written by Connor Jerzak and Shiro Kuriwaki<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn14"><p>Module originally written by Connor Jerzak and Shiro Kuriwaki<a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -2772,9 +2776,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./15_project-dempeace.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Joins and Merges, Wide and Long</span></span></a><a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>
-                
+      <a href="./17_vectorization_optimization.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Functionals and Optimization</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
   </div>

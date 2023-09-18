@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>University of Chicago Political Science Math Prefresher - 12&nbsp; Functionals and Optimization</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./16_simulation.html" rel="next">
+<link href="./15_project-dempeace.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Functionals and Optimization</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">University of Chicago Political Science Math Prefresher</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_sets_and_functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sets, Operations, and Functions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Limits</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_calculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calculus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optimization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_linear-algebra.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Algebra</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_data-handling_counting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Programming: Orientation and Reading in Data</span></a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_matricies-manipulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Programming: Manipulating Vectors and Matrices</span></a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_functions_obj_loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Objects, Functions, Loops</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_project-dempeace.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Joins and Merges, Wide and Long</span></a><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17_vectorization_optimization.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Functionals and Optimization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Simulation</span></a><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#more-tidyversedata-cleaning" id="toc-more-tidyversedata-cleaning" class="nav-link active" data-scroll-target="#more-tidyversedata-cleaning"><span class="toc-section-number">12.1</span>  More Tidyverse/Data Cleaning</a></li>
+  <li><a href="#functionals" id="toc-functionals" class="nav-link" data-scroll-target="#functionals">Functionals</a>
+  <ul class="collapse">
+  <li><a href="#replacing-for-loops" id="toc-replacing-for-loops" class="nav-link" data-scroll-target="#replacing-for-loops"><span class="toc-section-number">12.1.1</span>  Replacing for loops</a></li>
+  </ul></li>
+  <li><a href="#excerise-optimization" id="toc-excerise-optimization" class="nav-link" data-scroll-target="#excerise-optimization"><span class="toc-section-number">12.2</span>  Excerise: Optimization</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="functionals" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Functionals and Optimization</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="more-tidyversedata-cleaning" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="more-tidyversedata-cleaning"><span class="header-section-number">12.1</span> More Tidyverse/Data Cleaning</h2>
+<p>For our main example in this session, we’ll take a look at the the 2022 Cooperative Election Survey (CES). The <code>ces22.dta</code> file contains a subset of questions asked to respondents in the 2022 wave of this annual survey stored in Stata’s <code>dta</code> format.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ces <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"data/input/ces22_subset.dta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Stata files often contain metadata for each column. In the CES, responses are stored as numeric values that represent one of the discrete choices available to the respondent. As a result, while many of the columns have numeric data types, they should not be treated as numbers. This is something to be careful of as you work with any dataset – always read the codebook.</p>
+<p>For example, while we could take the “mean” of the race variable, this is a nonsense quantity.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ces<span class="sc">$</span>race)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.696817</code></pre>
+</div>
+</div>
+<p>We can take a closer look at how the race variable is stored:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ces<span class="sc">$</span>race)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;labelled&lt;double&gt;[6]&gt;: Race
+[1] 1 1 1 1 1 7
+
+Labels:
+ value             label
+     1             White
+     2             Black
+     3          Hispanic
+     4             Asian
+     5   Native American
+     6 Two or more races
+     7             Other
+     8    Middle Eastern
+    98           skipped
+    99         not asked</code></pre>
+</div>
+</div>
+<p>And take a closer look at its class</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(ces<span class="sc">$</span>race)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "haven_labelled" "vctrs_vctr"     "double"        </code></pre>
+</div>
+</div>
+<p><code>haven</code> reads in the Stata metadata and creates a column that has the <code>haven_labelled</code> class, which stores both the numeric labels and the metadata which denotes the mapping between the numeric label and its meaning. We’d like to use this to convert the variables to factors that we can work with in R. To do this, we’ll be using the <code>as_factor()</code> function. This function is “generic” and has a specific implementation for <code>haven_labelled</code> objects in the <code>haven</code> package</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">as_factor</span>(ces<span class="sc">$</span>race))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] White White White White White Other
+10 Levels: White Black Hispanic Asian Native American ... not asked</code></pre>
+</div>
+</div>
+<p>Or in “tidy” style</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ces <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">race =</span> <span class="fu">as_factor</span>(race))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 60,000 × 28
+     caseid commonweight commonpostweight gender4 educ    race  hispanic pid3   
+      &lt;dbl&gt;        &lt;dbl&gt;            &lt;dbl&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;fct&gt; &lt;dbl+lb&gt; &lt;dbl+l&gt;
+ 1   1.98e9        3.65            3.53   1 [Man] 6 [Pos… White 2 [No]   1 [Dem…
+ 2   1.98e9        0.780           0.819  1 [Man] 3 [Som… White 2 [No]   3 [Ind…
+ 3   1.98e9        0.892           0.774  2 [Wom… 5 [4-y… White 2 [No]   1 [Dem…
+ 4   1.98e9        1.10            1.21   3 [Non… 6 [Pos… White 2 [No]   4 [Oth…
+ 5   1.98e9        0.543           0.328  1 [Man] 6 [Pos… White 2 [No]   3 [Ind…
+ 6   1.98e9        0.114           0.0989 1 [Man] 5 [4-y… Other 2 [No]   3 [Ind…
+ 7   1.98e9        0.899           1.21   2 [Wom… 2 [Hig… Black 2 [No]   1 [Dem…
+ 8   1.98e9        0.633           0.431  1 [Man] 6 [Pos… White 2 [No]   1 [Dem…
+ 9   1.98e9        0.900           0.854  2 [Wom… 5 [4-y… White 2 [No]   1 [Dem…
+10   1.98e9        0.725           0.586  1 [Man] 6 [Pos… White 2 [No]   1 [Dem…
+# ℹ 59,990 more rows
+# ℹ 20 more variables: pid7 &lt;dbl+lbl&gt;, inputstate &lt;dbl+lbl&gt;,
+#   CC22_306 &lt;dbl+lbl&gt;, CC22_320a &lt;dbl+lbl&gt;, CC22_320b &lt;dbl+lbl&gt;,
+#   CC22_320c &lt;dbl+lbl&gt;, CC22_320d &lt;dbl+lbl&gt;, CC22_320e &lt;dbl+lbl&gt;,
+#   CC22_320f &lt;dbl+lbl&gt;, CC22_320g &lt;dbl+lbl&gt;, CC22_320h &lt;dbl+lbl&gt;,
+#   page_CC22_320grid_timing &lt;dbl&gt;, CC22_333 &lt;dbl+lbl&gt;, CC22_333a &lt;dbl+lbl&gt;,
+#   CC22_333b &lt;dbl+lbl&gt;, CC22_333c &lt;dbl+lbl&gt;, CC22_333d &lt;dbl+lbl&gt;, …</code></pre>
+</div>
+</div>
+<p>But we’d like to do this for every column in our dataset (except for columns that are numeric). We could manually go through every single column and convert it to a factor, or we could use some tidyverse tools.</p>
+<p>The <code>across()</code> function allows us to select columns using the same custom selection syntax as in <code>select()</code>. We can combine this with the mutate function to mutate every column that we want to transform. Here, we want to select the columns that are of a certain <strong>class</strong> – the “labelled” class.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ces <span class="ot">&lt;-</span> ces <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.labelled), as_factor))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>across()</code>, like <code>select()</code> is very flexible in how columns can be selected. In addition to selecting by number, you can select by partial string match, numerical sequence, or even regular expressions!</p>
+<p>Now all of our columns operate correctly as factors.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ces</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 60,000 × 28
+   caseid commonweight commonpostweight gender4 educ  race  hispanic pid3  pid7 
+    &lt;dbl&gt;        &lt;dbl&gt;            &lt;dbl&gt; &lt;fct&gt;   &lt;fct&gt; &lt;fct&gt; &lt;fct&gt;    &lt;fct&gt; &lt;fct&gt;
+ 1 1.98e9        3.65            3.53   Man     Post… White No       Demo… Stro…
+ 2 1.98e9        0.780           0.819  Man     Some… White No       Inde… Lean…
+ 3 1.98e9        0.892           0.774  Woman   4-ye… White No       Demo… Stro…
+ 4 1.98e9        1.10            1.21   Non-bi… Post… White No       Other Inde…
+ 5 1.98e9        0.543           0.328  Man     Post… White No       Inde… Inde…
+ 6 1.98e9        0.114           0.0989 Man     4-ye… Other No       Inde… Inde…
+ 7 1.98e9        0.899           1.21   Woman   High… Black No       Demo… Not …
+ 8 1.98e9        0.633           0.431  Man     Post… White No       Demo… Not …
+ 9 1.98e9        0.900           0.854  Woman   4-ye… White No       Demo… Stro…
+10 1.98e9        0.725           0.586  Man     Post… White No       Demo… Not …
+# ℹ 59,990 more rows
+# ℹ 19 more variables: inputstate &lt;fct&gt;, CC22_306 &lt;fct&gt;, CC22_320a &lt;fct&gt;,
+#   CC22_320b &lt;fct&gt;, CC22_320c &lt;fct&gt;, CC22_320d &lt;fct&gt;, CC22_320e &lt;fct&gt;,
+#   CC22_320f &lt;fct&gt;, CC22_320g &lt;fct&gt;, CC22_320h &lt;fct&gt;,
+#   page_CC22_320grid_timing &lt;dbl&gt;, CC22_333 &lt;fct&gt;, CC22_333a &lt;fct&gt;,
+#   CC22_333b &lt;fct&gt;, CC22_333c &lt;fct&gt;, CC22_333d &lt;fct&gt;, CC22_333e &lt;fct&gt;,
+#   page_CC22_333_timing &lt;dbl&gt;, page_CC22_333grid_timing &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>We can do some more steps to make our data easier to work with. First, we can rename columns to be more informative. For example, <code>CC22_306</code> is a question on vaccination status. Let’s <code>rename()</code> that column to make it easier to reference</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ces <span class="ot">&lt;-</span> ces <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">vaccinated =</span> CC22_306) <span class="co">#New aname = old name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>vaccinated</code> has a number of different levels</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(ces<span class="sc">$</span>vaccinated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+                              I am fully vaccinated and have received at least one booster shot 
+                                                                                          33870 
+                                     I am fully vaccinated but have not received a booster shot 
+                                                                                          10554 
+I am partially vaccinated (I have received the first of two shots for either Pfizer or Moderna) 
+                                                                                           1956 
+                                                                     I am not vaccinated at all 
+                                                                                          13467 
+                                                                                        skipped 
+                                                                                              0 
+                                                                                      not asked 
+                                                                                              0 </code></pre>
+</div>
+</div>
+<p>Let’s recode this categorical variable to a binary indicator for whether a respondent is fully vaccinated. Note that two of these categories have “fully vaccinated”. We want to code these as a value of <span class="math inline">\(1\)</span> and the rest as <span class="math inline">\(0\)</span>. To do this we’ll use the <code>case_when()</code> function inside of a <code>mutate()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ces <span class="ot">&lt;-</span> ces <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">fullyvax =</span> <span class="fu">case_when</span>(<span class="fu">str_detect</span>(vaccinated, <span class="st">"fully vaccinated"</span>) <span class="sc">~</span> <span class="dv">1</span>, </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                                           <span class="sc">!</span><span class="fu">str_detect</span>(vaccinated, <span class="st">"fully vaccinated"</span>) <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                                           <span class="fu">is.na</span>(vaccinated) <span class="sc">~</span> <span class="cn">NA_real_</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>How many respondents are fully vaccinated?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(ces<span class="sc">$</span>fullyvax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    0     1 
+15423 44424 </code></pre>
+</div>
+</div>
+<p><code>CC22_320</code> contains approval ratings of various political institutions. Let’s pull the three big ones (President, Legislature, Supreme Court) and create indicators for whether the respondent approves or disapproves of that institution.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>ces <span class="ot">&lt;-</span> ces <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">approvePresident =</span> <span class="fu">case_when</span>(<span class="fu">str_detect</span>(CC22_320a, <span class="st">"disapprove"</span>) <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                                                    <span class="fu">str_detect</span>(CC22_320a, <span class="st">"approve"</span>) <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                                                    <span class="fu">str_detect</span>(CC22_320a, <span class="st">"Not sure"</span>) <span class="sc">~</span> <span class="dv">0</span>), </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">approveCongress =</span> <span class="fu">case_when</span>(<span class="fu">str_detect</span>(CC22_320b, <span class="st">"disapprove"</span>) <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>                                                    <span class="fu">str_detect</span>(CC22_320b, <span class="st">"approve"</span>) <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>                                                    <span class="fu">str_detect</span>(CC22_320b, <span class="st">"Not sure"</span>) <span class="sc">~</span> <span class="dv">0</span>), </span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">approveCourt =</span> <span class="fu">case_when</span>(<span class="fu">str_detect</span>(CC22_320c, <span class="st">"disapprove"</span>) <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>                                                    <span class="fu">str_detect</span>(CC22_320c, <span class="st">"approve"</span>) <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>                                                    <span class="fu">str_detect</span>(CC22_320c, <span class="st">"Not sure"</span>) <span class="sc">~</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s pull those three columns, party ID and the survey weights and analyze them further.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>ces_approval <span class="ot">&lt;-</span> ces <span class="sc">%&gt;%</span> <span class="fu">select</span>(commonweight, pid3, approvePresident, approveCongress, approveCourt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="functionals" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="functionals">Functionals</h2>
+<p>Many functions in R act on functions as input. You’ve already seen a lot of <code>tidyverse</code> functions that do this. For example, the <code>summarize()</code> function takes as input a dataset and a function or functions describing what operations should be done on the dataset. Above, we used <code>mutate</code> which took the functional arguments <code>across</code> and <code>as_factor</code>.</p>
+<p>R is a <em>functional programming</em> language in that functions are “first-class citizens” and can be treated as any other data type. They can be given a name, passed as inputs to other functions, and returned as output.</p>
+<p>This allows programs to be written in terms of compositions of functions. In fact, this is one of the principles of the <code>tidy</code> project as outlined by Hadley Wickham, and many of the constructs provided by the tidyverse encourage you to work this way. See the <a href="https://tidyverse.tidyverse.org/articles/manifesto.html">tidy manifesto</a> for more.</p>
+<section id="replacing-for-loops" class="level3" data-number="12.1.1">
+<h3 data-number="12.1.1" class="anchored" data-anchor-id="replacing-for-loops"><span class="header-section-number">12.1.1</span> Replacing for loops</h3>
+<p>R programmers tend to favor functional replacements for <code>for</code> loops. Rather than iterate over elements of a vector or list and execute some operation for each iteration, you can use one of the <code>apply</code> (Base-R) or <code>map</code> (tidyverse) functions.</p>
+<p>To illustrate, let’s take a look at our approval rating data from before. How would we write a for-loop to calculate the (weighted) mean for each column?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>approval_data <span class="ot">&lt;-</span> ces_approval <span class="sc">%&gt;%</span> <span class="fu">select</span>(approvePresident, approveCongress, approveCourt)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>for_time <span class="ot">&lt;-</span> <span class="fu">proc.time</span>() <span class="co"># Store current time -- used for timing speed of function</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>approval <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">3</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(approval) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"approvePresident"</span>, <span class="st">"approveCongress"</span>, <span class="st">"approveCourt"</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (name <span class="cf">in</span> <span class="fu">names</span>(approval)){</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  approval[name] <span class="ot">&lt;-</span> <span class="fu">weighted.mean</span>(approval_data[[name]], ces_approval<span class="sc">$</span>commonweight, <span class="at">na.rm=</span>T)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">proc.time</span>() <span class="sc">-</span> for_time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+  0.013   0.000   0.012 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(approval)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>approvePresident  approveCongress     approveCourt 
+       0.4131196        0.2635909        0.3600206 </code></pre>
+</div>
+</div>
+<p>This is pretty terrible looking. We’ve already seen the <code>summarize()</code> function work for this task, but let’s illustrate another operation in base-R, the <code>apply</code> function. <code>apply()</code> operates on matrices and applies a function to each row or column.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>for_time <span class="ot">&lt;-</span> <span class="fu">proc.time</span>() <span class="co"># Store current time -- used for timing speed of function</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>approval <span class="ot">&lt;-</span> <span class="fu">apply</span>(approval_data, <span class="dv">2</span>, <span class="cf">function</span>(x) <span class="fu">weighted.mean</span>(x, ces_approval<span class="sc">$</span>commonweight, <span class="at">na.rm=</span>T))</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">proc.time</span>() <span class="sc">-</span> for_time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+  0.007   0.000   0.007 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(approval)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>approvePresident  approveCongress     approveCourt 
+       0.4131196        0.2635909        0.3600206 </code></pre>
+</div>
+</div>
+<p>Note that there aren’t really substantial speed benefits. Rather, the code just looks cleaner. There are some common functions that <strong>are</strong> faster, but they have been specifically optimized for speed. Consider <code>colMeans</code> or <code>rowMeans</code> for simple (unweighted) means.</p>
+<p>Also note how we defined an “in-line” function within the <code>apply()</code> call. This is sometimes called a “lambda” or “anonymous” function. We won’t be able to call it outside of the <code>apply()</code> call since it has no name, but there’s not ever a reason why we would want to.</p>
+<p><code>sapply()</code> works on generic lists while <code>tapply()</code> can also apply a function based on the value of an index.</p>
+<p>However, if you are using <code>tidyverse</code>, you probably should prefer the equivalent “generic” version of <code>apply()</code> – the <code>map</code> family of functions. They vary primarily in how they return their output. <code>map()</code> always returns a list while other forms (like <code>map_dbl()</code> or <code>map_chr()</code>) will force this list to be a vector of the specified type.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>approval_data <span class="sc">%&gt;%</span> <span class="fu">map_dbl</span>(<span class="cf">function</span>(x) <span class="fu">weighted.mean</span>(x, ces_approval<span class="sc">$</span>commonweight, <span class="at">na.rm=</span>T))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>approvePresident  approveCongress     approveCourt 
+       0.4131196        0.2635909        0.3600206 </code></pre>
+</div>
+</div>
+<p>You can use <code>map()</code> on a vector to iterate over a function repeatedly</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x) <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="co"># Sample a number from 1:100 ten times.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] 15
+
+[[2]]
+[1] 80
+
+[[3]]
+[1] 99
+
+[[4]]
+[1] 10
+
+[[5]]
+[1] 94
+
+[[6]]
+[1] 64
+
+[[7]]
+[1] 80
+
+[[8]]
+[1] 88
+
+[[9]]
+[1] 29
+
+[[10]]
+[1] 45</code></pre>
+</div>
+</div>
+<p>Note that when applying functions to grouped columns of a data frame, you should probably still be using <code>summarize()</code> for most cases. <code>group_map()</code> has more flexibility, but can be a bit more difficult to implement.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>ces_approval <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(pid3) <span class="sc">%&gt;%</span> <span class="fu">summarize_at</span>(<span class="fu">vars</span>(<span class="fu">contains</span>(<span class="st">"approve"</span>)), <span class="sc">~</span> <span class="fu">weighted.mean</span>(., commonweight, <span class="at">na.rm=</span>T))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  pid3        approvePresident approveCongress approveCourt
+  &lt;fct&gt;                  &lt;dbl&gt;           &lt;dbl&gt;        &lt;dbl&gt;
+1 Democrat              0.837            0.507        0.205
+2 Republican            0.0646           0.113        0.607
+3 Independent           0.338            0.185        0.346
+4 Other                 0.270            0.121        0.343
+5 Not sure              0.248            0.150        0.170</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="excerise-optimization" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="excerise-optimization"><span class="header-section-number">12.2</span> Excerise: Optimization</h2>
+<p>In this section, we’ll illustrate another valuable use of functional programming – optimization routines. Many tasks require finding maxima or minima of functions. Most functions of interest are very difficult to analyze analytically and rarely does a <strong>closed-form solution</strong> for the optima exist. However, a large number of methods exist that allow you to find a numerical solution to this problem.</p>
+<p>Consider the following function.</p>
+<p><span class="math display">\[f(x_1, x_2)  = -x_1^2 + 2x_1 - 2x_2^2 + 3x_2 + x_1x_2 + 2\]</span> Let’s it’s maximum using numerical optimization</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>polynom <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="sc">-</span>x[<span class="dv">1</span>]<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>x[<span class="dv">1</span>] <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span>x[<span class="dv">2</span>]<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>x[<span class="dv">2</span>] <span class="sc">+</span> x[<span class="dv">1</span>]<span class="sc">*</span>x[<span class="dv">2</span>] <span class="sc">+</span> <span class="dv">2</span>)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will use an implementation of the <code>BFGS</code> algorithm. This is an extension of the classic Newton-Raphson method. To find the maximum of a function, this approach starts with an initial guess <span class="math inline">\(x_n\)</span>. Then, each subsequent step updates <span class="math inline">\(x_n\)</span> by taking steps in the direction of the gradient, scaled by the Hessian. In a single dimension, the update step is:</p>
+<p><span class="math display">\[x_{n+1} = x_{n} + \frac{f^{\prime}(x_{n})}{f^{\prime\prime}(x_n)}\]</span></p>
+<p>For minimization, we replace the plus with a minus (as we want to move <strong>away</strong> from the gradient).</p>
+<p><code>BFGS</code> is implemented alongside many other algorithms in the <code>optim</code> function that is part of Base-R. <code>optim</code> takes as input a set of initial parameters, the name of the function to be optimized. A function that returns the gradient can also be specified, but this is optional. If not provided, <code>optim</code> routines that use the gradient will approximate it using a finite difference method (evaluating the function at small changes in the inputs).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>max_1 <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), polynom, <span class="at">method =</span> <span class="st">"BFGS"</span>, <span class="at">hessian=</span>T, <span class="at">control=</span><span class="fu">list</span>(<span class="at">fnscale=</span><span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that we have set <code>hessian=T</code> to return an evaluation of the hessian matrix at the critical point. We have also set this as a <strong>maximization</strong> problem by using the <code>fnscale</code> argument in <code>control</code>. By default, <code>optim()</code> minimizes the function. <code>fnscale</code> flips the function so that minimization is maximization of the original function.</p>
+<p>Let’s see the output</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>max_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$par
+[1] 1.571269 1.142798
+
+$value
+[1] 5.285714
+
+$counts
+function gradient 
+      10        6 
+
+$convergence
+[1] 0
+
+$message
+NULL
+
+$hessian
+     [,1] [,2]
+[1,]   -2    1
+[2,]    1   -4</code></pre>
+</div>
+</div>
+<p>The <span class="math inline">\(x\)</span> solution is stored in <code>$par</code>, the value at the maximum is stored in <code>$value</code>. <code>$convergence</code> describes whether the optimization routine converged or not (0 = success). We can confirm that this is a maximum by showing that the Hessian is negative definite and that all the eigenvalues of the Hessian are negative.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">eigen</span>(max_1<span class="sc">$</span>hessian)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>eigen() decomposition
+$values
+[1] -1.585786 -4.414214
+
+$vectors
+           [,1]       [,2]
+[1,] -0.9238795 -0.3826834
+[2,] -0.3826834  0.9238795</code></pre>
+</div>
+</div>
+<p>Note that starting values matter. Choosing a starting point far away from the true solution means that more steps are required to reach convergence. Here, the function is well-behaved enough that even choosing <span class="math inline">\(x_0 = \{1000, -100\}\)</span> doesn’t increase the number of steps too much, but some functions can be very poorly behaved (near-zero gradients) for some inputs.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>max_2 <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="fu">c</span>(<span class="dv">1000</span>,<span class="sc">-</span><span class="dv">100</span>), polynom, <span class="at">method =</span> <span class="st">"BFGS"</span>, <span class="at">hessian=</span>T, <span class="at">control=</span><span class="fu">list</span>(<span class="at">fnscale=</span><span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>max_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$par
+[1] 1.571428 1.142848
+
+$value
+[1] 5.285714
+
+$counts
+function gradient 
+      25       10 
+
+$convergence
+[1] 0
+
+$message
+NULL
+
+$hessian
+     [,1] [,2]
+[1,]   -2    1
+[2,]    1   -4</code></pre>
+</div>
+</div>
+<p>Challenge problem:</p>
+<p>Consider the following function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>myfun <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">mu=</span><span class="dv">5</span>, <span class="at">sigma=</span><span class="dv">10</span>){</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(((x<span class="sc">*</span>sigma<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi))<span class="sc">^-</span><span class="dv">1</span>)<span class="sc">*</span><span class="fu">exp</span>((<span class="sc">-</span>(<span class="fu">log</span>(x) <span class="sc">-</span> mu)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using <code>optim</code>, find the maximum of <code>myfun</code> for parameters <code>mu=5</code> and <code>sigma=10</code>.</p>
+<p>Hint: <code>myfun</code> is defined only over the positive reals, but <code>optim</code> assumes the inputs are unbounded (at least for <code>BFGS</code>). Try to transform the inputs such that <code>optim</code> will work (you can do this with a lambda function).</p>
+<div class="cell">
+
+</div>
+<p>Now, find the maximum for parameters <code>mu=7</code> and <code>sigma=5</code></p>
+<div class="cell">
+
+</div>
+<p>Challenge Problem 2:</p>
+<p>Write a function that returns the gradient of <code>polynom</code>. Pass this function as as an argument to <code>optim</code>. Compare the speed of the optimizer when the gradient is known in closed form vs.&nbsp;when it is approximated.</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Module originally written by Connor Jerzak and Shiro Kuriwaki<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Special thanks to Shiro Kuriwaki for developing the original version of this tutorial<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Special thanks to Shiro Kuriwaki and Yon Soo Park for developing the original module<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Module originally written by Connor Jerzak and Shiro Kuriwaki<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./15_project-dempeace.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Joins and Merges, Wide and Long</span></span></a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+                
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./16_simulation.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Simulation</span></span></a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <i class="bi bi-arrow-right-short"></i>
+      
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
