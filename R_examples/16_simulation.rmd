@@ -361,7 +361,7 @@ Using a Monte Carlo simulation, calculate the expected return of a wager of 100 
 
 Calculate the "house edge" of the "player" bet. The house edge is the difference between a bettor's amount wagered and their expected return, divided by the amount wagered. In other words, it's the amount that a casino expects to keep of a player's bet.
 
-$$\text{House_Edge} = \frac{\text{Amount_Wagered} - \text{Expected_Return}}{\text{Amount_Wagered}}$$
+$$\text{HouseEdge} = \frac{\text{AmountWagered} - \text{ExpectedReturn}}{\text{AmountWagered}}$$
 
 ```{r}
 set.seed(60639) # Set the seed
