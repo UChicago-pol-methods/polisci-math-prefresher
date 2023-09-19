@@ -269,13 +269,15 @@ Monte Carlo simulations are frequently used to analyze expected outcomes in casi
 
 First, a brief primer on baccarat. Baccarat is a table game in which two hands of playing cards -- the "player" hand and the "banker" hand -- are drawn and then compared against one another. The hand containing the highest score wins the round. The most common version played in modern casinos is called ["punto banco"](https://en.wikipedia.org/wiki/Baccarat) baccarat and essentially plays itself according to a fixed set of card drawing rules. The names "player" and "banker" are simply labels for each of the two hands. 
 
-Before each round of play, bettors can place one of three bets: that the "player" hand will win, that the "banker" hand will win, and that the hands will "tie" and have the same score.
+Before each round of play, bettors can place one of three bets: that the "player" hand will win, that the "banker" hand will win, or that the hands will "tie" and have the same score.
 
-Then, the round begins. The game is played by drawing cards from a "shoe" of cards containing multiple decks of standard playing cards (typically six or eight). The shoe is shuffled to randomize the order. **Two** cards are dealt to the *player hand* and **two** cards are dealt to the *banker hand*  We will ignore common casino practice of "burning" some cards from the top of the deck to discourage card counting as this does not impact the simulation. 
+Then, the round begins. The game is played by drawing cards from a "shoe" of cards containing multiple decks of standard playing cards (typically six or eight). The shoe is shuffled to randomize the order. **Two** cards are dealt to the *player hand* and **two** cards are dealt to the *banker hand*. We will ignore common casino practice of "burning" some cards from the top of the deck to discourage card counting as this does not impact the simulation. 
 
-A third card may be then dealt to the player hand depending on the value of that hand. A third card may then also be dealt to the banker hand depending also on the value of the banker hand and whether the player was given a third card. The rules for determining whether either hand receives a third card are below. After all cards are dealt, the value of the hands is calculated. 
+The player hand may then be dealt a third card depending on the value of the initial two cards.
 
-Face cards and 10s are worth zero points, aces are worth one point, and all other cards are worth their value (2-9). The value of a hand is the ones digit of the sum of the point values of the cards in that hand. So a hand consisting of a 2 and a 5 would be worth 7 points, while a hand consisting of a 4, 5 and 3 would be worth 2 points ($4 + 5 + 3 = 12, 12 \text{ mod } 10 = 2$). In other words, hands are valued at their point sum modulo 10.
+The banker hand may also receive a third card depending on the value of the banker's initial two cards as well as the value of the player's third card if they drew one. The rules for determining whether either hand receives a third card are below. After all cards are dealt, the value of the hands is calculated. 
+
+Face cards and 10s are worth zero points, aces are worth one point, and all other cards are worth their printed number (2-9 points). The value of a hand is the ones digit of the sum of the point values of the cards in that hand. So a hand consisting of a 2 and a 5 would be worth 7 points, while a hand consisting of a 4, 5 and 3 would be worth 2 points ($4 + 5 + 3 = 12, 12 \text{ mod } 10 = 2$). In other words, hands are valued at their point sum modulo 10.
 
 The hand with the highest value is declared the winner. If the hands are equally valued, the result is a "tie"
 
@@ -283,7 +285,7 @@ The rules for determining whether the player or banker hand receives a third car
 
 **First**, if **either** the player or the banker has a hand valued at 8 or 9, then no third cards are drawn, the round ends, and a winner is declared based on the value of the initial two-card hands.
 
-**Second**, the game decides whether to give the "player hand" a third card. If the player's initial hand value is 5 or less, then they are given a third card. If the player's initial hand value is 6 or 7, they "stand"
+**Second**, if neither hand is an 8 or 9, the game decides whether to give the "player hand" a third card. If the player's initial hand value is 5 or less, then they are given a third card. If the player's initial hand value is 6 or 7, they "stand"
 
 **Third**, the game decides whether to give the "banker hand" a third card. If the player did not receive a third card, the banker acts by the same rule as the player (draw if 5 or less, stand if 6 or 7). If the player did receive a third card, then the decision to draw depends on both the value of the banker's current hand and the value of the **third card drawn** by the player.
 
@@ -298,12 +300,12 @@ The Wikipedia page for Baccarat has a nice table that summarizes the "hit/stand"
 
 After the cards are dealt and the winner determined for the round, bets are paid. 
 
-- If the bettor bet "player" and the "player" hand wins, they keep the amount wagered and receive an equal amount from the casino (pays 1-to-1)
-- If the bettor bet "banker" and the "banker" hand wins, they keep the amount wagered and receive 95% of their wager from the casino (pays 19-to-20).
-- If the bettor bet either "player" or "banker" and the result is a tie, they keep the amount wagered but receive no additional money from the casino (push).
-- If the bettor bet "tie" and the result is a tie, they keep the amount wagered and receive 8 times their wagered amount from the casino (pays 8-to-1)
-- If the bettor bet "player" and the "banker" wins or if they bet "banker" and the "player" wins, they lose the amount wagered.
-- If the bettor bet "tie" and either "banker" or "player" wins, they lose the amount wagered.
+- If the bettor bet on "player" and the "player" hand wins, they keep the amount wagered and receive an equal amount from the casino (pays 1-to-1)
+- If the bettor bet on "banker" and the "banker" hand wins, they keep the amount wagered and receive 95% of their wager from the casino (pays 19-to-20).
+- If the bettor bet on either "player" or "banker" and the result is a tie, they keep the amount wagered but receive no additional money from the casino (push).
+- If the bettor bet on "tie" and the result is a tie, they keep the amount wagered and receive 8 times their wagered amount from the casino (pays 8-to-1)
+- If the bettor bet on "player" and the "banker" wins or if they bet "banker" and the "player" wins, they lose the amount wagered.
+- If the bettor bet on "tie" and either "banker" or "player" wins, they lose the amount wagered.
 
 ### Part 1 (-)
 
