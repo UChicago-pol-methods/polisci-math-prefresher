@@ -164,8 +164,7 @@ runif(n = 5, min=0, max=1)
 `rnorm` is also a continuous distribution, but draws from a Normal distribution -- perhaps the most important distribution in statistics. It runs the same way as `runif`
 
 ```{r}
-rnorm(n=10000, mean=0, sd=2)
-
+rnorm(n=5, mean=0, sd=2)
 ```
 
 To better visualize the difference between the output of `runif` and `rnorm`, let's generate lots of each and plot a histogram.
