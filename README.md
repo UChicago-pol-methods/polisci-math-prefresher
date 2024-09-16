@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The 2023 UChicago Math Prefresher for incoming Political Science graduate students will be held from September 12-15 and September 18-20. The course is designed as a brief review of math fundamentals -- calculus, optimization, probability theory and linear algebra among other topics -- as well as an introduction to programming in the R statistical computing language. The course is entirely optional and there are no grades or assignments but we encourage all incoming graduate students to attend if they are able.
+The 2024 UChicago Math Prefresher for incoming Political Science graduate students will be held from September 17-20 and September 23-25. The course is designed as a brief review of math fundamentals -- calculus, optimization, probability theory and linear algebra among other topics -- as well as an introduction to programming in the R statistical computing language. The course is entirely optional and there are no grades or assignments but we encourage all incoming graduate students to attend if they are able.
 
 ## Course Booklet
 
@@ -10,7 +10,7 @@ The course notes for the math and programming sections as well as all practice p
 
 ## Schedule
 
-The prefresher will run for a total of seven days September 12-15, and September 18-20 in *Pick Hall 506*. Each day will run from around 9am to 4pm with many breaks in between.
+The prefresher will run for a total of seven days September 17-20, and September 23-25 in *Pick Hall 506*. Each day will run from around 9:30am to 4pm with many breaks in between.
 
 The morning will focus on math instruction. We will have two one hour sessions from 9:30am - 10:30am and 10:45am-11:45am, with a ~15 minute break in between. These sessions will involve a combination of lectures and working through practice problems. 
 
@@ -34,6 +34,8 @@ tinytex::install_tinytex()
 We will also spend some time discussing document preparation and typesetting using LaTeX and Markdown. For the former, we will be using the popular cloud platform [Overleaf](https://www.overleaf.com/), which allows for collaborative document editing and streamlines a lot of the irritating parts of typesetting in LaTeX. You should register for an account using your university e-mail as all University of Chicago students and faculty [have access](https://guides.lib.uchicago.edu/latex) to an Overleaf Pro account for free.
 
 You are also welcome to install a LaTeX editor on your local machine to work alongside the TinyTeX distribution or any other TeX distribution that you prefer such as [TexMaker](https://www.xm1math.net/texmaker/)
+
+We also encourage you to set up an account at [Github](https://www.github.com) and install git on your local machine as this will be how you access updates to the R content. If you are new to git, [Github Desktop](https://desktop.github.com/download/) provides a nice graphical user interface to interact with online repositories.
 
 ## Acknowledgments
 
