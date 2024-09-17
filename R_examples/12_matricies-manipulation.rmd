@@ -1,3 +1,9 @@
+---
+title: "Programming: Manipulating Vectors"
+output: html_document
+date: "2024-09-17"
+---
+
 # Programming: Manipulating Vectors and Matrices^[Special thanks to Shiro Kuriwaki and Yon Soo Park for developing the original module] {#rmatrices}
 
 ```{r, include=FALSE, message = FALSE, warning = FALSE}
