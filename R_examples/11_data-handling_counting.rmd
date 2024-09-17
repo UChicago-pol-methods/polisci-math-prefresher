@@ -1,4 +1,10 @@
 
+---
+title: "Programming: Orientation and Reading in Data"
+output: html_document
+date: "2024-09-17"
+---
+
 # Programming: Orientation and Reading in Data^[Special thanks to Shiro Kuriwaki for developing the original version of this tutorial] {#sec-dataimport}
 
 
