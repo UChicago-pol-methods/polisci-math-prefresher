@@ -1,4 +1,3 @@
-
 ---
 title: "Programming: Orientation and Reading in Data"
 output: html_document
