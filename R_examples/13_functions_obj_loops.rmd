@@ -1,3 +1,9 @@
+---
+title: "Objects, Functions, Loops"
+output: html_document
+date: "2024-09-17"
+---
+
 # Objects, Functions, Loops {#robjloops}
 
 
@@ -315,10 +321,7 @@ If we wanted to generate a function that computed the number of men in your data
 
 ```{r}
 count_men <- function(data) {
-  
-  nmen <- sum(data$sex == "Male")
-  
-  return(nmen)
+
 }
 ```
 
