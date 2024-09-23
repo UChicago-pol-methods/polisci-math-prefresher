@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>University of Chicago Political Science Math Prefresher - 12&nbsp; Simulation11</title>
+<title>University of Chicago Political Science Math Prefresher - 13&nbsp; Simulation10</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./15_project-dempeace.html" rel="prev">
+<link href="./17_vectorization_optimization.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Simulation<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Simulation<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -193,12 +193,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_data-handling_counting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Programming: Orientation and Reading in Data</span></a><a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>
+  <a href="./11_data-handling_counting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Programming: Orientation and Reading in Data</span></a><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_matricies-manipulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Programming: Manipulating Vectors and Matrices</span></a><a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>
+  <a href="./12_matricies-manipulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Programming: Manipulating Vectors and Matrices</span></a><a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -208,12 +208,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15_project-dempeace.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Joins and Merges, Wide and Long</span></a><a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>
+  <a href="./15_project-dempeace.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Joins and Merges, Wide and Long</span></a><a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16_simulation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Simulation</span></a><a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>
+  <a href="./17_vectorization_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Functionals and Optimization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_simulation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Simulation</span></a><a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>
   </div>
 </li>
     </ul>
@@ -228,29 +233,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#motivation-simulation-as-an-analytical-tool" id="toc-motivation-simulation-as-an-analytical-tool" class="nav-link active" data-scroll-target="#motivation-simulation-as-an-analytical-tool">Motivation: Simulation as an Analytical Tool</a></li>
   <li><a href="#where-are-we-where-are-we-headed" id="toc-where-are-we-where-are-we-headed" class="nav-link" data-scroll-target="#where-are-we-where-are-we-headed">Where are we? Where are we headed?</a></li>
   <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your Understanding</a></li>
-  <li><a href="#pick-a-sample-any-sample" id="toc-pick-a-sample-any-sample" class="nav-link" data-scroll-target="#pick-a-sample-any-sample"><span class="toc-section-number">12.1</span>  Pick a sample, any sample</a></li>
-  <li><a href="#the-sample-function" id="toc-the-sample-function" class="nav-link" data-scroll-target="#the-sample-function"><span class="toc-section-number">12.2</span>  The <code>sample()</code> function</a>
+  <li><a href="#pick-a-sample-any-sample" id="toc-pick-a-sample-any-sample" class="nav-link" data-scroll-target="#pick-a-sample-any-sample"><span class="toc-section-number">13.1</span>  Pick a sample, any sample</a></li>
+  <li><a href="#the-sample-function" id="toc-the-sample-function" class="nav-link" data-scroll-target="#the-sample-function"><span class="toc-section-number">13.2</span>  The <code>sample()</code> function</a>
   <ul class="collapse">
-  <li><a href="#sampling-rows-from-a-dataframe" id="toc-sampling-rows-from-a-dataframe" class="nav-link" data-scroll-target="#sampling-rows-from-a-dataframe"><span class="toc-section-number">12.2.1</span>  Sampling rows from a dataframe</a></li>
+  <li><a href="#sampling-rows-from-a-dataframe" id="toc-sampling-rows-from-a-dataframe" class="nav-link" data-scroll-target="#sampling-rows-from-a-dataframe"><span class="toc-section-number">13.2.1</span>  Sampling rows from a dataframe</a></li>
   </ul></li>
-  <li><a href="#random-numbers-from-specific-distributions" id="toc-random-numbers-from-specific-distributions" class="nav-link" data-scroll-target="#random-numbers-from-specific-distributions"><span class="toc-section-number">12.3</span>  Random numbers from specific distributions</a>
+  <li><a href="#random-numbers-from-specific-distributions" id="toc-random-numbers-from-specific-distributions" class="nav-link" data-scroll-target="#random-numbers-from-specific-distributions"><span class="toc-section-number">13.3</span>  Random numbers from specific distributions</a>
   <ul class="collapse">
   <li><a href="#rbinom" id="toc-rbinom" class="nav-link" data-scroll-target="#rbinom"><code>rbinom()</code></a></li>
   <li><a href="#runif" id="toc-runif" class="nav-link" data-scroll-target="#runif"><code>runif()</code></a></li>
   <li><a href="#rnorm" id="toc-rnorm" class="nav-link" data-scroll-target="#rnorm"><code>rnorm()</code></a></li>
   </ul></li>
-  <li><a href="#r-p-and-d" id="toc-r-p-and-d" class="nav-link" data-scroll-target="#r-p-and-d"><span class="toc-section-number">12.4</span>  r, p, and d</a></li>
-  <li><a href="#set.seed" id="toc-set.seed" class="nav-link" data-scroll-target="#set.seed"><span class="toc-section-number">12.5</span>  <code>set.seed()</code></a></li>
-  <li><a href="#calculating-an-expectation-using-monte-carlo" id="toc-calculating-an-expectation-using-monte-carlo" class="nav-link" data-scroll-target="#calculating-an-expectation-using-monte-carlo"><span class="toc-section-number">12.6</span>  Calculating an expectation using Monte Carlo</a></li>
+  <li><a href="#r-p-and-d" id="toc-r-p-and-d" class="nav-link" data-scroll-target="#r-p-and-d"><span class="toc-section-number">13.4</span>  r, p, and d</a></li>
+  <li><a href="#set.seed" id="toc-set.seed" class="nav-link" data-scroll-target="#set.seed"><span class="toc-section-number">13.5</span>  <code>set.seed()</code></a></li>
+  <li><a href="#calculating-an-expectation-using-monte-carlo" id="toc-calculating-an-expectation-using-monte-carlo" class="nav-link" data-scroll-target="#calculating-an-expectation-using-monte-carlo"><span class="toc-section-number">13.6</span>  Calculating an expectation using Monte Carlo</a></li>
   <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a>
   <ul class="collapse">
   <li><a href="#baccarat" id="toc-baccarat" class="nav-link" data-scroll-target="#baccarat">Baccarat</a></li>
-  <li><a href="#part-1--" id="toc-part-1--" class="nav-link" data-scroll-target="#part-1--"><span class="toc-section-number">12.6.1</span>  Part 1 (-)</a></li>
-  <li><a href="#part-2--" id="toc-part-2--" class="nav-link" data-scroll-target="#part-2--"><span class="toc-section-number">12.6.2</span>  Part 2 (-)</a></li>
-  <li><a href="#part-3--" id="toc-part-3--" class="nav-link" data-scroll-target="#part-3--"><span class="toc-section-number">12.6.3</span>  Part 3 (-)</a></li>
-  <li><a href="#part-4--" id="toc-part-4--" class="nav-link" data-scroll-target="#part-4--"><span class="toc-section-number">12.6.4</span>  Part 4 (-)</a></li>
-  <li><a href="#part-5--" id="toc-part-5--" class="nav-link" data-scroll-target="#part-5--"><span class="toc-section-number">12.6.5</span>  Part 5 (-)</a></li>
-  <li><a href="#challenge-problem--" id="toc-challenge-problem--" class="nav-link" data-scroll-target="#challenge-problem--"><span class="toc-section-number">12.6.6</span>  Challenge problem (-)</a></li>
+  <li><a href="#part-1--" id="toc-part-1--" class="nav-link" data-scroll-target="#part-1--"><span class="toc-section-number">13.6.1</span>  Part 1 (-)</a></li>
+  <li><a href="#part-2--" id="toc-part-2--" class="nav-link" data-scroll-target="#part-2--"><span class="toc-section-number">13.6.2</span>  Part 2 (-)</a></li>
+  <li><a href="#part-3--" id="toc-part-3--" class="nav-link" data-scroll-target="#part-3--"><span class="toc-section-number">13.6.3</span>  Part 3 (-)</a></li>
+  <li><a href="#part-4--" id="toc-part-4--" class="nav-link" data-scroll-target="#part-4--"><span class="toc-section-number">13.6.4</span>  Part 4 (-)</a></li>
+  <li><a href="#part-5--" id="toc-part-5--" class="nav-link" data-scroll-target="#part-5--"><span class="toc-section-number">13.6.5</span>  Part 5 (-)</a></li>
+  <li><a href="#challenge-problem--" id="toc-challenge-problem--" class="nav-link" data-scroll-target="#challenge-problem--"><span class="toc-section-number">13.6.6</span>  Challenge problem (-)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -260,7 +265,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="simulation" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Simulation<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></span></span></h1>
+<h1 class="title"><span id="simulation" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Simulation<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></span></span></h1>
 </div>
 
 
@@ -318,11 +323,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>We’re going to learn about this today!</p>
 </section>
-<section id="pick-a-sample-any-sample" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="pick-a-sample-any-sample"><span class="header-section-number">12.1</span> Pick a sample, any sample</h2>
+<section id="pick-a-sample-any-sample" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="pick-a-sample-any-sample"><span class="header-section-number">13.1</span> Pick a sample, any sample</h2>
 </section>
-<section id="the-sample-function" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="the-sample-function"><span class="header-section-number">12.2</span> The <code>sample()</code> function</h2>
+<section id="the-sample-function" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="the-sample-function"><span class="header-section-number">13.2</span> The <code>sample()</code> function</h2>
 <p>The core functions for coding up stochastic data revolves around several key functions, so we will simply review them here.</p>
 <p>Suppose you have a vector of values <code>x</code> and from it you want to randomly sample a sample of length <code>size</code>. For this, use the <code>sample</code> function</p>
 <div class="cell">
@@ -374,8 +379,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 [11] "Tail" "Tail" "Tail" "Head" "Head" "Tail" "Tail" "Tail" "Head" "Tail"</code></pre>
 </div>
 </div>
-<section id="sampling-rows-from-a-dataframe" class="level3" data-number="12.2.1">
-<h3 data-number="12.2.1" class="anchored" data-anchor-id="sampling-rows-from-a-dataframe"><span class="header-section-number">12.2.1</span> Sampling rows from a dataframe</h3>
+<section id="sampling-rows-from-a-dataframe" class="level3" data-number="13.2.1">
+<h3 data-number="13.2.1" class="anchored" data-anchor-id="sampling-rows-from-a-dataframe"><span class="header-section-number">13.2.1</span> Sampling rows from a dataframe</h3>
 <p>In tidyverse, there is a convenience function to sample rows randomly: <code>slice_sample()</code></p>
 <p>For example, load the dataset on cars, <code>mtcars</code>, which has 32 observations.</p>
 <div class="cell">
@@ -502,8 +507,8 @@ Maserati Bora          15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</code
 </ul>
 </section>
 </section>
-<section id="random-numbers-from-specific-distributions" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="random-numbers-from-specific-distributions"><span class="header-section-number">12.3</span> Random numbers from specific distributions</h2>
+<section id="random-numbers-from-specific-distributions" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="random-numbers-from-specific-distributions"><span class="header-section-number">13.3</span> Random numbers from specific distributions</h2>
 <section id="rbinom" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="rbinom"><code>rbinom()</code></h3>
 <p><code>rbinom</code> builds upon <code>sample</code> as a tool to help you answer the question – what is the <em>total number of successes</em> I would get if I sampled a binary (Bernoulli) result from a test with <code>size</code> number of trials each, with a event-wise probability of <code>prob</code>. The first argument <code>n</code> asks me how many such numbers I want.</p>
@@ -558,8 +563,8 @@ Maserati Bora          15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</code
 </div>
 </section>
 </section>
-<section id="r-p-and-d" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="r-p-and-d"><span class="header-section-number">12.4</span> r, p, and d</h2>
+<section id="r-p-and-d" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="r-p-and-d"><span class="header-section-number">13.4</span> r, p, and d</h2>
 <p>Each distribution can do more than generate random numbers (the prefix <code>r</code>). We can compute the cumulative probability by the function <code>pbinom()</code>, <code>punif()</code>, and <code>pnorm()</code>. Also the density – the value of the PDF – by <code>dbinom()</code>, <code>dunif()</code> and <code>dnorm()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>random_normals <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">1000000</span>, <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>)</span>
@@ -574,8 +579,8 @@ Maserati Bora          15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</code
 </div>
 </div>
 </section>
-<section id="set.seed" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="set.seed"><span class="header-section-number">12.5</span> <code>set.seed()</code></h2>
+<section id="set.seed" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="set.seed"><span class="header-section-number">13.5</span> <code>set.seed()</code></h2>
 <p><code>R</code> doesn’t have the ability to generate truly random numbers! Random numbers are actually very hard to generate. (Think: flipping a coin –&gt; can be perfectly predicted if I know wind speed, the angle the coin is flipped, etc.). Some people use random noise in the atmosphere or random behavior in quantum systems to generate “truly” (?) random numbers. Conversely, R uses deterministic algorithms which take as an input a “seed” and which then perform a series of operations to generate a sequence of random-seeming numbers (that is, numbers whose sequence is sufficiently hard to predict).</p>
 <p>Let’s think about this another way. Sampling is a stochastic process, so every time you run <code>sample()</code> or <code>runif()</code> you are bound to get a different output (because different random seeds are used). This is intentional in some cases but you might want to avoid it in others. For example, you might want to diagnose a coding discrepancy by setting the random number generator to give the same number each time. To do this, use the function <code>set.seed()</code>.</p>
 <p>In the function goes any number. When you run a sample function in the same command as a preceding <code>set.seed()</code>, the sampling function will always give you the same sequence of numbers. In a sense, the sampler is no longer random (in the sense of unpredictable to use; remember: it never was “truly” random in the first place)</p>
@@ -597,8 +602,8 @@ Maserati Bora          15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</code
 </div>
 </div>
 </section>
-<section id="calculating-an-expectation-using-monte-carlo" class="level2" data-number="12.6">
-<h2 data-number="12.6" class="anchored" data-anchor-id="calculating-an-expectation-using-monte-carlo"><span class="header-section-number">12.6</span> Calculating an expectation using Monte Carlo</h2>
+<section id="calculating-an-expectation-using-monte-carlo" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="calculating-an-expectation-using-monte-carlo"><span class="header-section-number">13.6</span> Calculating an expectation using Monte Carlo</h2>
 <p>We can use repeated, independent draws from a random process in order to approximate its mean (or variance, or higher-order moments). The intuition comes from the law of large numbers. As we obtain repeated independent and identically distributed realizations from a random variable and take their average, this average should get closer and closer to the true expected value. The longer we run the simulation, the better the approximation.</p>
 <p>Crucially, we can do this for essentially any random process that we can repeatedly obtain independent draws from. All we need to do is be able to implement the process in code. This can often be easier than trying to calculate an expectation analytically.</p>
 <p>Consider the problem of calculating the expectation of the maximum of two independent 20-sided die rolls. We could construct a function that took the maximum of two independent draws from a 1-20 vector. Doing this a large number of times and taking the average allows us to approximate the true expectation of this new random variable without having to do any math!</p>
@@ -684,8 +689,8 @@ Maserati Bora          15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</code
 <li>If the bettor bet on “tie” and either “banker” or “player” wins, they lose the amount wagered.</li>
 </ul>
 </section>
-<section id="part-1--" class="level3" data-number="12.6.1">
-<h3 data-number="12.6.1" class="anchored" data-anchor-id="part-1--"><span class="header-section-number">12.6.1</span> Part 1 (-)</h3>
+<section id="part-1--" class="level3" data-number="13.6.1">
+<h3 data-number="13.6.1" class="anchored" data-anchor-id="part-1--"><span class="header-section-number">13.6.1</span> Part 1 (-)</h3>
 <p>Implement, in code, a function that simulates a single round of play (ignore the betting process for now). Assume the casino is playing with a shoe of six decks of standard playing cards and that this shoe is refreshed after every round.</p>
 <p>Below is an outline for the sorts of functions you should implement to break this problem down into smaller component parts along with some hints.</p>
 <div class="cell">
@@ -718,8 +723,8 @@ Maserati Bora          15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</code
 <span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="part-2--" class="level3" data-number="12.6.2">
-<h3 data-number="12.6.2" class="anchored" data-anchor-id="part-2--"><span class="header-section-number">12.6.2</span> Part 2 (-)</h3>
+<section id="part-2--" class="level3" data-number="13.6.2">
+<h3 data-number="13.6.2" class="anchored" data-anchor-id="part-2--"><span class="header-section-number">13.6.2</span> Part 2 (-)</h3>
 <p>Now implement a function that takes as input a bettor’s chosen outcome and their wager. The function should then play a round of baccarat and return the amount that the bettor receives from the casino. There are a few equally valid ways to implement “winnings.” For the purposes of this problem, you should have the function return <span class="math inline">\(0\)</span> if the player loses their entire wager.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This function should take as input a choice and a wager. You can choose to have it wrap `play_round()` or have the call to `play_round()` passed as an argument. Either way, it should return a "payoff" based on the choice the bettor selects and the (random) outcome of the round.</span></span>
@@ -728,8 +733,8 @@ Maserati Bora          15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</code
 <span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="part-3--" class="level3" data-number="12.6.3">
-<h3 data-number="12.6.3" class="anchored" data-anchor-id="part-3--"><span class="header-section-number">12.6.3</span> Part 3 (-)</h3>
+<section id="part-3--" class="level3" data-number="13.6.3">
+<h3 data-number="13.6.3" class="anchored" data-anchor-id="part-3--"><span class="header-section-number">13.6.3</span> Part 3 (-)</h3>
 <p>Using a Monte Carlo simulation, calculate the expected return of a wager of 100 dollars on the “player” bet. In other words, if a bettor pays <span class="math inline">\(100\)</span> to bet on “player”, what is the amount that they expect to win. Set your seed once to <span class="math inline">\(60639\)</span> and run it for 300,000 iterations (try running for fewer iterations as you’re testing, but you’ll need a decent number of iterations to get the desired numerical precision)</p>
 <p>Calculate the “house edge” of the “player” bet. The house edge is the difference between a bettor’s amount wagered and their expected return, divided by the amount wagered. In other words, it’s the amount that a casino expects to keep of a player’s bet.</p>
 <p><span class="math display">\[\text{HouseEdge} = \frac{\text{AmountWagered} - \text{ExpectedReturn}}{\text{AmountWagered}}\]</span></p>
@@ -738,8 +743,8 @@ Maserati Bora          15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</code
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulation code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="part-4--" class="level3" data-number="12.6.4">
-<h3 data-number="12.6.4" class="anchored" data-anchor-id="part-4--"><span class="header-section-number">12.6.4</span> Part 4 (-)</h3>
+<section id="part-4--" class="level3" data-number="13.6.4">
+<h3 data-number="13.6.4" class="anchored" data-anchor-id="part-4--"><span class="header-section-number">13.6.4</span> Part 4 (-)</h3>
 <p>Use a Monte Carlo simulation to calculate the expected return of a wager of 100 dollars on the “banker” bet. Calculate the “house edge” of the “banker” bet. Set the seed to <span class="math inline">\(60640\)</span> and run for 300,000 iterations.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">60640</span>) <span class="co"># Set the seed</span></span>
@@ -747,16 +752,16 @@ Maserati Bora          15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</code
 </div>
 <p>Which bet has the lower house edge?</p>
 </section>
-<section id="part-5--" class="level3" data-number="12.6.5">
-<h3 data-number="12.6.5" class="anchored" data-anchor-id="part-5--"><span class="header-section-number">12.6.5</span> Part 5 (-)</h3>
+<section id="part-5--" class="level3" data-number="13.6.5">
+<h3 data-number="13.6.5" class="anchored" data-anchor-id="part-5--"><span class="header-section-number">13.6.5</span> Part 5 (-)</h3>
 <p>One odd feature of Baccarat is that the “banker” bets pay 19-to-20 rather than the 1-to-1 for player bets. Using a Monte Carlo simulation, show why casinos don’t pay 1-to-1 on the banker (calculate the house edge). You’ll need to write a new payoff function to handle the alternative payout structure. Set the seed to <span class="math inline">\(60641\)</span> and run for 300,000 iterations.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">60641</span>) <span class="co"># Set the seed</span></span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulation code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="challenge-problem--" class="level3" data-number="12.6.6">
-<h3 data-number="12.6.6" class="anchored" data-anchor-id="challenge-problem--"><span class="header-section-number">12.6.6</span> Challenge problem (-)</h3>
+<section id="challenge-problem--" class="level3" data-number="13.6.6">
+<h3 data-number="13.6.6" class="anchored" data-anchor-id="challenge-problem--"><span class="header-section-number">13.6.6</span> Challenge problem (-)</h3>
 <p>A new version of Baccarat that has become popular in some areas called “EZ-Baccarat” purports to solve the problem you identified in Part 5 while still paying “banker” bets at 1-to-1. It does so by having any round where the banker wins with a hand of 3 cards that totals 7 points be a “push” (bettors keep their wagers but don’t win any additional money) rather than a “win” for the banker hand.</p>
 <p>Show, using a Monte Carlo simulation, how this payout structure retains the house edge on “banker” bets. You may have to modify your simulation functions to return more information about the outcome of the round in order to implement a new payoff function.</p>
 <p>See the <a href="https://oag.ca.gov/sites/all/files/agweb/pdfs/gambling/BGC_ez_baccarat.pdf">state regulatory documents</a> for more info about this version of the game.</p>
@@ -775,14 +780,13 @@ Maserati Bora          15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</code
 <li id="fn3"><p><a href="http://www-personal.umich.edu/~jowei/florida.pdf">Chen, Jowei, and Jonathan Rodden. “Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures. <em>Quarterly Journal of Political Science</em>, 8:239-269”</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p><a href="https://gking.harvard.edu/files/abs/evil-abs.shtml">King, Gary, et al.&nbsp;“Analyzing Incomplete Political Science Data: An Alternative Algorithm for Multiple Imputation”. <em>American Political Science Review</em>, 95: 49-69.</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p><a href="http://www.jstatsoft.org/v45/i07/">James Honaker, Gary King, Matthew Blackwell (2011). Amelia II: A Program for Missing Data. Journal of Statistical Software, 45(7), 1-47.</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7"><p>Special thanks to Shiro Kuriwaki for developing the original version of this tutorial<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn8"><p>Special thanks to Shiro Kuriwaki and Yon Soo Park for developing the original module<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn9"><p>Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Special thanks to Shiro Kuriwaki for developing the original version of this tutorial<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Special thanks to Shiro Kuriwaki and Yon Soo Park for developing the original module<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Module originally written by Connor Jerzak and Shiro Kuriwaki<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn10"><p>Module originally written by Connor Jerzak and Shiro Kuriwaki<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn11"><p>Module originally written by Connor Jerzak and Shiro Kuriwaki<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn12"><p>Module originally written by Connor Jerzak and Shiro Kuriwaki<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn13"><p>Module originally written by Connor Jerzak and Shiro Kuriwaki<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -887,9 +891,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./15_project-dempeace.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Joins and Merges, Wide and Long</span></span></a><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>
-                
+      <a href="./17_vectorization_optimization.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Functionals and Optimization</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
   </div>

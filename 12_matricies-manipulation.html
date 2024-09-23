@@ -214,7 +214,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Simulation</span></a><a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>
+  <a href="./17_vectorization_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Functionals and Optimization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Simulation</span></a><a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>
   </div>
 </li>
     </ul>
@@ -361,16 +366,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code># A tibble: 10 × 5
    trust_neighbors exports ln_exports export_area ln_export_area
              &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;
- 1               3   0.388      0.328     0.00407        0.00406
- 2               3   0.631      0.489     0.0971         0.0926 
- 3               3   0.994      0.690     0.0125         0.0124 
- 4               0 183.         5.21      1.82           1.04   
- 5               3   0          0         0              0      
+ 1               2 666.         6.50     14.0            2.71   
+ 2               0   0          0         0              0      
+ 3               3   0.631      0.489     0.0424         0.0416 
+ 4               3   0          0         0              0      
+ 5               3 389.         5.97      6.31           1.99   
  6               2   0          0         0              0      
- 7               2 666.         6.50     14.0            2.71   
- 8               0   0.348      0.298     0.00608        0.00606
- 9               3   0.435      0.361     0.0383         0.0376 
-10               3   0          0         0              0      </code></pre>
+ 7               1   0.388      0.328     0.00407        0.00406
+ 8               3 855.         6.75     37.7            3.66   
+ 9               0  16.4        2.85      1.22           0.796  
+10               3   0.435      0.361     0.0383         0.0376 </code></pre>
 </div>
 </div>
 </section>
@@ -409,46 +414,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      trust_neighbors     exports ln_exports  export_area ln_export_area
- [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155
- [2,]               3   0.6311236  0.4892691  0.097059444    0.092633367
- [3,]               3   0.9941893  0.6902376  0.012524694    0.012446908
- [4,]               0 182.5891266  5.2127004  1.824284434    1.038255095
- [5,]               3   0.0000000  0.0000000  0.000000000    0.000000000
+ [1,]               2 665.9652100  6.5027380 13.975566864    2.706419945
+ [2,]               0   0.0000000  0.0000000  0.000000000    0.000000000
+ [3,]               3   0.6306777  0.4889957  0.042445682    0.041569568
+ [4,]               3   0.0000000  0.0000000  0.000000000    0.000000000
+ [5,]               3 388.6097107  5.9651456  6.306191921    1.988722205
  [6,]               2   0.0000000  0.0000000  0.000000000    0.000000000
- [7,]               2 665.9652100  6.5027380 13.975566864    2.706419945
- [8,]               0   0.3476418  0.2983562  0.006082553    0.006064130
- [9,]               3   0.4349871  0.3611559  0.038332380    0.037615947
-[10,]               3   0.0000000  0.0000000  0.000000000    0.000000000</code></pre>
+ [7,]               1   0.3883497  0.3281158  0.004067405    0.004059155
+ [8,]               3 854.9580688  6.7522216 37.707386017    3.656030416
+ [9,]               0  16.3584309  2.8540783  1.216732502    0.796034217
+[10,]               3   0.4349871  0.3611559  0.038332380    0.037615947</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                       [,1]       [,2]       [,3]       [,4] [,5] [,6]
-trust_neighbors 3.000000000 3.00000000 3.00000000   0.000000    3    2
-exports         0.388349682 0.63112360 0.99418926 182.589127    0    0
-ln_exports      0.328115761 0.48926911 0.69023758   5.212700    0    0
-export_area     0.004067405 0.09705944 0.01252469   1.824284    0    0
-ln_export_area  0.004059155 0.09263337 0.01244691   1.038255    0    0
-                      [,7]        [,8]       [,9] [,10]
-trust_neighbors   2.000000 0.000000000 3.00000000     3
-exports         665.965210 0.347641766 0.43498713     0
-ln_exports        6.502738 0.298356235 0.36115587     0
-export_area      13.975567 0.006082553 0.03833238     0
-ln_export_area    2.706420 0.006064130 0.03761595     0</code></pre>
+<pre><code>                      [,1] [,2]       [,3] [,4]       [,5] [,6]        [,7]
+trust_neighbors   2.000000    0 3.00000000    3   3.000000    2 1.000000000
+exports         665.965210    0 0.63067770    0 388.609711    0 0.388349682
+ln_exports        6.502738    0 0.48899570    0   5.965146    0 0.328115761
+export_area      13.975567    0 0.04244568    0   6.306192    0 0.004067405
+ln_export_area    2.706420    0 0.04156957    0   1.988722    0 0.004059155
+                      [,8]       [,9]      [,10]
+trust_neighbors   3.000000  0.0000000 3.00000000
+exports         854.958069 16.3584309 0.43498713
+ln_exports        6.752222  2.8540783 0.36115587
+export_area      37.707386  1.2167325 0.03833238
+ln_export_area    3.656030  0.7960342 0.03761595</code></pre>
 </div>
 </div>
 <p>What are the values of all rows in the first column?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>X[, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 3 3 3 0 3 2 2 0 3 3</code></pre>
+<pre><code> [1] 2 0 3 3 3 2 1 3 0 3</code></pre>
 </div>
 </div>
 <p>What are all the values of “exports”? (i.e.&nbsp;return the whole “exports” column)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>X[, <span class="st">"exports"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]   0.3883497   0.6311236   0.9941893 182.5891266   0.0000000   0.0000000
- [7] 665.9652100   0.3476418   0.4349871   0.0000000</code></pre>
+<pre><code> [1] 665.9652100   0.0000000   0.6306777   0.0000000 388.6097107   0.0000000
+ [7]   0.3883497 854.9580688  16.3584309   0.4349871</code></pre>
 </div>
 </div>
 <p>What is the first observation (i.e.&nbsp;first row)?</p>
@@ -456,7 +461,7 @@ ln_export_area    2.706420 0.006064130 0.03761595     0</code></pre>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>X[<span class="dv">1</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>trust_neighbors         exports      ln_exports     export_area  ln_export_area 
-    3.000000000     0.388349682     0.328115761     0.004067405     0.004059155 </code></pre>
+       2.000000      665.965210        6.502738       13.975567        2.706420 </code></pre>
 </div>
 </div>
 <p>What is the value of the first variable of the first observation?</p>
@@ -464,21 +469,21 @@ ln_export_area    2.706420 0.006064130 0.03761595     0</code></pre>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>X[<span class="dv">1</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>trust_neighbors 
-              3 </code></pre>
+              2 </code></pre>
 </div>
 </div>
 <p>Pause and consider the following problem on your own. What is the following code doing?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>X[X[, <span class="st">"trust_neighbors"</span>] <span class="sc">==</span> <span class="dv">0</span>, <span class="st">"export_area"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.824284434 0.006082553</code></pre>
+<pre><code>[1] 0.000000 1.216733</code></pre>
 </div>
 </div>
 <p>Why does it give the same output as the following?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>X[<span class="fu">which</span>(X[, <span class="st">"trust_neighbors"</span>] <span class="sc">==</span> <span class="dv">0</span>), <span class="st">"export_area"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.824284434 0.006082553</code></pre>
+<pre><code>[1] 0.000000 1.216733</code></pre>
 </div>
 </div>
 <p>Some more manipulation</p>
@@ -486,16 +491,16 @@ ln_export_area    2.706420 0.006064130 0.03761595     0</code></pre>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>X <span class="sc">+</span> X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      trust_neighbors      exports ln_exports  export_area ln_export_area
- [1,]               6    0.7766994  0.6562315  0.008134809     0.00811831
- [2,]               6    1.2622472  0.9785382  0.194118887     0.18526673
- [3,]               6    1.9883785  1.3804752  0.025049388     0.02489382
- [4,]               0  365.1782532 10.4254007  3.648568869     2.07651019
- [5,]               6    0.0000000  0.0000000  0.000000000     0.00000000
+ [1,]               4 1331.9304199 13.0054760 27.951133728     5.41283989
+ [2,]               0    0.0000000  0.0000000  0.000000000     0.00000000
+ [3,]               6    1.2613554  0.9779914  0.084891364     0.08313914
+ [4,]               6    0.0000000  0.0000000  0.000000000     0.00000000
+ [5,]               6  777.2194214 11.9302912 12.612383842     3.97744441
  [6,]               4    0.0000000  0.0000000  0.000000000     0.00000000
- [7,]               4 1331.9304199 13.0054760 27.951133728     5.41283989
- [8,]               0    0.6952835  0.5967125  0.012165107     0.01212826
- [9,]               6    0.8699743  0.7223117  0.076664761     0.07523189
-[10,]               6    0.0000000  0.0000000  0.000000000     0.00000000</code></pre>
+ [7,]               2    0.7766994  0.6562315  0.008134809     0.00811831
+ [8,]               6 1709.9161377 13.5044432 75.414772034     7.31206083
+ [9,]               0   32.7168617  5.7081566  2.433465004     1.59206843
+[10,]               6    0.8699743  0.7223117  0.076664761     0.07523189</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -517,50 +522,50 @@ ln_export_area    2.706420 0.006064130 0.03761595     0</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(X) <span class="sc">%*%</span> X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                trust_neighbors    exports ln_exports export_area
-trust_neighbors       62.000000   1339.276   18.61181    28.40709
-exports             1339.276369 476850.298 5283.76294  9640.42990
-ln_exports            18.611811   5283.763   70.50077   100.46202
-export_area           28.407085   9640.430  100.46202   198.65558
-ln_export_area         5.853106   1992.047   23.08189    39.72847
+<pre><code>                trust_neighbors     exports  ln_exports export_area
+trust_neighbors        54.00000    5066.219    54.03615    160.2383
+exports              5066.21910 1325748.804 12468.85827  44016.0715
+ln_exports             54.03615   12468.858   132.08403    386.6140
+export_area           160.23827   44016.072   386.61401   1658.4152
+ln_export_area         22.58871    5714.037    56.45567    189.1962
                 ln_export_area
-trust_neighbors       5.853106
-exports            1992.046502
-ln_exports           23.081893
-export_area          39.728468
-ln_export_area        8.412887</code></pre>
+trust_neighbors       22.58871
+exports             5714.03702
+ln_exports            56.45567
+export_area          189.19615
+ln_export_area        25.28311</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(X, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      trust_neighbors     exports ln_exports  export_area ln_export_area   
- [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155  1
- [2,]               3   0.6311236  0.4892691  0.097059444    0.092633367  2
- [3,]               3   0.9941893  0.6902376  0.012524694    0.012446908  3
- [4,]               0 182.5891266  5.2127004  1.824284434    1.038255095  4
- [5,]               3   0.0000000  0.0000000  0.000000000    0.000000000  5
+ [1,]               2 665.9652100  6.5027380 13.975566864    2.706419945  1
+ [2,]               0   0.0000000  0.0000000  0.000000000    0.000000000  2
+ [3,]               3   0.6306777  0.4889957  0.042445682    0.041569568  3
+ [4,]               3   0.0000000  0.0000000  0.000000000    0.000000000  4
+ [5,]               3 388.6097107  5.9651456  6.306191921    1.988722205  5
  [6,]               2   0.0000000  0.0000000  0.000000000    0.000000000  6
- [7,]               2 665.9652100  6.5027380 13.975566864    2.706419945  7
- [8,]               0   0.3476418  0.2983562  0.006082553    0.006064130  8
- [9,]               3   0.4349871  0.3611559  0.038332380    0.037615947  9
-[10,]               3   0.0000000  0.0000000  0.000000000    0.000000000 10</code></pre>
+ [7,]               1   0.3883497  0.3281158  0.004067405    0.004059155  7
+ [8,]               3 854.9580688  6.7522216 37.707386017    3.656030416  8
+ [9,]               0  16.3584309  2.8540783  1.216732502    0.796034217  9
+[10,]               3   0.4349871  0.3611559  0.038332380    0.037615947 10</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(X, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      trust_neighbors     exports ln_exports  export_area ln_export_area  
- [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155 1
- [2,]               3   0.6311236  0.4892691  0.097059444    0.092633367 1
- [3,]               3   0.9941893  0.6902376  0.012524694    0.012446908 1
- [4,]               0 182.5891266  5.2127004  1.824284434    1.038255095 1
- [5,]               3   0.0000000  0.0000000  0.000000000    0.000000000 1
+ [1,]               2 665.9652100  6.5027380 13.975566864    2.706419945 1
+ [2,]               0   0.0000000  0.0000000  0.000000000    0.000000000 1
+ [3,]               3   0.6306777  0.4889957  0.042445682    0.041569568 1
+ [4,]               3   0.0000000  0.0000000  0.000000000    0.000000000 1
+ [5,]               3 388.6097107  5.9651456  6.306191921    1.988722205 1
  [6,]               2   0.0000000  0.0000000  0.000000000    0.000000000 1
- [7,]               2 665.9652100  6.5027380 13.975566864    2.706419945 1
- [8,]               0   0.3476418  0.2983562  0.006082553    0.006064130 1
- [9,]               3   0.4349871  0.3611559  0.038332380    0.037615947 1
-[10,]               3   0.0000000  0.0000000  0.000000000    0.000000000 1</code></pre>
+ [7,]               1   0.3883497  0.3281158  0.004067405    0.004059155 1
+ [8,]               3 854.9580688  6.7522216 37.707386017    3.656030416 1
+ [9,]               0  16.3584309  2.8540783  1.216732502    0.796034217 1
+[10,]               3   0.4349871  0.3611559  0.038332380    0.037615947 1</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -578,8 +583,8 @@ ln_export_area        8.412887</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1</span> <span class="sc">+</span> X[, <span class="st">"exports"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.3281158 0.4892691 0.6902376 5.2127003 0.0000000 0.0000000 6.5027379
- [8] 0.2983562 0.3611559 0.0000000</code></pre>
+<pre><code> [1] 6.5027379 0.0000000 0.4889957 0.0000000 5.9651455 0.0000000 0.3281158
+ [8] 6.7522214 2.8540783 0.3611559</code></pre>
 </div>
 </div>
 <p>Question for you: why add the 1?</p>
@@ -594,8 +599,8 @@ ln_export_area        8.412887</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">0.00068</span> <span class="sc">*</span> X[, <span class="st">"exports"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] -0.0002640778 -0.0004291640 -0.0006760487 -0.1241606061  0.0000000000
- [6]  0.0000000000 -0.4528563428 -0.0002363964 -0.0002957912  0.0000000000</code></pre>
+<pre><code> [1] -0.4528563428  0.0000000000 -0.0004288608  0.0000000000 -0.2642546033
+ [6]  0.0000000000 -0.0002640778 -0.5813714868 -0.0111237330 -0.0002957912</code></pre>
 </div>
 </div>
 <p>Now, just one more step. Make a new matrix with just exports and the value 1</p>
@@ -635,16 +640,16 @@ ln_export_area        8.412887</code></pre>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>X2 <span class="sc">%*%</span> B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          [,1]
- [1,] 1.619736
- [2,] 1.619571
- [3,] 1.619324
- [4,] 1.495839
- [5,] 1.620000
+ [1,] 1.167144
+ [2,] 1.620000
+ [3,] 1.619571
+ [4,] 1.620000
+ [5,] 1.355745
  [6,] 1.620000
- [7,] 1.167144
- [8,] 1.619764
- [9,] 1.619704
-[10,] 1.620000</code></pre>
+ [7,] 1.619736
+ [8,] 1.038629
+ [9,] 1.608876
+[10,] 1.619704</code></pre>
 </div>
 </div>
 <p>What is this multiplication doing in terms of equations?</p>

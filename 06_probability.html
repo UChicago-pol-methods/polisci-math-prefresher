@@ -151,7 +151,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Simulation</span></a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+  <a href="./17_vectorization_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Functionals and Optimization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Simulation</span></a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
   </div>
 </li>
     </ul>
@@ -566,6 +571,11 @@ In words, it is the weighted average of all possible values of <span class="math
 <li><span class="math inline">\(Y\)</span> continuous: <span class="math inline">\(E(Y|X = x) = \int_y yf_{Y|X}(y|x)dy\)</span></li>
 </ol>
 <p>The conditional expectation is often used for prediction when one knows the value of <span class="math inline">\(X\)</span> but not <span class="math inline">\(Y\)</span></p>
+<p>We can obtain a marginal expectation from the conditional expectation by way of the <strong>Law of Total Expectation</strong></p>
+<p><span class="math display">\[E[Y] = E[E[Y|X]]\]</span> For discrete r.v.:</p>
+<p><span class="math display">\[E[Y] = \sum_{x \in \mathcal{X}} E[Y|X = x] P(X = x)\]</span> where <span class="math inline">\(\mathcal{X}\)</span> is the support of <span class="math inline">\(X\)</span></p>
+<p>For continuous r.v.:</p>
+<p><span class="math display">\[E[Y] = \int_{x \mathcal{X}} E[Y| X = x] f_{X}(x)dx\]</span> where <span class="math inline">\(f_X()\)</span> denotes the PDF of <span class="math inline">\(X\)</span></p>
 </section>
 </section>
 <section id="variance-and-covariance" class="level2" data-number="6.9">
