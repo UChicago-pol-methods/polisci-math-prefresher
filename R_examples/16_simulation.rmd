@@ -1,3 +1,9 @@
+---
+title: "Simulation"
+output: html_document
+date: "2024-09-17"
+---
+
 # Simulation^[Module originally written by Connor Jerzak and Shiro Kuriwaki] {#simulation}
 
 
@@ -64,14 +70,14 @@ The core functions for coding up stochastic data revolves around several key fun
 
 Suppose you have a vector of values `x` and from it you want to randomly sample a sample of length `size`. For this, use the `sample` function
 ```{r}
-sample(x = 1:10, size = 5)
+sample(x = 1:10)
 ```
 
 There are two subtypes of sampling -- with and without replacement.
 
 1. Sampling without replacement (`replace = FALSE`) means once an element of `x` is chosen, it will not be considered again:
 ```{r}
-sample(x = 1:10, size = 10, replace = FALSE) ## no number appears more than once
+sample(x = 1:10, replace = FALSE) ## no number appears more than once
 ```
 
 2. Sampling with replacement (`replace = TRUE`) means that even if an element of `x` is chosen, it is put back in the pool and may be chosen again. 
@@ -89,13 +95,15 @@ So far, every element in `x` has had an equal probability of being chosen. In so
 
 For example, this simulates 20 fair coin tosses (each outcome is equally likely to happen)
 ```{r}
-sample(c("Head", "Tail"), size = 20, prob = c(.5, .5), replace = TRUE)
+fair_coin <- sample(c("Head", "Tail"), size = 20, prob = c(.5, .5), replace = TRUE)
+mean(fair_coin == "Head")
 ```
 
 
 But this simulates 20 biased coin tosses, where say the probability of Tails is 4 times more likely than the number of Heads
 ```{r}
-sample(c("Head", "Tail"), size = 20, prob = c(0.2, 0.8), replace = TRUE)
+unfair_coin <- sample(c("Head", "Tail"), size = 20, prob = c(2, 10), replace = TRUE)
+mean(unfair_coin == "Head")
 ```
 
 ### Sampling rows from a dataframe
@@ -110,7 +118,7 @@ mtcars
 sample_n picks a user-specified number of rows from the dataset:
 
 ```{r}
-mtcars[sample(1:ncol(mtcars), size=3, replace=F),]
+mtcars[sample(1:ncol(mtcars), size=3),]
 slice_sample(mtcars, n=3)
 ```
 
@@ -140,7 +148,7 @@ As a side-note, these functions have very practical uses for any type of data an
 
 For example, I want to know how many Heads I would get if I flipped a fair coin 100 times. 
 ```{r}
-rbinom(n = 100, size = 1, prob = 0.1)
+rbinom(n = 1, size = 100, prob = 0.1)
 ```
 
 Now imagine this I wanted to do this experiment 10 times, which would require I flip the coin 10 x 100 = 1000 times! Helpfully, we can do this in one line
@@ -164,19 +172,20 @@ runif(n = 5, min=0, max=1)
 `rnorm` is also a continuous distribution, but draws from a Normal distribution -- perhaps the most important distribution in statistics. It runs the same way as `runif`
 
 ```{r}
-rnorm(n=5, mean=0, sd=2)
+rnorm(n=5, mean=0)
 
 ```
 
 To better visualize the difference between the output of `runif` and `rnorm`, let's generate lots of each and plot a histogram.
 
 ```{r}
-from_runif <- runif(n = 1000)
-from_rnorm <- rnorm(n = 1000)
+from_runif <- runif(n = 100000)
+from_rnorm <- qnorm(from_runif)
 
 par(mfrow = c(1, 2)) ## base-R parameter for two plots at once
 hist(from_runif)
 hist(from_rnorm)
+
 ```
 
 
@@ -185,6 +194,8 @@ hist(from_rnorm)
 Each distribution can do more than generate random numbers (the prefix `r`). We can compute the cumulative probability by the function `pbinom()`, `punif()`, and `pnorm()`. Also the density -- the value of the PDF -- by `dbinom()`, `dunif()` and `dnorm()`.  
 
 ```{r}
+
+
 
 random_normals <- rnorm(n=1000000, mean=0, sd=1)
 hist(random_normals)
@@ -203,8 +214,7 @@ Let's think about this another way. Sampling is a stochastic process, so every t
 In the function goes any number. When you run a sample function in the same command as a preceding `set.seed()`, the sampling function will always give you the same sequence of numbers. In a sense, the sampler is no longer random (in the sense of unpredictable to use; remember: it never was "truly" random in the first place)
 
 ```{r}
-set.seed(02138)
-runif(n = 10)
+
 ```
 
 The random number generator should  give you the exact same sequence of numbers if you precede the function by the same seed, 
@@ -229,7 +239,7 @@ radvantage <- function(sides=20, k=2){
 
 # Take the mean of 100,000 rolls with "advantage"
 set.seed(60639)
-mean(map_vec(1:1e5, radvantage))
+mean(map_vec(1:1e5, function(x) radvantage() > 9))
 ```
 
 Next, consider the "birthday problem" or the probability that among $k$ randomly chosen people, at least two people will have the same birthday. Recall that the expected value of an indicator random variable is equal to the probability that the indicator is equal to $1$ (so we can calculate probabilities using Monte Carlo by getting draws from an indicator variable for the event of interest). 
@@ -256,8 +266,8 @@ Notably, it is still important that the expectation of the random variable **exi
 
 ```{r}
 set.seed(60639)
-mean(rcauchy(1e5)) # Average of 100,000 draws from a Cauchy(0, 1)
-mean(rcauchy(1e5)) # Another average of 100,000 draws from a Cauchy(0, 1) -- wildly different resutl!
+mean(rcauchy(1e6)) # Average of 100,000 draws from a Cauchy(0, 1)
+mean(rcauchy(1e6)) # Another average of 100,000 draws from a Cauchy(0, 1) -- wildly different resutl!
 ```
 
 
@@ -287,7 +297,7 @@ The rules for determining whether the player or banker hand receives a third car
 
 **Second**, if neither hand is an 8 or 9, the game decides whether to give the "player hand" a third card. If the player's initial hand value is 5 or less, then they are given a third card. If the player's initial hand value is 6 or 7, they "stand"
 
-**Third**, the game decides whether to give the "banker hand" a third card. If the player did not receive a third card, the banker acts by the same rule as the player (draw if 5 or less, stand if 6 or 7). If the player did receive a third card, then the decision to draw depends on both the value of the banker's current hand and the value of the **third card drawn** by the player.
+**Third**, the game decides whether to give the "banker hand" a third card. If the player did not receive a third card, the banker acts by the same rule as the player (draw if the banker's hand is 5 or less, stand if the banker's hand is 6 or 7). If the player did receive a third card, then the decision to draw depends on both the value of the banker's current hand and the value of the **third card drawn** by the player.
 
 - If the banker's hand is valued at 2 or less, they always draw a third card irrespective of what the player was dealt.
 - If the banker's hand is valued at 3, they draw a third card unless the player's third card is an 8.
@@ -317,7 +327,7 @@ Below is an outline for the sorts of functions you should implement to break thi
 # This function should take as input some number of decks and generate a shoe of cards in the form of a vector
 # HINT: You don't need to store the actual cards, just their values
 # HINT 2: Read the documentation for the 'rep' function
-gen_deck <- function(){
+gen_deck <- function(decks=6){
 
 }
 ```
@@ -325,14 +335,14 @@ gen_deck <- function(){
 ```{r}
 # This function should take as input some vector that represents a hand of cards and return its value
 # HINT: In R, the modulo operator is %%
-value_hand <- function(){
+value_hand <- function(hand){
 
 }
 ```
 
 ```{r}
 # This function should take as input the banker's and the player's hands and return the outcome of the round
-determine_winner <- function(){
+determine_winner <- function(player, banker){
 
 }
 ```
@@ -341,10 +351,12 @@ determine_winner <- function(){
 # This is your main function. It should return (at a minimum) the outcome of the round of play
 # HINT: Write out each phase of the round in plain language in the comments. Then try to implement that phase in code.
 # HINT 2: You'll likely need to use a lot of conditional statements to implement the drawing rules
-play_round <- function(){
- 
+play_round <- function(deck){
+  
 }
+
 ```
+
 
 ### Part 2 (-)
 
